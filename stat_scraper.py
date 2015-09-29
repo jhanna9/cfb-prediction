@@ -1,3 +1,4 @@
+import csv
 import re
 import sys
 from urllib import urlopen
@@ -32,13 +33,16 @@ def bs_objects(stat):
     score_def = urlopen(sd)
 
     soup = BeautifulSoup(score_def)
-    print soup.find_all('table')
     
+    file = open('stat_table.txt', 'w')
+    file.write(soup.prettify(formatter="html"))
+    file.close
+
 
 stat_value_dict(f)
 build_link()
-bs_objects('Total Defense')
-# bs_objects('Scoring Defense')
+# bs_objects('Total Defense')
+bs_objects('Scoring Defense')
 
 
 
