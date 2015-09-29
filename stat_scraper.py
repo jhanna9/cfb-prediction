@@ -21,25 +21,35 @@ def stat_value_dict(filename):
     return stat_value
 
 def build_link():
-    link = 'stats.ncaa.org/rankings/national_ranking?academic_year=2016.0&amp;division=11.0&amp;ranking_period=14.0&amp;sport_code=MFB&amp;stat_seq='
+    link = 'http://stats.ncaa.org/rankings/national_ranking?academic_year=2016.0&amp;division=11.0&amp;ranking_period=14.0&amp;sport_code=MFB&amp;stat_seq='
     for key, value in stat_value.iteritems():
         stat_link[key] = link + value
 
     return stat_link
-                 
-            
+
+def bs_objects(stat):
+    sd = stat_link[stat]
+    score_def = urlopen(sd)
+
+    soup = BeautifulSoup(score_def)
+    print soup.find_all('table')
+    
+
 stat_value_dict(f)
 build_link()
+bs_objects('Total Defense')
+# bs_objects('Scoring Defense')
 
-'''test for functions
+
+
+'''function tests
 
 for key, value in stat_link.iteritems():
-    print key, value
+    print "key: ", key + '\n'
+    print "link: ", value + '\n\n'
 
 print stat_value['Total Defense']
 print stat_value['Fewest Penalty Yards Per Game']
-
-'''
 
 third_down_durl = 'http://stats.ncaa.org/rankings/national_ranking?academic_year=2016.0&amp;division=11.0&amp;ranking_period=14.0&amp;sport_code=MFB&amp;stat_seq=22.0'
 third_down_dpage = urlopen(third_down_durl)
@@ -48,10 +58,6 @@ soup = BeautifulSoup(third_down_dpage)
 
 # print soup.find_all('table')
 
-'''link to stats only page:
-
-
-stats.ncaa.org/rankings/national_ranking?academic_year=2016.0&amp;division=11.0&amp;ranking_period=14.0&amp;sport_code=MFB&amp;stat_seq=
-
-
 '''
+
+
