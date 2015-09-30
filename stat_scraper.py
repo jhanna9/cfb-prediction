@@ -34,16 +34,16 @@ def bs_objects(stat):
 
     soup = BeautifulSoup(score_def)
     
-    file = open('stat_table.txt', 'w')
+    file = open('team_stats.txt', 'w')
     file.write(soup.prettify(formatter="html"))
     file.close
+
 
 
 stat_value_dict(f)
 build_link()
 # bs_objects('Total Defense')
-bs_objects('Scoring Defense')
-
+# bs_objects('Scoring Defense')
 
 
 '''function tests
