@@ -2,30 +2,33 @@
 # imports
 import csv
 import re
+import requests
 import sys
 from bs4 import BeautifulSoup
 from link_builder import build_link
-from urllib import urlopen
+
 
 # defaults encoding to utf-8
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
+# use to get around firewalls blocking scrapes
+headers = {'User-agent': 'Mozilla/5.0'}
+
 # file that contains numeric code for each stat 
 f = open('stat_value.txt', 'r')
+
+# generic link that the stat code is attached to
 link = 'http://stats.ncaa.org/rankings/national_ranking?academic_year=2016.0&amp;division=11.0&amp;ranking_period=14.0&amp;sport_code=MFB&amp;stat_seq='
 
 # dictionary to store individual stats links
 stat_link = {}
 
+# build stat links
 stat_link = build_link(f, link)
 
-for k, v in stat_link.iteritems():
-    print 'stat: ', k + '\n'
-    print 'link: ', v + '\n\n'
 
-
-def bs_objects(stat):
+def bs_objects(filename, path, stat):
     '''Creates a Beautiful Soup object from stat parameter and writes it to a file
 
     Keyword arguments:
@@ -36,22 +39,25 @@ def bs_objects(stat):
 
     '''
     link = stat_link[stat]
-    statistic = urlopen(link)
+    statistic = requests.get(link, headers=headers)
 
-    soup = BeautifulSoup(statistic)
+    soup = BeautifulSoup(statistic.content)
+
+    secondtable = soup.findAll('table')[1]
     
     file = open('team_stats.txt', 'w')
-    file.write(soup.prettify(formatter="html"))
+    file.write(secondtable.prettify(formatter="html"))
     file.close
+    
+    return secondtable
+    
 
 # function calls
-# stat_value_dict(f)
-# build_link()
-# bs_objects('Total Defense') # writes Beautiful Souped Total Defense stat page to file 
+bs_objects('Total Defense') # writes Beautiful Souped Total Defense stat page to file 
 # bs_objects('Scoring Defense') # writes Beautiful Souped Scoring Defense stat page to file
 
 
-'''function tests
+'''function tests/old functions
 
 for key, value in stat_link.iteritems():
     print "key: ", key + '\n'
