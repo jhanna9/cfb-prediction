@@ -27,8 +27,7 @@ stat_link = {}
 # build stat links
 stat_link = build_link(f, link)
 
-
-def bs_objects(filename, path, stat):
+def bs_objects(stat):
     '''Creates a Beautiful Soup object from stat parameter and writes it to a file
 
     Keyword arguments:
@@ -43,14 +42,30 @@ def bs_objects(filename, path, stat):
 
     soup = BeautifulSoup(statistic.content)
 
-    secondtable = soup.findAll('table')[1]
+    secondtable = soup.find_all('table')[1]
     
-    file = open('team_stats.txt', 'w')
+    header_lst = []
+    data_lst = []
+   
+    for tag in secondtable.find_all(re.compile('th')):
+        header_lst.append(tag.string)
+
+    for tag in secondtable.find_all(re.compile('td')):        
+        data_lst.append(tag.string.strip())
+            
+    
+    '''file = open('team_stats.txt', 'w')
     file.write(secondtable.prettify(formatter="html"))
-    file.close
+    file.close'''
     
-    return secondtable
+    for head in header_lst:
+        print head,
     
+    print '\n'
+    
+    for data in data_lst:
+        print data,
+
 
 # function calls
 bs_objects('Total Defense') # writes Beautiful Souped Total Defense stat page to file 
