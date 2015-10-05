@@ -19,7 +19,8 @@ headers = {'User-agent': 'Mozilla/5.0'}
 f = open('stat_value.txt', 'r')
 
 # generic link that the stat code is attached to
-link = 'http://stats.ncaa.org/rankings/national_ranking?academic_year=2016.0&amp;division=11.0&amp;ranking_period=14.0&amp;sport_code=MFB&amp;stat_seq='
+x = raw_input("Enter 'ranking_period' for up to date stats(ie current period is 17.0.  Add 3 to current period each week): ") 
+link = 'http://stats.ncaa.org/rankings/national_ranking?academic_year=2016.0&amp;division=11.0&amp;ranking_period=' + str(x) + '&amp;sport_code=MFB&amp;stat_seq='
 
 # dictionary to store individual stats links
 stat_link = {}
