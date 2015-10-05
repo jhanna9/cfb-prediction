@@ -19,7 +19,7 @@ headers = {'User-agent': 'Mozilla/5.0'}
 f = open('stat_value.txt', 'r')
 
 # generic link that the stat code is attached to
-x = raw_input("Enter 'ranking_period' for up to date stats(ie current period is 17.0.  Add 3 to current period each week): ") 
+x = raw_input("Enter 'ranking_period' for up-to-date stats(ie current period = 17.0. Add 3 per week for current stats): ") 
 link = 'http://stats.ncaa.org/rankings/national_ranking?academic_year=2016.0&amp;division=11.0&amp;ranking_period=' + str(x) + '&amp;sport_code=MFB&amp;stat_seq='
 
 # dictionary to store individual stats links
@@ -55,17 +55,32 @@ def bs_objects(stat):
         data_lst.append(tag.string.strip())
             
     
-    '''file = open('team_stats.txt', 'w')
-    file.write(secondtable.prettify(formatter="html"))
-    file.close'''
+    file = open('team_stats.txt', 'w')
     
     for head in header_lst:
-        print head,
+        file.write(head + ' ')
+
+    file.write('\n')
+
+    x = 0
+    y = 10
     
-    print '\n'
+    for data in data_lst:    
+        if x < y:
+            file.write(data_lst[x] + ' ')           
+            x += 1
+        else:
+            file.write('\n')
+            y += 10
+
+    print(x)
+    print(y)
     
-    for data in data_lst:
-        print data,
+    # for data in data_lst:
+        # file.write(data)
+
+    file.close
+         
 
 
 # function calls
