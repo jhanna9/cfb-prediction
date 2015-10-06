@@ -25,6 +25,10 @@ link = 'http://stats.ncaa.org/rankings/national_ranking?academic_year=2016.0&amp
 # dictionary to store individual stats links
 stat_link = {}
 
+#list to store key stats
+key_stats = ['Total Offense', 'Scoring Offense', '3rd Down Conversion Pct', 'Total Defense', 'Scoring Defense', '3rd Down Conversion Pct Defense']
+
+
 # build stat links
 stat_link = build_link(f, link)
 
@@ -55,7 +59,7 @@ def bs_objects(stat):
         data_lst.append(tag.string.strip())
             
     
-    file = open('team_off_stats.txt', 'w')
+    file = open(stat + '_stats.txt', 'w')
         
     for head in header_lst:
         file.write(head + ' ')
@@ -79,7 +83,8 @@ def bs_objects(stat):
     file.close
          
 # function calls
-bs_objects('Total Offense') # writes Beautiful Souped Total Defense stat page to file 
+for key in key_stats:
+    bs_objects(key) # loops key stats list and writes stats to file 
 # bs_objects('Scoring Defense') # writes Beautiful Souped Scoring Defense stat page to file
 
 
