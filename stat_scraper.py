@@ -65,24 +65,19 @@ def bs_objects(stat):
     x = 0
     y = 10
     
-    for data in data_lst:    
-        if x < y:
-            file.write(data_lst[x] + ' ')           
-            x += 1
-        else:
-            file.write('\n')
-            y += 10
-
-    print(x)
-    print(y)
-    
-    # for data in data_lst:
-        # file.write(data)
+    while x < len(data_lst):
+        for data in data_lst:    
+            if x == len(data_lst):
+                break
+            elif x < y:
+                file.write(data_lst[x] + ' ')           
+                x += 1
+            else:
+                file.write('\n')
+                y += 10
 
     file.close
          
-
-
 # function calls
 bs_objects('Total Defense') # writes Beautiful Souped Total Defense stat page to file 
 # bs_objects('Scoring Defense') # writes Beautiful Souped Scoring Defense stat page to file
