@@ -67,7 +67,7 @@ def bs_objects(stat):
     file.write('\n')
 
     x = 0
-    y = 10
+    y = len(header_lst)
     
     while x < len(data_lst):
         for data in data_lst:    
@@ -78,7 +78,7 @@ def bs_objects(stat):
                 x += 1
             else:
                 file.write('\n')
-                y += 10
+                y += len(header_lst)
 
     file.close
          
