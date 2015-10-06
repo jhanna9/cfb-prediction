@@ -55,11 +55,11 @@ def bs_objects(stat):
         data_lst.append(tag.string.strip())
             
     
-    file = open('team_stats.txt', 'w')
-    
+    file = open('team_off_stats.txt', 'w')
+        
     for head in header_lst:
         file.write(head + ' ')
-
+    
     file.write('\n')
 
     x = 0
@@ -79,7 +79,7 @@ def bs_objects(stat):
     file.close
          
 # function calls
-bs_objects('Total Defense') # writes Beautiful Souped Total Defense stat page to file 
+bs_objects('Total Offense') # writes Beautiful Souped Total Defense stat page to file 
 # bs_objects('Scoring Defense') # writes Beautiful Souped Scoring Defense stat page to file
 
 
