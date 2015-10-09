@@ -13,7 +13,8 @@ sys.setdefaultencoding("utf-8")
 headers = {'User-agent': 'Mozilla/5.0'}
 
 # links to schedule and spread
-link_path = 'http://www.vegasinsider.com/college-football/odds/las-vegas/'
+link_sched = 'http://www.vegasinsider.com/college-football/odds/las-vegas/'
+link_spread = 'http://www.vegas.com/gaming/sportsline/college-football/'
 
 def schedule(link):
     games = []
@@ -38,26 +39,35 @@ def schedule(link):
     return games[:-3]
 
 def spread(link):
+    tabledata_lst = []
+    spread_lst = []
     spread = requests.get(link, headers=headers)
 
     soup = BeautifulSoup(spread.content)
 
     tabledata = soup.find_all('td')
 
-    x = 0
-    y = 27
-
-    while x < 4:
-        print tabledata[y]
-        x += 1
-        y += 12
+    for tag in tabledata:
+        tabledata_lst.append(tag.string)
         
-    #for tag in tabledata:
-        #print tag
+    x = 35
+
+    while x < len(tabledata_lst):
+        spread_lst.append(tabledata_lst[x])
+        x += 45
+
+    print len(spread_lst)
+    print spread_lst[49]
+    print spread_lst[50]
+    print spread_lst[51]
+    print spread_lst[52]
+
+    return spread_lst
+
 
 # function calls
-#print schedule(link_path)
-spread(link_path)
+#print schedule(link_sched)
+spread(link_spread)
 
 
 
