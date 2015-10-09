@@ -53,7 +53,6 @@ def spread(link):
     return spread_lst
 
 
-
 def match_spread(sched, spread):
     # Prints the schedule in format: 'Team 1 vs. Team 2'
     matchup_spread = {}
@@ -67,8 +66,7 @@ def match_spread(sched, spread):
         x += 2
         y += 2  
     
-    for m in matchup:
-        matchup_spread = {m: s for s in spread}
+    matchup_spread = dict(zip(matchup, spread))
 
     return matchup_spread
 
