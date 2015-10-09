@@ -16,29 +16,17 @@ headers = {'User-agent': 'Mozilla/5.0'}
 link_path = 'http://www.vegasinsider.com/college-football/odds/las-vegas/'
 
 def schedule(link):
+    games = []
     sched = requests.get(link, headers=headers)
 
     soup = BeautifulSoup(sched.content)
-    
-    #info = soup.find_all('b')
-    
-    for line in soup:
-        '''match = re.search(r'>([\w\s])+<', line, re.IGNORECASE)
-        if match:
-            print match.group(1)
-            # stat_link[match.group(2)] = path + match.group(1)
-        else:
-            print False
-        '''
-        for tag in soup.find_all(re.compile('b')):
-            if tag == False:
-                pass
-            else:
-                print tag
+   
+    for tag in soup('b'): #find_all(re.compile('b')):
+        print tag.string
 
-    # return info
+    return games
 
-schedule(link_path)
+print schedule(link_path)
 
 
 # spread = requests.get(link, headers=headers)
