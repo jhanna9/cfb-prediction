@@ -15,15 +15,32 @@ headers = {'User-agent': 'Mozilla/5.0'}
 # links to schedule and spread
 link_sched = 'http://www.vegasinsider.com/college-football/odds/las-vegas/'
 link_spread = 'http://www.vegas.com/gaming/sportsline/college-football/'
+link_favs = 'http://www.vegas.com/gaming/sportsline/college-football/'
 
 # global list
 # games = []
 
-def schedule(link):
+def schedule(link, faves):
     games = []
+    favs = []
+    favs2 = []
+
     sched = requests.get(link, headers=headers)
+    favorites = requests.get(faves, headers=headers)
 
     soup = BeautifulSoup(sched.content)
+    soup2 = BeautifulSoup(favorites.content)
+
+    f = soup2.find_all('td')
+
+    for tag in f:
+        favs.append(tag.string)
+
+    x = 28
+
+    while x < len(favs):
+        favs2.append(favs[x])
+        x += 45
    
     for tag in soup('b'):
         games.append(tag.string)
@@ -50,9 +67,8 @@ def spread(link):
         spread_lst.append(tabledata_lst[x])
         x += 45
 
-    return spread_lst
-
-
+    return spread_lst    
+    
 def match_spread(sched, spread):
     # Prints the schedule in format: 'Team 1 vs. Team 2'
     matchup_spread = {}
@@ -72,9 +88,8 @@ def match_spread(sched, spread):
 
 
 # function calls
-print match_spread(schedule(link_sched), spread(link_spread))
-#print schedule(link_sched)
-#print spread(link_spread)
+#print match_spread(schedule(link_sched), spread(link_spread))
+schedule(link_sched, link_favs)
 
 
 
