@@ -12,65 +12,33 @@ sys.setdefaultencoding("utf-8")
 # use to get around firewalls blocking scrapes
 headers = {'User-agent': 'Mozilla/5.0'}
 
-# links to schedule and spread
-link_sched = 'http://www.vegasinsider.com/college-football/odds/las-vegas/'
-link_spread = 'http://www.vegas.com/gaming/sportsline/college-football/'
-link_favs = 'http://www.vegas.com/gaming/sportsline/college-football/'
+# link to schedule and spread
+data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
 
-# global list
-# games = []
 
-def schedule(link, faves):
+def schedule(link):
     games = []
-    favs = []
-    favs2 = []
-
     sched = requests.get(link, headers=headers)
-    favorites = requests.get(faves, headers=headers)
-
     soup = BeautifulSoup(sched.content)
-    soup2 = BeautifulSoup(favorites.content)
 
-    f = soup2.find_all('td')
-
-    for tag in f:
-        favs.append(tag.string)
-
-    x = 28
-
-    while x < len(favs):
-        favs2.append(favs[x])
-        x += 45
-   
-    for tag in soup('b'):
+    for tag in soup('strong'):
         games.append(tag.string)
 
-    return games[:-3]
+    return games
 
 
 def spread(link):
-    tabledata_lst = []
-    spread_lst = []  
-    
+    spread_lst = []
     spread = requests.get(link, headers=headers)
-
     soup = BeautifulSoup(spread.content)
 
-    tabledata = soup.find_all('td')
+    for tag in soup.find_all('div', class_='covers_bottom'):
+        spread_lst.append(tag.string.strip())
 
-    for tag in tabledata:
-        tabledata_lst.append(tag.string)
-        
-    x = 35
-
-    while x < len(tabledata_lst):
-        spread_lst.append(tabledata_lst[x])
-        x += 45
-
-    return spread_lst    
+    return spread_lst 
+   
     
 def match_spread(sched, spread):
-    # Prints the schedule in format: 'Team 1 vs. Team 2'
     matchup_spread = {}
     matchup = []
 
@@ -88,8 +56,8 @@ def match_spread(sched, spread):
 
 
 # function calls
-#print match_spread(schedule(link_sched), spread(link_spread))
-schedule(link_sched, link_favs)
+print match_spread(schedule(data), spread(data))
+
 
 
 
