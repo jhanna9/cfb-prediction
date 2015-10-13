@@ -95,7 +95,8 @@ def match_spread(sched, spread):
 
 
 # function calls
-print match_spread(schedule(data), spread(data))
+for k, v in match_spread(schedule(data), spread(data)).iteritems():
+    print k, v
 
 
 
