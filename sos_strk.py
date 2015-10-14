@@ -22,8 +22,8 @@ def sos(link):
 
     # list for storage
     sos_lst = []
-    sos_stor = []
-    team_stor = []
+    #sos_stor = []
+    #team_stor = []
     team_lst = []
 
     # pull data from site and create BS object
@@ -33,12 +33,17 @@ def sos(link):
 
     # iterate through BS object looking for a and td tags
     for tag in table.find_all(re.compile('a')):
-        team_stor.append(tag.string)   
+        team_lst.append(tag.string)   
 
     for tag in soup('td'):
-        sos_stor.append(tag.string)
+        sos_lst.append(tag.string)
 
-    x = 1
+    # slice lists to get proper data
+    team_lst = team_lst[1::2]
+    sos_lst = sos_lst[2::6]
+    
+
+    '''x = 1
 
     while x < len(team_stor):
         team_lst.append(team_stor[x])
@@ -49,6 +54,8 @@ def sos(link):
     while sos_stor[y] != '40':
         sos_lst.append(sos_stor[y])
         y += 6
+
+    '''
 
     # create dictionary of game team as the key and strenght of schedule as the value
     str_sched = dict(zip(team_lst, sos_lst))
