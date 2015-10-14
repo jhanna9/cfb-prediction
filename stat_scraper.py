@@ -49,42 +49,26 @@ def bs_objects(stat):
     soup = BeautifulSoup(statistic.content)
 
     secondtable = soup.find_all('table')[1]
-    
+
     header_lst = []
     data_lst = []
+
+    # dictionaries
+    stat_head = {}
+    tm_stat = {}
    
     for tag in secondtable.find_all(re.compile('th')):
         header_lst.append(tag.string)
 
     for tag in secondtable.find_all(re.compile('td')):        
         data_lst.append(tag.string.strip())
-     
-    print data_lst[1]
-    print data_lst[11]       
-    
-    file = open(stat + '_stats.txt', 'w')
-        
-    for head in header_lst:
-        file.write(head + ' ')
-    
-    file.write('\n')
 
-    x = 0
-    y = len(header_lst)
-    
-    while x < len(data_lst):
-        for data in data_lst:    
-            if x == len(data_lst):
-                break
-            elif x < y:
-                file.write(data_lst[x] + ' ')           
-                x += 1
-            else:
-                file.write('\n')
-                y += len(header_lst)
-
-    file.close
+    for x in data_lst:
+        if x =='Reclassifying':
+            data_lst.remove(x)
+            
+    return data_lst
          
 # function calls
-for key in key_stats:
-    bs_objects(key) # loops key stats list and writes stats to file
+# for key in key_stats_off:
+print bs_objects('Total Offense') # loops key stats list and writes stats to file
