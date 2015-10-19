@@ -80,16 +80,25 @@ def bs_objects(stat):
     print '\n'
     '''
     x = 0
+    y = 1
 
-    while x < 1:
-        tm_stat[data_lst_chunk[0][1]] = data_lst_chunk[0][0]
+    # attempting to create tm_stat dict with team as key and stats as value
+    while x < 3:
+        del header_lst[2]
+        del data_lst_chunk[x][1]
+        print header_lst
+        print data_lst_chunk[0]
+        print data_lst[y]
+        print data_lst[y + len(header_lst)]
+        tm_stat[data_lst[y]] = data_lst_chunk[1:]
         x += 1
-
+        y += len(header_lst)
+        
     #for k, v in stat_head.iteritems():
         #print k, v
 
-    for k, v in tm_stat.iteritems():
-        print k, v
+    #for k, v in tm_stat.iteritems():
+        #print k, v
             
     return data_lst
          
