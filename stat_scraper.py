@@ -26,8 +26,10 @@ link = 'http://stats.ncaa.org/rankings/national_ranking?academic_year=2016.0&amp
 stat_link = {}
 
 #list to store key stats
-key_stats_off = ['Total Offense', 'Rushing Offense', 'Passing Offense', 'Scoring Offense', 'Team Passing Efficiency', '3rd Down Conversion Pct', 'Red Zone Offense', 'Turnovers Lost', 'Tackles for Loss Allowed', 'Sacks Allowed']
-key_stats_def = ['Total Defense', 'Rushing Defense', 'Passing Yards Allowed', 'Scoring Defense', 'Team Passing Efficiency Defense', '3rd Down Conversion Pct Defense', 'Red Zone Defense', 'Turnovers Gained', 'Team Tackles for Loss', 'Team Sacks']
+key_stats = ['Total Offense', 'Total Defense', 'Rushing Offense', 'Rushing Defense', 'Passing Offense', 'Passing Yards Allowed', 'Scoring Offense', 'Scoring Defense', 'Team Passing Efficiency', 'Team Passing Efficiency Defense', '3rd Down Conversion Pct', '3rd Down Conversion Pct Defense', 'Red Zone Offense', 'Red Zone Defense', 'Turnovers Lost', 'Turnovers Gained', 'Tackles for Loss Allowed', 'Team Tackles for Loss', 'Sacks Allowed', 'Team Sacks']
+
+#key_stats_off= ['Total Offense', 'Rushing Offense', 'Passing Offense', 'Scoring Offense', 'Team Passing Efficiency', '3rd Down Conversion Pct', 'Red Zone Offense', 'Turnovers Lost', 'Tackles for Loss Allowed', 'Sacks Allowed']
+#key_stats_def = ['Total Defense', 'Rushing Defense', 'Passing Yards Allowed', 'Scoring Defense', 'Team Passing Efficiency Defense', '3rd Down Conversion Pct Defense', 'Red Zone Defense', 'Turnovers Gained', 'Team Tackles for Loss', 'Team Sacks']
 
 
 # build stat links
@@ -69,18 +71,36 @@ def bs_objects(stat):
 
     stat_head[header_lst[0]] = header_lst[1:]
 
-    #data_lst = data_lst[0::11]    
+    # creates chunks of data by team and stat based on length of header_lst
+    data_lst_chunk = [data_lst[x:x + (len(header_lst) - 1)] for x in xrange(0, len(data_lst), len(header_lst) - 1)]
+    
+    '''print header_lst
+    print data_lst_chunk[0]  
+    print data_lst_chunk[1]
+    print '\n'
+    '''
+    x = 0
 
-    #tm_stat[data_lst[0]] = data_lst[1:]
+    while x < 1:
+        tm_stat[data_lst_chunk[0][1]] = data_lst_chunk[0][0]
+        x += 1
 
-    for k, v in stat_head.iteritems():
-        print k, v
-
-    #for k, v in tm_stat.iteritems():
+    #for k, v in stat_head.iteritems():
         #print k, v
+
+    for k, v in tm_stat.iteritems():
+        print k, v
             
     return data_lst
          
 # function calls
 # for key in key_stats_off:
 bs_objects('Total Offense') # loops key stats list and writes stats to file
+'''bs_objects('Total Defense')
+bs_objects('3rd Down Conversion Pct')
+bs_objects('3rd Down Conversion Pct Defense')
+
+'''
+#for stats in key_stats:
+    #bs_objects(stats)
+
