@@ -19,7 +19,7 @@ headers = {'User-agent': 'Mozilla/5.0'}
 f = open('stat_value.txt', 'r')
 
 # generic link that the stat code is attached to
-x = raw_input("Enter 'ranking_period' for up-to-date stats(ie current period = 20.0. Add 3 per week for current stats): ") 
+x = raw_input("Enter 'ranking_period' for up-to-date stats(ie current period = 23.0. Add 3 per week for current stats): ") 
 link = 'http://stats.ncaa.org/rankings/national_ranking?academic_year=2016.0&amp;division=11.0&amp;ranking_period=' + str(x) + '&amp;sport_code=MFB&amp;stat_seq='
 
 # dictionary to store individual stats links
@@ -50,7 +50,7 @@ def bs_objects(stat):
 
     secondtable = soup.find_all('table')[1]
 
-    header_lst = []
+    header_lst = [stat]
     data_lst = []
 
     # dictionaries
@@ -66,9 +66,21 @@ def bs_objects(stat):
     for x in data_lst:
         if x =='Reclassifying':
             data_lst.remove(x)
+
+    stat_head[header_lst[0]] = header_lst[1:]
+
+    #data_lst = data_lst[0::11]    
+
+    #tm_stat[data_lst[0]] = data_lst[1:]
+
+    for k, v in stat_head.iteritems():
+        print k, v
+
+    #for k, v in tm_stat.iteritems():
+        #print k, v
             
     return data_lst
          
 # function calls
 # for key in key_stats_off:
-print bs_objects('Total Offense') # loops key stats list and writes stats to file
+bs_objects('Total Offense') # loops key stats list and writes stats to file
