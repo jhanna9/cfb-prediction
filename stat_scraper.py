@@ -31,6 +31,40 @@ key_stats = ['Total Offense', 'Total Defense', 'Rushing Offense', 'Rushing Defen
 # build stat links
 stat_link = build_link(f, link)
 
+
+def stat_header(stat):
+    '''Creates a Beautiful Soup object from stat parameter of stat page header
+
+    Keyword arguments:
+    stat - the statistic to be analyzed
+    
+    returns: a dictionary
+
+
+    '''
+    link = stat_link[stat]
+    statistic = requests.get(link, headers=headers)
+
+    soup = BeautifulSoup(statistic.content)
+
+    secondtable = soup.find_all('table')[1]
+
+    header_lst = [stat]
+
+    # dictionaries
+    stat_head = {}
+   
+    for tag in secondtable.find_all(re.compile('th')):
+        header_lst.append(tag.string)
+
+    del header_lst[2]
+
+    stat_head[header_lst[0]] = header_lst[1:]
+            
+    return stat_head
+
+
+
 def stat_dict_build(stat):
     '''Creates a Beautiful Soup object from stat parameter and writes it to a file
 
@@ -91,8 +125,12 @@ def stat_dict_build(stat):
     return data_lst
          
 # function calls
-for stats in key_stats:
+print stat_header('Team Tackles for Loss')
+
+'''for stats in key_stats:
     stat_dict_build(stats)
     print '\n'
     print '\n'
+
+'''
 
