@@ -49,9 +49,8 @@ def stat_header(stat):
 
     secondtable = soup.find_all('table')[1]
 
+    # list and dictionary
     header_lst = [stat]
-
-    # dictionaries
     stat_head = {}
    
     for tag in secondtable.find_all(re.compile('th')):
@@ -66,12 +65,12 @@ def stat_header(stat):
 
 
 def stat_dict_build(stat):
-    '''Creates a Beautiful Soup object from stat parameter and writes it to a file
+    '''Creates a Beautiful Soup object from stat parameter of each stat 
 
     Keyword arguments:
     stat - the statistic to be analyzed
     
-    returns: a file
+    returns: a dictionary
 
 
     '''
@@ -81,11 +80,10 @@ def stat_dict_build(stat):
     soup = BeautifulSoup(statistic.content)
 
     secondtable = soup.find_all('table')[1]
-
+    
+    # lists and dictionaries
     header_lst = [stat]
     data_lst = []
-
-    # dictionaries
     stat_head = {}
     tm_stat = {}
    
@@ -101,8 +99,6 @@ def stat_dict_build(stat):
 
     del header_lst[2]
 
-    stat_head[header_lst[0]] = header_lst[1:]
-
     # creates chunks of data by team and stat based on length of header_lst
     data_lst_chunk = [data_lst[x:x + len(header_lst)] for x in xrange(0, len(data_lst), len(header_lst))]
     
@@ -114,23 +110,13 @@ def stat_dict_build(stat):
         del data_lst_chunk[x][1]
         tm_stat[data_lst[y]] = data_lst_chunk[x]
         x += 1
-        y += len(header_lst)
-        
-    for k, v in stat_head.iteritems():
-        print k, v
+        y += len(header_lst)        
 
-    for k, v in tm_stat.iteritems():
-        print k, v
-            
-    return data_lst
+    return tm_stat
          
 # function calls
-print stat_header('Team Tackles for Loss')
-
-'''for stats in key_stats:
+for stats in key_stats:
     stat_dict_build(stats)
     print '\n'
     print '\n'
-
-'''
 
