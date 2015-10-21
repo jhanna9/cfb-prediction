@@ -69,36 +69,33 @@ def bs_objects(stat):
         if x =='Reclassifying':
             data_lst.remove(x)
 
+    del header_lst[2]
+
     stat_head[header_lst[0]] = header_lst[1:]
 
     # creates chunks of data by team and stat based on length of header_lst
-    data_lst_chunk = [data_lst[x:x + (len(header_lst) - 1)] for x in xrange(0, len(data_lst), len(header_lst) - 1)]
+    data_lst_chunk = [data_lst[x:x + len(header_lst)] for x in xrange(0, len(data_lst), len(header_lst))]
     
-    '''print header_lst
+    
     print data_lst_chunk[0]  
     print data_lst_chunk[1]
     print '\n'
-    '''
+    
     x = 0
     y = 1
 
-    # attempting to create tm_stat dict with team as key and stats as value
+    # create tm_stat dict with team as key and stats as value
     while x < 3:
-        del header_lst[2]
         del data_lst_chunk[x][1]
-        print header_lst
-        print data_lst_chunk[0]
-        print data_lst[y]
-        print data_lst[y + len(header_lst)]
-        tm_stat[data_lst[y]] = data_lst_chunk[1:]
+        tm_stat[data_lst[y]] = data_lst_chunk[x]
         x += 1
         y += len(header_lst)
         
-    #for k, v in stat_head.iteritems():
-        #print k, v
+    for k, v in stat_head.iteritems():
+        print k, v
 
-    #for k, v in tm_stat.iteritems():
-        #print k, v
+    for k, v in tm_stat.iteritems():
+        print k, v
             
     return data_lst
          
