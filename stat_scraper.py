@@ -56,7 +56,7 @@ def stat_header(stat):
 
     del header_lst[2]
 
-    stat_head[header_lst[0]] = header_lst[1:]
+    stat_head[header_lst[0]] = header_lst[-1]
             
     return stat_head
 
@@ -95,8 +95,7 @@ def stat_dict_build(stat):
         if x =='Reclassifying':
             data_lst.remove(x)
 
-    #del header_lst[2]
-    header_lst = header_lst[-1]    
+    del header_lst[2]
 
     # creates chunks of data by team and stat based on length of header_lst
     data_lst_chunk = [data_lst[x:x + len(header_lst)] for x in xrange(0, len(data_lst), len(header_lst))]
@@ -107,7 +106,6 @@ def stat_dict_build(stat):
     # create tm_stat dict with team as key and stats as value
     while x < len(data_lst_chunk):
         del data_lst_chunk[x][1]
-        #tm_stat[data_lst[y]] = data_lst_chunk[x]
         tm_stat[data_lst[y]] = data_lst_chunk[x][-1]
         x += 1
         y += len(header_lst)        
@@ -115,12 +113,10 @@ def stat_dict_build(stat):
     return tm_stat
          
 # function calls
-print stat_dict_build('Total Offense')
-'''
 for stats in key_stats:
-    stat_dict_build(stats)
+    print stat_header(stats)
     print '\n'
-    print '\n'
-
-'''
+    #print stat_dict_build(stats)
+    #print '\n'
+    #print '\n'
 
