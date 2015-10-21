@@ -28,14 +28,10 @@ stat_link = {}
 #list to store key stats
 key_stats = ['Total Offense', 'Total Defense', 'Rushing Offense', 'Rushing Defense', 'Passing Offense', 'Passing Yards Allowed', 'Scoring Offense', 'Scoring Defense', 'Team Passing Efficiency', 'Team Passing Efficiency Defense', '3rd Down Conversion Pct', '3rd Down Conversion Pct Defense', 'Red Zone Offense', 'Red Zone Defense', 'Turnovers Lost', 'Turnovers Gained', 'Tackles for Loss Allowed', 'Team Tackles for Loss', 'Sacks Allowed', 'Team Sacks']
 
-#key_stats_off= ['Total Offense', 'Rushing Offense', 'Passing Offense', 'Scoring Offense', 'Team Passing Efficiency', '3rd Down Conversion Pct', 'Red Zone Offense', 'Turnovers Lost', 'Tackles for Loss Allowed', 'Sacks Allowed']
-#key_stats_def = ['Total Defense', 'Rushing Defense', 'Passing Yards Allowed', 'Scoring Defense', 'Team Passing Efficiency Defense', '3rd Down Conversion Pct Defense', 'Red Zone Defense', 'Turnovers Gained', 'Team Tackles for Loss', 'Team Sacks']
-
-
 # build stat links
 stat_link = build_link(f, link)
 
-def bs_objects(stat):
+def stat_dict_build(stat):
     '''Creates a Beautiful Soup object from stat parameter and writes it to a file
 
     Keyword arguments:
@@ -76,11 +72,6 @@ def bs_objects(stat):
     # creates chunks of data by team and stat based on length of header_lst
     data_lst_chunk = [data_lst[x:x + len(header_lst)] for x in xrange(0, len(data_lst), len(header_lst))]
     
-    
-    print data_lst_chunk[0]  
-    print data_lst_chunk[1]
-    print '\n'
-    
     x = 0
     y = 1
 
@@ -100,13 +91,8 @@ def bs_objects(stat):
     return data_lst
          
 # function calls
-# for key in key_stats_off:
-bs_objects('Total Offense') # loops key stats list and writes stats to file
-'''bs_objects('Total Defense')
-bs_objects('3rd Down Conversion Pct')
-bs_objects('3rd Down Conversion Pct Defense')
-
-'''
-#for stats in key_stats:
-    #bs_objects(stats)
+for stats in key_stats:
+    stat_dict_build(stats)
+    print '\n'
+    print '\n'
 
