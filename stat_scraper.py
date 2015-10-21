@@ -13,6 +13,9 @@ sys.setdefaultencoding("utf-8")
 # use to get around firewalls blocking scrapes
 headers = {'User-agent': 'Mozilla/5.0'}
 
+# file that contains numeric code for each stat 
+f = open('stat_value.txt', 'r')
+
 # generic link that the stat code is attached to
 x = raw_input("Enter 'ranking_period' for up-to-date stats(ie current period = 23.0. Add 3 per week for current stats): ") 
 link = 'http://stats.ncaa.org/rankings/national_ranking?academic_year=2016.0&amp;division=11.0&amp;ranking_period=' + str(x) + '&amp;sport_code=MFB&amp;stat_seq='
@@ -92,7 +95,8 @@ def stat_dict_build(stat):
         if x =='Reclassifying':
             data_lst.remove(x)
 
-    del header_lst[2]
+    #del header_lst[2]
+    header_lst = header_lst[-1]    
 
     # creates chunks of data by team and stat based on length of header_lst
     data_lst_chunk = [data_lst[x:x + len(header_lst)] for x in xrange(0, len(data_lst), len(header_lst))]
@@ -103,15 +107,20 @@ def stat_dict_build(stat):
     # create tm_stat dict with team as key and stats as value
     while x < len(data_lst_chunk):
         del data_lst_chunk[x][1]
-        tm_stat[data_lst[y]] = data_lst_chunk[x]
+        #tm_stat[data_lst[y]] = data_lst_chunk[x]
+        tm_stat[data_lst[y]] = data_lst_chunk[x][-1]
         x += 1
         y += len(header_lst)        
 
     return tm_stat
          
 # function calls
+print stat_dict_build('Total Offense')
+'''
 for stats in key_stats:
     stat_dict_build(stats)
     print '\n'
     print '\n'
+
+'''
 
