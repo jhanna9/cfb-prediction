@@ -76,7 +76,7 @@ def stat_dict_build(stat):
     y = 1
 
     # create tm_stat dict with team as key and stats as value
-    while x < 3:
+    while x < len(data_lst_chunk):
         del data_lst_chunk[x][1]
         tm_stat[data_lst[y]] = data_lst_chunk[x]
         x += 1
