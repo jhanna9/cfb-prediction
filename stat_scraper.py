@@ -1,12 +1,10 @@
 # a script to create links to and store statistics of ncaa football teams
 # imports
-import csv
 import re
 import requests
 import sys
 from bs4 import BeautifulSoup
 from link_builder import build_link
-
 
 # defaults encoding to utf-8
 reload(sys)
@@ -14,9 +12,6 @@ sys.setdefaultencoding("utf-8")
 
 # use to get around firewalls blocking scrapes
 headers = {'User-agent': 'Mozilla/5.0'}
-
-# file that contains numeric code for each stat 
-f = open('stat_value.txt', 'r')
 
 # generic link that the stat code is attached to
 x = raw_input("Enter 'ranking_period' for up-to-date stats(ie current period = 23.0. Add 3 per week for current stats): ") 
