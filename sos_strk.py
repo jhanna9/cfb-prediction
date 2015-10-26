@@ -79,9 +79,31 @@ def streak(link):
   
     return strk_lst
 
+#calculate the average strength of schedule
+def sos_avg(sos_dict):
+
+    avg = []
+
+    for k, v in sos_dict.iteritems():
+        avg.append(v)
+
+    x = 0
+
+    for s in avg:
+        x = x + float(s)
+
+    print x
+    print len(avg)
+
+    average = x / len(avg)
+
+    return average
+    
+
 # function calls
-for k, v in sos(str_sched).iteritems():
-    print k, v
-for k, v in streak(wl_strk).iteritems():
-    print k, v
+#for k, v in sos(str_sched).iteritems():
+    #print k, v
+#for k, v in streak(wl_strk).iteritems():
+    #print k, v
+print sos_avg(sos(str_sched))
 
