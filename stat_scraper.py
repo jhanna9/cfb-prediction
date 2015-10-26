@@ -4,7 +4,7 @@ import re
 import requests
 import sys
 from bs4 import BeautifulSoup
-from link_builder import build_link
+#from link_builder import build_link
 
 # defaults encoding to utf-8
 reload(sys)
@@ -14,20 +14,20 @@ sys.setdefaultencoding("utf-8")
 headers = {'User-agent': 'Mozilla/5.0'}
 
 # file that contains numeric code for each stat 
-f = open('stat_value.txt', 'r')
+#f = open('stat_value.txt', 'r')
 
 # generic link that the stat code is attached to
-x = raw_input("Enter 'ranking_period' for up-to-date stats(ie current period = 23.0. Add 3 per week for current stats): ") 
-link = 'http://stats.ncaa.org/rankings/national_ranking?academic_year=2016.0&amp;division=11.0&amp;ranking_period=' + str(x) + '&amp;sport_code=MFB&amp;stat_seq='
+#x = raw_input("Enter 'ranking_period' for up-to-date stats(ie current period = 23.0. Add 3 per week for current stats): ") 
+#link = 'http://stats.ncaa.org/rankings/national_ranking?academic_year=2016.0&amp;division=11.0&amp;ranking_period=' + str(x) + '&amp;sport_code=MFB&amp;stat_seq='
 
 # dictionary to store individual stats links
-stat_link = {}
+# stat_link = {}
 
 #list to store key stats
 key_stats = ['Total Offense', 'Total Defense', 'Rushing Offense', 'Rushing Defense', 'Passing Offense', 'Passing Yards Allowed', 'Scoring Offense', 'Scoring Defense', 'Team Passing Efficiency', 'Team Passing Efficiency Defense', '3rd Down Conversion Pct', '3rd Down Conversion Pct Defense', 'Red Zone Offense', 'Red Zone Defense', 'Turnovers Lost', 'Turnovers Gained', 'Tackles for Loss Allowed', 'Team Tackles for Loss', 'Sacks Allowed', 'Team Sacks']
 
 # build stat links
-stat_link = build_link(f, link)
+#stat_link = build_link(f, link)
 
 
 def stat_header(stat):
