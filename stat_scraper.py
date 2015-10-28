@@ -5,6 +5,7 @@ import requests
 import sys
 from bs4 import BeautifulSoup
 from link_builder import build_link
+from schedule_spread import schedule
 
 # defaults encoding to utf-8
 reload(sys)
@@ -17,8 +18,9 @@ headers = {'User-agent': 'Mozilla/5.0'}
 f = open('stat_value.txt', 'r')
 
 # generic link that the stat code is attached to
-x = raw_input("Enter 'ranking_period' for up-to-date stats(ie current period = 23.0. Add 3 per week for current stats): ") 
+x = raw_input("Enter 'ranking_period' for up-to-date stats(ie current period = 28.0. Add 3 per week for current stats): ") 
 link = 'http://stats.ncaa.org/rankings/national_ranking?academic_year=2016.0&amp;division=11.0&amp;ranking_period=' + str(x) + '&amp;sport_code=MFB&amp;stat_seq='
+data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
 
 # dictionary to store individual stats links
 stat_link = {}
@@ -28,38 +30,6 @@ key_stats = ['Total Offense', 'Total Defense', 'Rushing Offense', 'Rushing Defen
 
 # build stat links
 stat_link = build_link(f, link)
-
-
-def stat_header(stat):
-    '''Creates a Beautiful Soup object from stat parameter of stat page header
-
-    Keyword arguments:
-    stat - the statistic to be analyzed
-    
-    returns: a dictionary
-
-
-    '''
-    link = stat_link[stat]
-    statistic = requests.get(link, headers=headers)
-
-    soup = BeautifulSoup(statistic.content)
-
-    secondtable = soup.find_all('table')[1]
-
-    # list and dictionary
-    header_lst = [stat]
-    stat_head = {}
-   
-    for tag in secondtable.find_all(re.compile('th')):
-        header_lst.append(tag.string)
-
-    del header_lst[2]
-
-    stat_head[header_lst[0]] = header_lst[-1]
-            
-    return stat_head
-
 
 
 def stat_dict_build(stat):
@@ -111,25 +81,37 @@ def stat_dict_build(stat):
         y += len(header_lst)        
 
     return tm_stat
-         
+     
+
+def all_stat(single_stat):
+    combo = single_stat.copy()
+
+    for k, v in combo.iteritems():
+        for k1, v1 in single_stat.iteritems():
+            if k == k1:
+                combo[k] = (v, v1)
+
+    
 # function calls
-#for stats in key_stats:
-x = 1
-combo = []
-combo_dict = {}
-for k, v in stat_dict_build('Total Offense').iteritems():
-    for k1, v1 in stat_dict_build(key_stats[x]).iteritems():
-        if k == k1 and x < len(key_stats):
-            combo.append(k)
-            combo.append(v)
-            combo.append(v1)
+combo = {}
 
-            #x += 1
+for stats in key_stats:
+    all_stat(stat_dict_build(stats))
 
+for k, v in combo.iteritems():
+    print k, v
+    
+
+'''
+key_stats[x]
 for x in range(0, 15):
     print combo[x]
 
-'''while x < len(combo):
+for k, v in a.iteritems():
+    for k1, v1 in b.iteritems():
+        if k == k1:
+
+while x < len(combo):
 combo_dict[combo[x]] = 
             
     
@@ -137,5 +119,33 @@ combo_dict[combo[x]] =
     print '\n'
     print '\n'
 
-'''
+def stat_header(stat):
+    Creates a Beautiful Soup object from stat parameter of stat page header
 
+    Keyword arguments:
+    stat - the statistic to be analyzed
+    
+    returns: a dictionary
+
+
+    
+    link = stat_link[stat]
+    statistic = requests.get(link, headers=headers)
+
+    soup = BeautifulSoup(statistic.content)
+
+    secondtable = soup.find_all('table')[1]
+
+    # list and dictionary
+    header_lst = [stat]
+    stat_head = {}
+   
+    for tag in secondtable.find_all(re.compile('th')):
+        header_lst.append(tag.string)
+
+    del header_lst[2]
+
+    stat_head[header_lst[0]] = header_lst[-1]
+            
+    return stat_head
+'''
