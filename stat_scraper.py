@@ -5,7 +5,6 @@ import requests
 import sys
 from bs4 import BeautifulSoup
 from link_builder import build_link
-from schedule_spread import schedule
 
 # defaults encoding to utf-8
 reload(sys)
@@ -83,26 +82,29 @@ def stat_dict_build(stat):
     return tm_stat
     
 
-'''ds = [d1, d2]
-d = {}
-for k in d1.iterkeys():
-    d[k] = tuple(d[k] for d in ds)
-'''
+def combo_stats():
+    '''Creates a dictionary with team as key and key stats as value 
+
+    Keyword arguments:
+    stats_dict - stats dictionaries to be combined into a single dictionary 
     
+    returns: a dictionary
 
-    
-# function calls
-combo = []
 
-for stat in key_stats:
-    #for k in key_stats_d:
-    combo.append(stat_dict_build(stat))
+    '''
+    combo = []
+    combo_all = {}
 
-combo_all = {}
+    for s in key_stats:
+        combo.append(stat_dict_build(s))
 
-for k in combo[0].iterkeys():
-    combo_all[k] = tuple(combo_all[k] for combo_all in combo)
+    for k in combo[0].iterkeys():
+        combo_all[k] = tuple(combo_all[k] for combo_all in combo)
 
-for k, v in combo_all.iteritems():
+    return combo_all
+
+
+# function call
+for k, v in combo_stats().iteritems():
     print k, v
     print '\n'
