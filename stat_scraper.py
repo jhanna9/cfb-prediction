@@ -24,9 +24,31 @@ data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
 
 # dictionary to store individual stats links
 stat_link = {}
+tot_off = {}
+tot_def = {}
+rush_o = {}
+rush_d = {}
+pass_o = {}
+pass_d = {}
+score_o = {}
+score_d = {}
+pass_eff_o = {}
+pass_eff_d = {}
+third_conv_o = {}
+third_conv_d = {}
+red_o = {}
+red_d = {}
+turn_o = {}
+turn_d = {}
+tfl_allow = {}
+tfl = {}
+sacks_allow = {}
+sacks = {}
 
 #list to store key stats
 key_stats = ['Total Offense', 'Total Defense', 'Rushing Offense', 'Rushing Defense', 'Passing Offense', 'Passing Yards Allowed', 'Scoring Offense', 'Scoring Defense', 'Team Passing Efficiency', 'Team Passing Efficiency Defense', '3rd Down Conversion Pct', '3rd Down Conversion Pct Defense', 'Red Zone Offense', 'Red Zone Defense', 'Turnovers Lost', 'Turnovers Gained', 'Tackles for Loss Allowed', 'Team Tackles for Loss', 'Sacks Allowed', 'Team Sacks']
+
+key_stats_d = [tot_off,  ]
 
 # build stat links
 stat_link = build_link(f, link)
@@ -95,16 +117,17 @@ for k in d1.iterkeys():
 combo = []
 
 for stat in key_stats:
-    d = {k: v for k, v in stat_dict_build(stat).iteritems()}
+    d = {k: stat_dict_build(stat) for k in key_stats_d}
     combo.append(d)
 
 combo_all = {}
 
-for k in combo.iterkeys():
+for k in tot_o.iterkeys():
     combo_all[k] = tuple(combo_all[k] for combo_all in combo)
 
 for k, v in combo_all.iteritems():
     print k, v
+
     
 
     
