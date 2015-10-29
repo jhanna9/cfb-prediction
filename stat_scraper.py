@@ -81,25 +81,32 @@ def stat_dict_build(stat):
         y += len(header_lst)        
 
     return tm_stat
-     
+    
 
-def all_stat(single_stat):
-    combo = single_stat.copy()
-
-    for k, v in combo.iteritems():
-        for k1, v1 in single_stat.iteritems():
-            if k == k1:
-                combo[k] = (v, v1)
+'''ds = [d1, d2]
+d = {}
+for k in d1.iterkeys():
+    d[k] = tuple(d[k] for d in ds)
+'''
+    
 
     
 # function calls
-combo = {}
+combo = []
 
-for stats in key_stats:
-    all_stat(stat_dict_build(stats))
+for stat in key_stats:
+    d = {k: v for k, v in stat_dict_build(stat).iteritems()}
+    combo.append(d)
 
-for k, v in combo.iteritems():
+combo_all = {}
+
+for k in combo.iterkeys():
+    combo_all[k] = tuple(combo_all[k] for combo_all in combo)
+
+for k, v in combo_all.iteritems():
     print k, v
+    
+
     
 
 '''
