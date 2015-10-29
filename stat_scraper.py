@@ -28,8 +28,6 @@ stat_link = {}
 #list to store key stats
 key_stats = ['Total Offense', 'Total Defense', 'Rushing Offense', 'Rushing Defense', 'Passing Offense', 'Passing Yards Allowed', 'Scoring Offense', 'Scoring Defense', 'Team Passing Efficiency', 'Team Passing Efficiency Defense', '3rd Down Conversion Pct', '3rd Down Conversion Pct Defense', 'Red Zone Offense', 'Red Zone Defense', 'Turnovers Lost', 'Turnovers Gained', 'Tackles for Loss Allowed', 'Team Tackles for Loss', 'Sacks Allowed', 'Team Sacks']
 
-key_stats_d = ['tot_off', 'tot_def', 'rush_o', 'rush_d', 'pass_o', 'pass_d', 'score_o', 'score_d', 'pass_eff_o', 'pass_eff_d', 'third_conv_o', 'third_conv_d', 'red_o', 'red_d', 'turn_o', 'turn_d', 'tfl_allow', 'tfl', 'sacks_allow', 'sacks']
-
 # build stat links
 stat_link = build_link(f, link)
 
@@ -108,52 +106,3 @@ for k in combo[0].iterkeys():
 for k, v in combo_all.iteritems():
     print k, v
     print '\n'
-
-
-'''
-key_stats[x]
-for x in range(0, 15):
-    print combo[x]
-
-for k, v in a.iteritems():
-    for k1, v1 in b.iteritems():
-        if k == k1:
-
-while x < len(combo):
-combo_dict[combo[x]] = 
-            
-    
-    print k, v
-    print '\n'
-    print '\n'
-
-def stat_header(stat):
-    Creates a Beautiful Soup object from stat parameter of stat page header
-
-    Keyword arguments:
-    stat - the statistic to be analyzed
-    
-    returns: a dictionary
-
-
-    
-    link = stat_link[stat]
-    statistic = requests.get(link, headers=headers)
-
-    soup = BeautifulSoup(statistic.content)
-
-    secondtable = soup.find_all('table')[1]
-
-    # list and dictionary
-    header_lst = [stat]
-    stat_head = {}
-   
-    for tag in secondtable.find_all(re.compile('th')):
-        header_lst.append(tag.string)
-
-    del header_lst[2]
-
-    stat_head[header_lst[0]] = header_lst[-1]
-            
-    return stat_head
-'''
