@@ -92,9 +92,6 @@ def sos_avg(sos_dict):
     for s in avg:
         x = x + float(s)
 
-    print x
-    print len(avg)
-
     average = x / len(avg)
 
     return average
