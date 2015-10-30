@@ -93,8 +93,34 @@ def sos_avg(sos_dict):
         x = x + float(s)
 
     average = x / len(avg)
+    
+    print average
 
     return average
+
+
+def sos_weight(t1, t2, avg):
+    '''Creates the weighted sos number to add/subtract to the team's scores 
+
+    Keyword arguments:
+    t1 - the sos number from a team
+    t2 - the sos number from a second team
+    avg - sos average calculated by sos_avg()
+    
+    returns: a float
+
+
+    '''
+    if t1 >= 0 and t2 >= 0:
+        weight = (abs((t1 - t2) / avg) / 10) / 2
+    elif t1 <= 0 and t2 >= 0:
+        weight = abs(((t1 + t2) / avg) / 10) / 2
+    elif t1 >= 0 and t2 <= 0:
+        weight = abs(((t1 + t2) / avg) / 10) / 2
+    elif t1 <= 0 and t2 <= 0:
+        weight = abs(((t1 - t2) / avg) / 10) / 2
+
+    return weight
     
 
 # function calls
@@ -102,5 +128,5 @@ def sos_avg(sos_dict):
     #print k, v
 #for k, v in streak(wl_strk).iteritems():
     #print k, v
-print sos_avg(sos(str_sched))
+print sos_weight(10.9, 9.7, sos_avg(sos(str_sched)))
 
