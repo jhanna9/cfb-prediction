@@ -208,10 +208,16 @@ def sos(link):
     # slice lists to get proper data
     team_lst = team_lst[1::2]
     sos_lst = sos_lst[2::6]
+    
+    n = 6
+
+    sos_lst = sos_lst[:n - 1]
+
+    sos_lst = map(float, sos_lst)
 
     # create dictionary of game team as the key and strenght of schedule as the value
     str_sched = dict(zip(team_lst, sos_lst))
-  
+
     return str_sched
 
 
@@ -251,6 +257,9 @@ def sos_weight(t1, t2, avg):
 
     return weight
 
-for k, v in combo_stats().iteritems():
-    print k, v
-    print '\n'
+combo_sos = {}
+
+for k in combo_stats().iterkeys():
+        combo_sos[k] = tuple(combo_sos[k] for combo_sos in sos(str_sched))
+
+print combo_sos
