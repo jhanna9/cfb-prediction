@@ -94,7 +94,7 @@ def sos_avg(sos_dict):
 
     average = x / len(avg)
     
-    print average
+    #print average
 
     return average
 
@@ -111,14 +111,7 @@ def sos_weight(t1, t2, avg):
 
 
     '''
-    if t1 >= 0 and t2 >= 0:
-        weight = (abs((t1 - t2) / avg) / 10) / 2
-    elif t1 <= 0 and t2 >= 0:
-        weight = abs(((t1 + t2) / avg) / 10) / 2
-    elif t1 >= 0 and t2 <= 0:
-        weight = abs(((t1 + t2) / avg) / 10) / 2
-    elif t1 <= 0 and t2 <= 0:
-        weight = abs(((t1 - t2) / avg) / 10) / 2
+    weight = round((abs((t1 - t2) / avg) / 10) / 2, 4)
 
     return weight
     
@@ -128,5 +121,3 @@ def sos_weight(t1, t2, avg):
     #print k, v
 #for k, v in streak(wl_strk).iteritems():
     #print k, v
-print sos_weight(10.9, 9.7, sos_avg(sos(str_sched)))
-
