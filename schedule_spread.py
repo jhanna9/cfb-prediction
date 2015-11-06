@@ -36,6 +36,12 @@ def schedule(link):
     for tag in soup('strong'):
         games.append(tag.string)
 
+    x = 1
+
+    while x <= len(games):
+        games[x] = games[x][1:]
+        x += 2
+        
     return games
 
 
@@ -84,9 +90,9 @@ def match_spread(sched, spread):
 
     # create a list with game matchups
     while x < len(sched):
-        matchup.append(sched[x] + ' vs. ' + sched[y])
+        matchup.append(sched[x] + ' at ' + sched[y])
         x += 2
-        y += 2  
+        y += 2
     
     # create dictionary of game matchups as the key and spreads as the value
     matchup_spread = dict(zip(matchup, spread))
@@ -95,6 +101,7 @@ def match_spread(sched, spread):
 
 
 # function calls
+#match_spread(schedule(data), spread(data))
 for k, v in match_spread(schedule(data), spread(data)).iteritems():
     print k, v
 
