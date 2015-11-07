@@ -12,7 +12,7 @@ sys.setdefaultencoding("utf-8")
 # use to get around firewalls blocking scrapes
 headers = {'User-agent': 'Mozilla/5.0'}
 
-# link to sos and streak
+# link to sos
 str_sched = 'https://www.teamrankings.com/college-football/ranking/schedule-strength-by-other'
 
 
@@ -45,28 +45,8 @@ def sos(link):
   
     return str_sched
 
-#calculate the average strength of schedule
-def sos_avg(sos_dict):
-
-    avg = []
-
-    for k, v in sos_dict.iteritems():
-        avg.append(v)
-
-    x = 0
-
-    for s in avg:
-        x = x + float(s)
-
-    average = x / len(avg)
-    
-    #print average
-
-    return average
-
 '''# function calls
 for k, v in sos(str_sched).iteritems():
     print k, v
 
-print sos_avg(sos(str_sched))
 '''
