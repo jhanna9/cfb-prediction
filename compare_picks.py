@@ -41,6 +41,7 @@ def stand_dev(dict):
     
     return stdev
 
+
 def std_range(avg, std_sos):
     
     sdev_pos = []
@@ -62,20 +63,22 @@ def std_range(avg, std_sos):
     sdev_all_2 = ['%.2f' % elem for elem in sdev_all]
 
     return sdev_all_2
-     
-        
-        
+
+
+def stat_std_lst():
+    std_lst = []
+
+    for s in key_stats:
+        std_lst.append(round(stand_dev(stat_dict_build(s)), 2))
+
+    return std_lst
+             
       
 # function calls
 print std_range(sos_avg(sos(str_sched)), stand_dev(sos(str_sched))) 
 
+print stat_std_lst()
 
-'''std_lst = []
-for s in key_stats:
-    std_lst.append(round(stand_dev(stat_dict_build(s)), 2))
 
-print std_lst
-
-'''
     
 
