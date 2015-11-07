@@ -33,23 +33,49 @@ def sos_avg(dict):
 def stand_dev(dict):
 
     stan_dev = []
-
+    
     for k, v in dict.iteritems():
         stan_dev.append(float(v))
 
-    std = numpy.std(stan_dev, axis=0)
+    stdev = numpy.std(stan_dev, axis=0)
     
-    return std
-    
-    
+    return stdev
 
+def std_range(avg, std_sos):
+    
+    sdev_pos = []
+    sdev_neg = []
+        
+    x = 0
+    y = 1
 
+    while x < 3:
+        sdev_pos.append(avg + (std_sos * y))
+        sdev_neg.append(avg - (std_sos * y))
+        x += 1
+        y += 1
+
+    sdev_neg.append(avg)
+    
+    sdev_all =  sdev_neg + sdev_pos
+
+    sdev_all_2 = ['%.2f' % elem for elem in sdev_all]
+
+    return sdev_all_2
+     
+        
+        
+      
 # function calls
-print stand_dev(sos(str_sched))
-print '\n'
+print std_range(sos_avg(sos(str_sched)), stand_dev(sos(str_sched))) 
 
+
+'''std_lst = []
 for s in key_stats:
-    print round(stand_dev(stat_dict_build(s)), 2)
-    print '\n'
+    std_lst.append(round(stand_dev(stat_dict_build(s)), 2))
+
+print std_lst
+
+'''
     
 
