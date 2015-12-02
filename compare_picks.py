@@ -6,11 +6,20 @@ from scipy import stats
 from sos import sos
 from stat_scraper import *
 
-# link to sos
+# link to sos, schedule, and spread
 str_sched = 'https://www.teamrankings.com/college-football/ranking/schedule-strength-by-other'
+data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
 
 #list to store key stats
 key_stats = ['Total Offense', 'Total Defense', 'Rushing Offense', 'Rushing Defense', 'Passing Offense', 'Passing Yards Allowed', 'Scoring Offense', 'Scoring Defense', 'Team Passing Efficiency', 'Team Passing Efficiency Defense', '3rd Down Conversion Pct', '3rd Down Conversion Pct Defense', 'Red Zone Offense', 'Red Zone Defense', 'Turnovers Lost', 'Turnovers Gained', 'Tackles for Loss Allowed', 'Team Tackles for Loss', 'Sacks Allowed', 'Team Sacks']
+
+x = 0
+
+for t in schedule(data):
+    for k, v in combo_stats().iteritems():    
+        if t == k and x % 1:
+            print k, v
+            print '\n'    
 
 
 #calculate the average of sos
@@ -75,8 +84,8 @@ def compare(tm_stat, tm_sos):
     
     
              
-      
-# function calls
+# function calls      
+'''
 #z_score(sos(str_sched))
 for k, v in z_score(sos(str_sched)).iteritems():
     print k, v
@@ -92,7 +101,7 @@ print stand_dev(sos(str_sched))
 #compare(combo_stats(), sos(str_sched))
 
 # possibly unnecessary functions
-'''
+
 def std_range(avg, std_sos):
     
     sdev_pos = []
