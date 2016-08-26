@@ -26,4 +26,4 @@ def build_links(stat):
             print("Stat not found")
             break
 
-    return links     
+    return links 

@@ -21,5 +21,3 @@ def soup(stat):
             team_stats.append(i.get_text())
 
     return team_stats
-
-print(soup('Scoring Defense'))
