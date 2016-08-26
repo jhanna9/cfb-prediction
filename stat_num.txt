@@ -1,0 +1,2 @@
+Total_Offense 21
+Total_Defense 22
