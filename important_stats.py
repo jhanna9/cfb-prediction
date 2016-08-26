@@ -1,7 +1,7 @@
 from soup import soup
-from statistics import stdev
+from statistics import stdev, mean
 
-# loop to get yards per rushing attempt, get stand dev
+# loop to get yards per rushing attempt, get median and stand dev
 def yp_rush():
     rush_o = soup('Rushing Offense')
 
@@ -14,6 +14,10 @@ def yp_rush():
             yprush.append(float(rush_o[x]))
             x += 8
 
-    return round(stdev(yprush), 3)
+    ypr_mean = round(mean(yprush), 3)
+    ypr_sd = round(stdev(yprush), 3)
 
-print(yp_rush())
+    return ypr_mean, ypr_sd
+
+avg, sdev = yp_rush()
+print(avg, sdev)
