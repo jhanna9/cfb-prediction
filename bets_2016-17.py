@@ -27,10 +27,10 @@ def soup(stat):
         for i in ts:
             team_stats.append(i.get_text())
 
+    return team_stats
 
 # FUNCTION loop to get yards per rushing attempt, get median and stand dev
 x = 5
-
 for s in team_stats:
     if x > len(team_stats):
         break
@@ -38,7 +38,7 @@ for s in team_stats:
         yprush.append(team_stats[x])
         x += 8
 
-soup('rush_o')
+print(soup('rush_o'))
 print(yprush)
 print(len(yprush))
         
