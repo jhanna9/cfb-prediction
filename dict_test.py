@@ -1,21 +1,17 @@
-def build_stat(file):
+def build_stat_dict(file):
     d = {}
     with open(file) as f:
-        for line in f:
-            (key, val) = line.split()
-            d[key] = val
-
+        if file == 'stat_num.txt':
+            for line in f:
+                (key, val) = line.split()
+                d[key] = val
+        else:
+            for line in f:
+                (key, val1, val2) = line.split()
+                d[key] = val1, val2
+            
     return d
 
-def build_stat_position(file):
-    d = {}
-    with open(file) as f:
-        for line in f:
-            (key, val1, val2) = line.split()
-            d[key] = val1, val2
+print(build_stat_dict('stat_num.txt'))
 
-    return d
-
-print(build_stat('stat_num.txt'))
-
-print(build_stat_position('stat_position.txt'))
+print(build_stat_dict('stat_position.txt'))
