@@ -16,8 +16,6 @@ def build_links(stat):
     
     stats_dict = build_stat_dict('stat_num.txt')
 
-    #build_stat_dict('stat_position.txt')
-
     more_pgs = ['', '/p2', '/p3']
 
     for i in more_pgs:

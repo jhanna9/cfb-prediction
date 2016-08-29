@@ -1,23 +1,32 @@
+from links import build_stat_dict
 from soup import soup
 from statistics import stdev, mean
 
-# loop to get yards per rushing attempt, get median and stand dev
-def yp_rush():
-    rush_o = soup('Rushing_Offense')
+# 
+def impt_stat():
+    for k, v in build_stat_dict('stat_position.txt').items():
+        stat = soup(k)
+        x = int(v)
+        for s in stat:
+            if x > len(stat):
+                break
+            else:
+                if stat[x] == 'Passes_Intercepted' or stat[x] == 'Passes_Had_Intercepted':
+                    stat.append(float(stat[x]))
+                    x += (x + 3)
+                else:
+                    stat.append(float(stat[x]))
+                    x += (x + 1)
 
-    yprush = []
-    x = 5
-    for s in rush_o:
-        if x > len(rush_o):
-            break
-        else:
-            yprush.append(float(rush_o[x]))
-            x += 8
+    stat_mean = round(mean(yprush), 3)
+    stat_sdev = round(stdev(yprush), 3)
 
-    ypr_mean = round(mean(yprush), 3)
-    ypr_sd = round(stdev(yprush), 3)
+    return stat_mean, stat_sdev
 
-    return ypr_mean, ypr_sd
-
-avg, sdev = yp_rush()
+avg, sdev = impt_stat()
 print(avg, sdev)
+
+
+'''All stats are +1 from position to get the next relevant stat
+except Pass Intercepted and Passes Had Intercpeted = +3 to next relevant stat
+'''
