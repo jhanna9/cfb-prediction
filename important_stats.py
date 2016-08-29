@@ -3,7 +3,7 @@ from statistics import stdev, mean
 
 # loop to get yards per rushing attempt, get median and stand dev
 def yp_rush():
-    rush_o = soup('Rushing Offense')
+    rush_o = soup('Rushing_Offense')
 
     yprush = []
     x = 5

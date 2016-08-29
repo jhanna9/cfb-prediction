@@ -1,10 +1,29 @@
+# build stats dictionary from data file
+def build_stat_dict(file):
+    d = {}
+    with open(file) as f:
+        if file == 'stat_num.txt':
+            for line in f:
+                (key, val) = line.split()
+                d[key] = val
+        else:
+            for line in f:
+                (key, val1, val2) = line.split()
+                d[key] = val1, val2
+            
+    return d
+
 # general link to stats
 def build_links(stat):
     links = []
 
     link = "http://www.ncaa.com/stats/football/fbs/current/team/"
+    
+    stats_dict = build_stat_dict('stat_num.txt')
 
-    stats_dict = {
+    #build_stat_dict('stat_position.txt')
+
+    '''stats_dict = {
                   'Total Offense': '21', 'Total Defense': '22', 
                   'Rushing Offense': '23', 'Rushing Defense': '24', 
                   'Passing Offense': '25', 'Passing Yards Allowed': '695', 
@@ -16,6 +35,7 @@ def build_links(stat):
                   'Tackles for Loss Allowed': '696', 'Team Tackles for Loss': '467', 
                   'Sacks Allowed': '468', 'Team Sacks': '466'
                  }
+    '''
 
     more_pgs = ['', '/p2', '/p3']
 
