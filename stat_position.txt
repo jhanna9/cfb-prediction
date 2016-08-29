@@ -1,2 +1,20 @@
-Rushing_Offense 5 7
-Rushing_Defense 3 9
+Total_Offense 8
+Total_Defense 8
+Rushing_Offense 7
+Rushing_Defense 7
+Passing_Offense 10
+Passing_Yards_Allowed 9
+Scoring_Offense 10
+Scoring_Defense 10
+Team_Passing_Efficiency 8
+Team_Passing_Efficiency_Defense 8
+3rd_Down_Conversion_Pct 5
+3rd_Down_Conversion_Pct_Defense 5
+Red_Zone_Offense 8
+Red_Zone_Defense 8
+Passes_Intercepted 4
+Passes_Had_Intercepted 4
+Tackles_for_Loss_Allowed 8
+Team_Tackles_for_Loss 7
+Sacks_Allowed 5
+Team_Sacks 5

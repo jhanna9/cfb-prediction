@@ -4,7 +4,6 @@ Rushing_Offense 23
 Rushing_Defense 24
 Passing_Offense 25
 Passing_Yards_Allowed 695
-Passing_Yards_Per_Completion 741
 Scoring_Offense 27
 Scoring_Defense 28
 Team_Passing_Efficiency 465
@@ -13,7 +12,8 @@ Team_Passing_Efficiency_Defense 40
 3rd_Down_Conversion_Pct_Defense 701
 Red_Zone_Offense 703
 Red_Zone_Defense 704
-Turnover_Margin 29
+Passes_Intercepted 457
+Passes_Had_Intercepted 459
 Tackles_for_Loss_Allowed 696
 Team_Tackles_for_Loss 467
 Sacks_Allowed 468
