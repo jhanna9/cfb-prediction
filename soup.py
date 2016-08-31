@@ -9,7 +9,7 @@ headers = {'User-agent': 'Mozilla/5.0'}
 team_stats = []
 
 # loop through the stat links to create a bs object
-def soup(stat):
+def soupy(stat):
     for l in build_links(stat):
         site = requests.get(l, headers=headers) # get site info using requests
         # create BS object, sort through necessary info
@@ -20,4 +20,5 @@ def soup(stat):
         for i in ts:
             team_stats.append(i.get_text())
 
+    print('soup - ', stat)
     return team_stats

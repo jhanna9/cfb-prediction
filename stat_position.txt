@@ -14,7 +14,7 @@ Red_Zone_Offense 8
 Red_Zone_Defense 8
 Passes_Intercepted 4
 Passes_Had_Intercepted 4
-Tackles_for_Loss_Allowed 8
+Tackles_for_Loss_Allowed 7
 Team_Tackles_for_Loss 7
 Sacks_Allowed 5
 Team_Sacks 5

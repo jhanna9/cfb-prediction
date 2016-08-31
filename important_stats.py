@@ -1,32 +1,40 @@
 from links import build_stat_dict
-from soup import soup
+from soup import soupy
 from statistics import stdev, mean
 
 # 
 def impt_stat():
     for k, v in build_stat_dict('stat_position.txt').items():
-        stat = soup(k)
+        print('imp_stat - ', k)
+        print('start pos - ', v)
+        ind_stat = []
+        statistic = soupy(k)
+        print(statistic)
         x = int(v)
-        for s in stat:
-            if x > len(stat):
+        y = x + 1
+        print('increment - ', y)
+        z = x + 3
+        for s in statistic:
+            if x > len(statistic):
                 break
             else:
-                if stat[x] == 'Passes_Intercepted' or stat[x] == 'Passes_Had_Intercepted':
-                    stat.append(float(stat[x]))
-                    x += (x + 3)
+                if k == 'Passes_Intercepted':
+                    ind_stat.append(float(statistic[x]))
+                    x += z
                 else:
-                    stat.append(float(stat[x]))
-                    x += (x + 1)
+                    ind_stat.append(float(statistic[x]))
+                    x += y
 
-    stat_mean = round(mean(yprush), 3)
-    stat_sdev = round(stdev(yprush), 3)
+        stat_mean = round(mean(ind_stat), 3)
+        stat_sdev = round(stdev(ind_stat), 3)
 
     return stat_mean, stat_sdev
+    
 
 avg, sdev = impt_stat()
+
 print(avg, sdev)
 
 
-'''All stats are +1 from position to get the next relevant stat
-except Pass Intercepted and Passes Had Intercpeted = +3 to next relevant stat
+'''Create dictionary of {name of stat: [mean, stdev]}
 '''

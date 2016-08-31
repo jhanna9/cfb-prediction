@@ -9,20 +9,21 @@ def build_stat_dict(file):
     return d
 
 # general link to stats
-def build_links(stat):
+def build_links(stats):
     links = []
 
     link = "http://www.ncaa.com/stats/football/fbs/current/team/"
-    
-    stats_dict = build_stat_dict('stat_num.txt')
+
+    stats_dict = build_stat_dict('stat_num.txt')       
 
     more_pgs = ['', '/p2', '/p3']
 
     for i in more_pgs:
-        if stat in stats_dict:
-            links.append(link + stats_dict[stat] + i)
+        if stats in stats_dict:
+            links.append(link + stats_dict[stats] + i)
         else:
             print("Stat not found")
             break
-
-    return links 
+    print('links - ', stats)
+    print(links)
+    return links
