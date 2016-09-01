@@ -4,15 +4,13 @@ from statistics import stdev, mean
 
 # 
 def impt_stat():
+    stat_mean_sdev = {}
+
     for k, v in build_stat_dict('stat_position.txt').items():
-        print('imp_stat - ', k)
-        print('start pos - ', v)
         ind_stat = []
         statistic = soupy(k)
-        print(statistic)
         x = int(v)
         y = x + 1
-        print('increment - ', y)
         z = x + 3
         for s in statistic:
             if x > len(statistic):
@@ -27,13 +25,12 @@ def impt_stat():
 
         stat_mean = round(mean(ind_stat), 3)
         stat_sdev = round(stdev(ind_stat), 3)
-
-    return stat_mean, stat_sdev
     
+        stat_mean_sdev[k] = (stat_mean, stat_sdev)
 
-avg, sdev = impt_stat()
-
-print(avg, sdev)
+    return stat_mean_sdev
+    
+print(impt_stat())
 
 
 '''Create dictionary of {name of stat: [mean, stdev]}
