@@ -5,12 +5,23 @@ from links import build_links
 # use to get around firewalls blocking scrapes
 headers = {'User-agent': 'Mozilla/5.0'}
 
-# loop through the stat links to create a bs object
+
 def soupy(stat):
+    '''Loops through the statistic links to create a BeautifulSoup Object
+
+       Keyword Argument:
+       stat -- the statistic used to build links
+
+       returns a list
+    '''
+
     # list to hold all teams and selected stat
     team_stats = []
+
+    # loops through links
     for l in build_links(stat):
         site = requests.get(l, headers=headers) # get site info using requests
+
         # create BS object, sort through necessary info
         soup = BeautifulSoup(site.content)
         ts = soup.find_all('td')
