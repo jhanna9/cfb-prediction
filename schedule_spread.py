@@ -1,12 +1,6 @@
 # a script to scrape the schedule and spread of ncaa football teams from covers
-# imports
 import requests
-import sys
 from bs4 import BeautifulSoup
-
-# defaults encoding to utf-8
-reload(sys)
-sys.setdefaultencoding("utf-8")
 
 # use to get around firewalls blocking scrapes
 headers = {'User-agent': 'Mozilla/5.0'}
@@ -22,9 +16,8 @@ def schedule(link):
     link -- url to game schedule
 
     returns: a list
-
-
     '''
+
     # list to return
     games = []
     
@@ -41,7 +34,7 @@ def schedule(link):
     while x <= len(games):
         games[x] = games[x][1:]
         x += 2
-        
+       
     return games
 
 
@@ -52,9 +45,8 @@ def spread(link):
     link -- url to game schedule
 
     returns: a list
-
-
     '''
+
     # list to return
     spread_lst = []
     
@@ -77,9 +69,8 @@ def match_spread(sched, spread):
     spread -- spread function called with URL
 
     returns: a dictionary
-
-
     '''
+
     # dictionary to return and a placeholder list
     matchup_spread = {}
     matchup = []
@@ -102,8 +93,8 @@ def match_spread(sched, spread):
 
 # function calls
 #match_spread(schedule(data), spread(data))
-for k, v in match_spread(schedule(data), spread(data)).iteritems():
-    print k, v
+#for k, v in match_spread(schedule(data), spread(data)).items():
+    #print(k, v)
 
 
 

@@ -1,6 +1,5 @@
 import re
 import requests
-import sys
 from bs4 import BeautifulSoup
 
 # use to get around firewalls blocking scrapes
@@ -44,5 +43,5 @@ def sos():
     return str_sched
 
 # function calls
-for k, v in sos().items():
-    print(k, v)
+#for k, v in sos().items():
+    #print(k, v)
