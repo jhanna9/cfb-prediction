@@ -1,22 +1,20 @@
-# a script to scrape the schedule and spread of ncaa football teams from covers
-# imports
 import re
 import requests
 import sys
 from bs4 import BeautifulSoup
 
-# defaults encoding to utf-8
-reload(sys)
-sys.setdefaultencoding("utf-8")
-
 # use to get around firewalls blocking scrapes
 headers = {'User-agent': 'Mozilla/5.0'}
 
-# link to sos
-str_sched = 'https://www.teamrankings.com/college-football/ranking/schedule-strength-by-other'
+def sos():
+    '''Scrapes strength of schedule/team from teamrankings
 
+        returns a dictionary
+    '''
+    
+    # link to sos
+    link = 'https://www.teamrankings.com/college-football/ranking/schedule-strength-by-other'
 
-def sos(link):
     # dictionary to return
     str_sched = {}
 
@@ -45,8 +43,6 @@ def sos(link):
   
     return str_sched
 
-'''# function calls
-for k, v in sos(str_sched).iteritems():
-    print k, v
-
-'''
+# function calls
+for k, v in sos().items():
+    print(k, v)
