@@ -1,14 +1,8 @@
 # a script to create links to and store statistics of ncaa football teams
 # imports
 import re
-import requests
-import sys
 from bs4 import BeautifulSoup
 from link_builder import build_link
-
-# defaults encoding to utf-8
-reload(sys)
-sys.setdefaultencoding("utf-8")
 
 # use to get around firewalls blocking scrapes
 headers = {'User-agent': 'Mozilla/5.0'}
@@ -106,5 +100,5 @@ def combo_stats():
 
 # function call
 for k, v in combo_stats().iteritems():
-    print k, v
-    print '\n'
+    print(k, v)
+    print('\n')

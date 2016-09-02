@@ -20,7 +20,7 @@ def build_link(filename, path):
         if match:
             stat_link[match.group(2)] = path + match.group(1)
         else:
-            print False
+            print(False)
 
     return stat_link
 
