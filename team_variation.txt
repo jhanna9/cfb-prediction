@@ -1,0 +1,127 @@
+'Ohio St.'
+'Texas Tech'
+'Troy'
+'East Carolina'
+'Middle Tenn.'
+'Louisville'
+'TCU'
+'Western Ky.'
+'California'
+'Ohio'
+'New Mexico'
+'Ga. Southern'
+Air Force
+Boise St.
+Florida St.
+Colorado
+Akron
+SMU
+Kansas
+Toledo
+Syracuse
+Navy
+Texas St.
+Duke
+La.-Monroe
+Utah St.
+Miami (FL)
+Oregon
+North Carolina St.
+Southern Miss.
+Maryland
+UTEP
+Texas
+Illinois
+Washington St.
+Tulsa
+Michigan
+Purdue
+UNLV
+Baylor
+West Virginia
+Central Mich.
+Wyoming
+Indiana
+Eastern Mich.
+Georgia
+UCLA
+Alabama
+Old Dominion
+Northern Ill.
+UCF
+Missouri
+San Diego St.
+Virginia Tech
+Fla. Atlantic
+Arizona St.
+Ball St.
+UTSA
+South Fla.
+Notre Dame
+Texas A&M
+Utah
+Miami (OH)
+Western Mich.
+BYU
+Houston
+Kentucky
+Nebraska
+Memphis
+Iowa
+Buffalo
+Cincinnati
+Clemson
+Oklahoma St.
+North Texas
+Oklahoma
+Mississippi St.
+Washington
+Ole Miss
+South Ala.
+Florida
+Nevada
+UConn
+Michigan St.
+Hawaii
+Penn St.
+Idaho
+New Mexico St.
+Army West Point
+Wisconsin
+Kansas St.
+FIU
+Arizona
+Boston College
+Northwestern
+Tennessee
+Oregon St.
+North Carolina
+South Carolina
+Iowa St.
+Rutgers
+Virginia
+Arkansas
+Appalachian St.
+Louisiana Tech
+Rice
+San Jose St.
+Tulane
+Minnesota
+Kent St.
+Fresno St.
+Stanford
+Georgia St.
+UL Lafayette
+Arkansas St.
+Auburn
+Pittsburgh
+LSU
+Vanderbilt
+Temple
+Bowling Green
+Georgia Tech
+Colorado St.
+Charlotte
+Southern California
+Massachusetts
+Wake Forest
