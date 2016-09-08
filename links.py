@@ -1,5 +1,5 @@
 # build stats dictionary from data file
-def build_stat_dict(file):
+def build_dict(file):
     '''Builds a dictionary from a data file with key = statistic and value = either a
        number related to the website link or the stat position in a table.
 
@@ -15,8 +15,12 @@ def build_stat_dict(file):
     # opens file, reads line in file, splits line, stores split into dictionary
     with open(file) as f:
         for line in f:
-            (key, val) = line.split()
-            d[key] = val
+            if file == 'team_variation.txt':
+                (key, val1, val2) = line.split(',')
+                d[key] = val1, val2.strip()
+            else:
+                (key, val) = line.split()
+                d[key] = val
             
     return d
 
@@ -36,7 +40,7 @@ def build_links(stats):
     link = "http://www.ncaa.com/stats/football/fbs/current/team/"
 
     # builds the statistics dictionary with corresponding web path number
-    stats_dict = build_stat_dict('stat_num.txt')       
+    stats_dict = build_dict('stat_num.txt')       
 
     # the suffixes to obtain 3 pages of teams/stats
     more_pgs = ['', '/p2', '/p3']

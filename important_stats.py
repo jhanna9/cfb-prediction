@@ -14,7 +14,7 @@ def impt_stat():
     stat_mean_sdev = {}
 
     # builds then iterates through each stat's BS obj
-    for k, v in build_stat_dict('stat_position.txt').items():
+    for k, v in build_dict('stat_position.txt').items():
         # list to store all important numbers per stat
         ind_stat = []
         

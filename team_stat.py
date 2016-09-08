@@ -16,7 +16,7 @@ def team_stat_dict():
     teams = schedule(data)
 
     # builds then iterates through each stat's BS obj
-    for k, v in build_stat_dict('stat_position.txt').items():
+    for k, v in build_dict('stat_position.txt').items():
         # creates a BS object per stat
         stats = soupy(k)
         print(k)
