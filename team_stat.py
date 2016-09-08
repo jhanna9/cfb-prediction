@@ -1,4 +1,4 @@
-from links import build_stat_dict
+from links import build_dict
 from schedule_spread import schedule
 from soup import soupy
 
@@ -10,28 +10,43 @@ def team_stat_dict():
     # dictionary to hold teams and stats
     team_stat = {}
 
-    # link to schedule and spread
-    data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
-
-    teams = schedule(data)
-
     # builds then iterates through each stat's BS obj
     for k, v in build_dict('stat_position.txt').items():
+
         # creates a BS object per stat
         stats = soupy(k)
+        print('\n')
         print(k)
+        print('\n')
+        '''print(stats)
+        print('\n')
+        print('\n')
+        '''
+        
+        
+        # position of each important number within BS object list
+        x = int(v)
+        a = 1
+        
+        # variables to find the next important number
+        y = x + 1
+        z = x + 3
 
-        for t in teams:  
-            if t in stats:
-                #print(t + ' is in stats list' + '\n')
-                p = stats.index(t)
-                print(p)
-                #print(stats[int(p) + (int(v) - 2)])
-                team_stat[t] = stats[int(p) + (int(v) - 2)]
+        # iterates through BS object to append important num to list
+        for s in stats:
+            if x > len(stats):
+                break
             else:
-                #print(t + ' is not in stats list' + '\n')
-                pass
+                if k == 'Passes_Intercepted':
+                    team_stat[stats[a]] = stats[x]
+                    x += z
+                    a += z
+                else:
+                    team_stat[stats[a]] = stats[x]
+                    x += y
+                    a += y
+        print(team_stat)
         
     return team_stat
             
-print(team_stat_dict())
+team_stat_dict()

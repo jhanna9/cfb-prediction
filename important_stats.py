@@ -1,4 +1,4 @@
-from links import build_stat_dict
+from links import build_dict
 from soup import soupy
 from statistics import stdev, mean
 
