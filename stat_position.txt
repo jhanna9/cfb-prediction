@@ -18,3 +18,4 @@ Tackles_for_Loss_Allowed 7
 Team_Tackles_for_Loss 7
 Sacks_Allowed 5
 Team_Sacks 5
+Strength_Schedule 6

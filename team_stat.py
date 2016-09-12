@@ -23,7 +23,6 @@ def team_stat_dict():
         print('\n')
         '''
         
-        
         # position of each important number within BS object list
         x = int(v)
         a = 1
