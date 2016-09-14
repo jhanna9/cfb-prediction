@@ -3,7 +3,7 @@ import re
 from schedule_spread import schedule
 from soup import soupy
 
-def team_stat_dict():
+def team_stats():
     '''
 
     '''
@@ -12,11 +12,10 @@ def team_stat_dict():
     for k, v in build_dict('stat_position.txt').items():
         # list to hold teams and stats
         team_lst = []
-        stat_lst = []
+        stat_lst = [] 
 
         # creates a BS object per stat
         stats = soupy(k)
-        print('\n')
         print(k)
         print('\n')
         '''print(stats)
@@ -64,6 +63,6 @@ def team_stat_dict():
                     x += y
                     a += y
         
-    return team_lst, stat_lst 
-            
-print(team_stat_dict())
+        return team_lst, stat_lst
+
+#print(team_stats())
