@@ -20,19 +20,28 @@ def soupy():
 
     # create BS object, sort through necessary info
     soup = BeautifulSoup(site.content)
-    team = soup.find_all('td') #, class_="nowrap")
-    #print(team)
-    x = 0
-    y = 1
-    z = 6
+    team = soup.find_all('td')
+
+    team_lst = []
+    stat_lst = []
+
+    h = 1
+    i = 2
+    j = 6
     for t in team:
-        str = team[y].get_text()
+            str = team[h].get_text()
 
-        team_match = re.search(r'^[a-zA-Z]+-*\s*[a-zA-Z]*\s*[a-zA-Z]*', str)
+            team_match = re.search(r'^[a-zA-Z]+-*\s*[a-zA-Z]*\s*[a-zA-Z]*', str)
 
-        print(team[x].get_text(), team_match.group())
-        x += z
-        y += z
+            if team_match == None:
+                break
+            else:
+                team_lst.append(team_match.group())
+                stat_lst.append(team[i].get_text())
+                h += j
+                i += j
+
+    return team_lst, stat_lst
 
     '''x = 11
     while x <= len(team):
@@ -40,4 +49,4 @@ def soupy():
         x += 10
     '''
 
-soupy()
+print(soupy())

@@ -36,21 +36,24 @@ def build_links(stats):
     # list to return
     links = []
 
-    # the standard prefix for each statistic
-    link = "http://www.ncaa.com/stats/football/fbs/current/team/"
+    if stats == 'Strength_Schedule':
+        links.append('https://www.teamrankings.com/college-football/ranking/schedule-strength-by-other')
+    else:
+        # the standard prefix for each statistic
+        link = 'http://www.ncaa.com/stats/football/fbs/current/team/'
 
-    # builds the statistics dictionary with corresponding web path number
-    stats_dict = build_dict('stat_num.txt')       
+        # builds the statistics dictionary with corresponding web path number
+        stats_dict = build_dict('stat_num.txt')       
 
-    # the suffixes to obtain 3 pages of teams/stats
-    more_pgs = ['', '/p2', '/p3']
+        # the suffixes to obtain 3 pages of teams/stats
+        more_pgs = ['', '/p2', '/p3']
 
-    # builds links for each statistic if it is in the stats dictionary
-    for i in more_pgs:
-        if stats in stats_dict:
-            links.append(link + stats_dict[stats] + i)
-        else:
-            print("Stat not found")
-            break
-    
+        # builds links for each statistic if it is in the stats dictionary
+        for i in more_pgs:
+            if stats in stats_dict:
+                links.append(link + stats_dict[stats] + i)
+            else:
+                print("Stat not found")
+                break
+
     return links
