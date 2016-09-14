@@ -8,12 +8,10 @@ def z_score(two_lists):
 
     team, stat = two_lists
 
-    stat = stats.zscore(stat)
-
-    #score = ['%.2f' % s for s in stats.zscore(score)]
-
     for s in stat:
-        score.append(stats.zscore(s))       
+        score.append(float(s))
+              
+    score = ['%.2f' % s for s in stats.zscore(score)] 
 
     tm_zscore = dict(zip(team, score))
 
