@@ -45,11 +45,3 @@ def soupy():
     stand_score = z_score(team_lst, stat_lst)
 
     return stand_score
-
-    '''x = 11
-    while x <= len(team):
-        print(team[x].get_text())
-        x += 10
-    '''
-
-print(soupy())
