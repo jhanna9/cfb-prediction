@@ -1,12 +1,12 @@
 from scipy import stats
-from team_stat import team_stats
 
-def z_score(two_lists):
+def z_score(t_lst, s_lst):
     score = []
     stat = []
     team = []
 
-    team, stat = two_lists
+    team = t_lst
+    stat = s_lst
 
     for s in stat:
         score.append(float(s))
@@ -16,5 +16,3 @@ def z_score(two_lists):
     tm_zscore = dict(zip(team, score))
 
     return tm_zscore
-
-print(z_score(team_stats()))

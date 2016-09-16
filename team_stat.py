@@ -1,7 +1,9 @@
 from links import build_dict
 import re
 from schedule_spread import schedule
+from standard_score import z_score
 from soup import soupy
+
 
 def team_stats():
     '''
@@ -10,18 +12,12 @@ def team_stats():
 
     # builds then iterates through each stat's BS obj
     for k, v in build_dict('stat_position.txt').items():
-        # list to hold teams and stats
-        team_lst = []
-        stat_lst = [] 
-
+        
         # creates a BS object per stat
         stats = soupy(k)
+        print('\n')
         print(k)
         print('\n')
-        '''print(stats)
-        print('\n')
-        print('\n')
-        '''
         
         # position of each important number within BS object list
         x = int(v)
@@ -33,13 +29,18 @@ def team_stats():
         z = x + 3
         c = 6
 
+        # list to hold teams and stats
+        team_lst = []
+        stat_lst = []
+
         # iterates through BS object to append important num to list
         for s in stats:
             if x > len(stats):
                 break
-            else:
+            else:   
                 if k == 'Strength_Schedule':
-                    for t in stats:
+                    break
+                    '''for t in stats:
                         search_str = stats[a]
 
                         team_match = re.search(r'^[a-zA-Z]+-*\s*[a-zA-Z]*\s*[a-zA-Z]*', search_str)
@@ -51,18 +52,24 @@ def team_stats():
                             stat_lst.append(stats[b])
                             a += c
                             b += c
+                    '''
                 elif k == 'Passes_Intercepted':
                     team_lst.append(stats[a])
                     stat_lst.append(stats[x])
                     x += z
                     a += z
-
                 else:
                     team_lst.append(stats[a])
                     stat_lst.append(stats[x])
                     x += y
                     a += y
-        
-        return team_lst, stat_lst
 
-#print(team_stats())
+        stand_score = z_score(team_lst, stat_lst)       
+        #print(stand_score)
+
+        yield stand_score   
+
+# use this loop for comparison
+for ts in team_stats():
+    print(ts)
+

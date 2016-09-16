@@ -25,11 +25,11 @@ def soupy():
     team_lst = []
     stat_lst = []
 
-    h = 1
-    i = 2
-    j = 6
+    x = 1
+    y = 2
+    z = 6
     for t in team:
-            str = team[h].get_text()
+            str = team[x].get_text()
 
             team_match = re.search(r'^[a-zA-Z]+-*\s*[a-zA-Z]*\s*[a-zA-Z]*', str)
 
@@ -37,9 +37,9 @@ def soupy():
                 break
             else:
                 team_lst.append(team_match.group())
-                stat_lst.append(team[i].get_text())
-                h += j
-                i += j
+                stat_lst.append(team[y].get_text())
+                x += z
+                y += z
 
     return team_lst, stat_lst
 
