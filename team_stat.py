@@ -15,9 +15,6 @@ def team_stats():
         
         # creates a BS object per stat
         stats = soupy(k)
-        print('\n')
-        print(k)
-        print('\n')
         
         # position of each important number within BS object list
         x = int(v)
@@ -37,35 +34,18 @@ def team_stats():
         for s in stats:
             if x > len(stats):
                 break
-            else:   
-                if k == 'Strength_Schedule':
-                    break
-                    '''for t in stats:
-                        search_str = stats[a]
+            elif k == 'Passes_Intercepted':
+                team_lst.append(stats[a])
+                stat_lst.append(stats[x])
+                x += z
+                a += z
+            else:
+                team_lst.append(stats[a])
+                stat_lst.append(stats[x])
+                x += y
+                a += y
 
-                        team_match = re.search(r'^[a-zA-Z]+-*\s*[a-zA-Z]*\s*[a-zA-Z]*', search_str)
-
-                        if team_match == None:
-                            break
-                        else:
-                            team_lst.append(team_match.group())
-                            stat_lst.append(stats[b])
-                            a += c
-                            b += c
-                    '''
-                elif k == 'Passes_Intercepted':
-                    team_lst.append(stats[a])
-                    stat_lst.append(stats[x])
-                    x += z
-                    a += z
-                else:
-                    team_lst.append(stats[a])
-                    stat_lst.append(stats[x])
-                    x += y
-                    a += y
-
-        stand_score = z_score(team_lst, stat_lst)       
-        #print(stand_score)
+        stand_score = z_score(team_lst, stat_lst)
 
         yield stand_score   
 
