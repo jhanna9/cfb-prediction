@@ -16,8 +16,8 @@ def build_dict(file):
     with open(file) as f:
         for line in f:
             if file == 'team_variation.txt':
-                (key, val1, val2) = line.split(',')
-                d[key] = val1, val2.strip()
+                (key, val1, val2, val3) = line.split(',')
+                d[key] = val1, val2, val3.strip()
             else:
                 (key, val) = line.split()
                 d[key] = val

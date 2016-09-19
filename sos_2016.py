@@ -7,7 +7,7 @@ from standard_score import z_score
 headers = {'User-agent': 'Mozilla/5.0'}
 
 
-def soupy():
+def sos():
     '''Loops through the statistic links to create a BeautifulSoup Object
 
        Keyword Argument:

@@ -50,6 +50,6 @@ def team_stats():
         yield stand_score   
 
 # use this loop for comparison
-for ts in team_stats():
-    print(ts)
+#for ts in team_stats():
+    #print(ts)
 

@@ -9,7 +9,7 @@ headers = {'User-agent': 'Mozilla/5.0'}
 data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
 
 
-def schedule(link):
+def schedule():
     '''Takes a URL input and scrapes for team names
 
     Keyword arguments:
@@ -17,6 +17,8 @@ def schedule(link):
 
     returns: a list
     '''
+    # link to schedule and spread
+    link = 'http://www.covers.com/odds/football/college-football-odds.aspx'
 
     # list to return
     games = []
@@ -46,6 +48,7 @@ def spread(link):
 
     returns: a list
     '''
+    link = 'http://www.covers.com/odds/football/college-football-odds.aspx'
 
     # list to return
     spread_lst = []
@@ -95,7 +98,3 @@ def match_spread(sched, spread):
 #match_spread(schedule(data), spread(data))
 #for k, v in match_spread(schedule(data), spread(data)).items():
     #print(k, v)
-
-
-
-
