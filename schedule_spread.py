@@ -30,10 +30,12 @@ def schedule():
     # iterate through BS object looking for strong tag
     for tag in soup('strong'):
         games.append(tag.string)
+    
+    games = games[:-1]
 
     x = 1
 
-    while x <= len(games):
+    while x < len(games):
         games[x] = games[x][1:]
         x += 2
        
