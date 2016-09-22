@@ -15,8 +15,12 @@ def build_dict(file):
     # opens file, reads line in file, splits line, stores split into dictionary
     with open(file) as f:
         for line in f:
-            (key, val) = line.split()
-            d[key] = val
+            if file == 'team_variation.txt':
+                (key, val1, val2) = line.split(',')
+                d[key] = val1, val2.strip()
+            else:
+                (key, val) = line.split()                 
+                d[key] = val
             
     return d
 

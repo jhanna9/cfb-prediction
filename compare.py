@@ -8,21 +8,35 @@ def match_team():
 
     '''
     teams = schedule()
-    print(teams)
-    print(len(teams))
-    teams_new = []
+    #print(teams)
+    #print(len(teams))
     team_var = build_dict('team_variation.txt')
+    teams_new = []
+    skip = False
+    x = 0
+    y = 0
+    
+    print(team_var)
 
+    '''with open(file) as f:
+        for line in f:
+            (val1, val2, val3) = line.split(',')
+            team_var.append((val1, val2, val3.strip()))
+           
     for t in teams:
-        for k, v in team_var.items():
-            if t in v:
-                teams_new.append(k)
-            else:
-                #print(t, 'did not match', k)
-                pass
-    print(len(teams_new))
-            
-    return teams_new
+        if skip == True:
+                skip = False
+                continue
+        elif t not in team_var:
+                skip = True
+                continue
+        else:
+             teams_new.append(teams.index(t) - 1)
+    ''''    
 
-print(match_team())
-#match_team()
+    #print(len(teams_new))
+            
+    return team_var
+
+#print(match_team('team_variation.txt'))
+match_team()
