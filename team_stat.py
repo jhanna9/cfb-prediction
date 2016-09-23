@@ -47,9 +47,8 @@ def team_stats():
 
         stand_score = z_score(team_lst, stat_lst)
 
-        yield stand_score   
+        yield stand_score
 
 # use this loop for comparison
 #for ts in team_stats():
     #print(ts)
-
