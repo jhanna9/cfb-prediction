@@ -13,7 +13,7 @@ def sos():
        Keyword Argument:
        stat -- the statistic used to build links
 
-       returns a list
+       returns a dictionary
     '''
 
     # get site info using requests
@@ -32,7 +32,7 @@ def sos():
     for t in team:
             str = team[x].get_text()
 
-            team_match = re.search(r'^[a-zA-Z]+-*\s*[a-zA-Z]*\s*[a-zA-Z]*', str)
+            team_match = re.search(r'^[a-zA-Z]+-*\s*[a-zA-Z]*\s*[a-zA-Z]', str)
 
             if team_match == None:
                 break
@@ -45,3 +45,5 @@ def sos():
     stand_score = z_score(team_lst, stat_lst)
 
     return stand_score
+
+print(sos())
