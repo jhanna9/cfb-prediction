@@ -3,12 +3,12 @@ from schedule_spread import schedule
 from sos_2016 import sos
 from team_stat import team_stats
 
-def match_team():
+def match_team(teams):
     '''
 
     '''
     # builds team schedule from covers
-    teams = schedule()
+    #teams = schedule()
 
     # builds dictionary of variation on team names
     team_var = build_dict('team_variation.txt')
@@ -43,19 +43,29 @@ def compare_stats():
     '''
 
     '''
-    teams = match_team()
+    teams = match_team(schedule())
+    strength = match_team(sos())
+    print(strength)
     x = 0
-    y = 1
         
     # use this loop for comparison
     for ts in team_stats():
-        #print(ts)
-        while x < len(teams):
-            print(teams[x], ts[teams[x]])
-            print(teams[y], ts[teams[y]])
-            print('\n')
-            x += 2
-            y += 2
+            #print(ts)
+        for t in teams:
+            #for k, v in strength.items():
+            if x == 2:
+                print('\n')
+                x = 0
+            elif t in ts:
+                t_sos = float(ts[t]) + float(strength[t])
+                print(t, ts[t], t_sos)
+                x += 1
 
+        '''print(teams[x], ts[teams[x]])
+        print(teams[y], ts[teams[y]])
+        print('\n')
+        x += 2
+        y += 2
+        '''
 compare_stats()
             

@@ -32,7 +32,7 @@ def sos():
     for t in team:
             str = team[x].get_text()
 
-            team_match = re.search(r'^[a-zA-Z]+-*\s*[a-zA-Z]*\s*[a-zA-Z]', str)
+            team_match = re.search(r'^[a-zA-Z]+-*\s*[a-zA-Z]*\s*[a-zA-Z]*', str)
 
             if team_match == None:
                 break
@@ -46,4 +46,4 @@ def sos():
 
     return stand_score
 
-print(sos())
+#print(sos())
