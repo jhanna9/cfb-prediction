@@ -42,8 +42,14 @@ def sos():
                 x += z
                 y += z
 
-    stand_score = z_score(team_lst, stat_lst)
+    return team_lst, stat_lst
+
+
+def zscore(team, stat):
+    '''
+
+    '''
+    stand_score = z_score(team, stat)
 
     return stand_score
-
-print(sos())
+    

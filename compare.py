@@ -1,6 +1,6 @@
 from links import build_dict
 from schedule_spread import schedule
-from sos_2016 import sos
+from sos_2016 import sos, zscore
 from team_stat import team_stats
 
 def match_team(teams):
@@ -44,7 +44,7 @@ def compare_stats():
 
     '''
     teams = match_team(schedule())
-    strength = match_team(sos())
+    strength = zscore(match_team(sos()[0]), sos()[1])
     print(strength)
     x = 0
         
@@ -67,5 +67,5 @@ def compare_stats():
         x += 2
         y += 2
         '''
-compare_stats()
-            
+
+compare_stats()         
