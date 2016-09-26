@@ -30,9 +30,11 @@ def sos():
     y = 2
     z = 6
     for t in team:
-            str = team[x].get_text()
+            team_str = team[x].get_text()
 
-            team_match = re.search(r'^[a-zA-Z]+-*\s*[a-zA-Z]*\s*[a-zA-Z]', str)
+            team_match = re.search(r'([\w\s-]+)([\w\s&()]*)', team_str)  #r'^[a-zA-Z]-*\s*[a-zA-Z]*\s*[a-zA-Z]*', str)
+            print(team_match.group())
+            #print(team_match.group(2))
 
             if team_match == None:
                 break
@@ -43,6 +45,8 @@ def sos():
                 y += z
 
     return team_lst, stat_lst
+
+print(sos()[0])
 
 
 def zscore(team, stat):
