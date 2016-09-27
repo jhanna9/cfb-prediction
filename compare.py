@@ -18,9 +18,7 @@ def match_team(teams):
     x = 0
 
     for t in teams:
-        print(t)
         if len(teams) == 128:
-            print('in 128')
             for k, v in team_var.items():
                 if t in v:
                     teams_new.append(k)
@@ -74,4 +72,4 @@ def compare_stats():
         y += 2
         '''
 
-#compare_stats()         
+compare_stats()         

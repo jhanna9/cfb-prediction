@@ -30,19 +30,22 @@ def sos():
     y = 2
     z = 6
     for t in team:
-            team_str = team[x].get_text()
+        team_str = team[x].get_text()
 
-            team_match = re.search(r'([\w\s-]+)([\w\s&()]*)', team_str)  #r'^[a-zA-Z]-*\s*[a-zA-Z]*\s*[a-zA-Z]*', str)
-            print(team_match.group())
-            #print(team_match.group(2))
+        team_match = re.search(r'([&\w\s*-]+)([(\w\w)]+)', team_str)
 
-            if team_match == None:
-                break
-            else:
-                team_lst.append(team_match.group())
-                stat_lst.append(team[y].get_text())
-                x += z
-                y += z
+        if len(team_lst) == 128:
+            break
+        elif team_match.group(1) == 'Miami ':
+            whole_miami = team_match.group(1) + team_match.group(2).strip()
+            team_lst.append(whole_miami)
+            x += z
+            y += z
+        else:
+            team_lst.append(team_match.group(1).strip())
+            stat_lst.append(team[y].get_text())
+            x += z
+            y += z
 
     return team_lst, stat_lst
 
