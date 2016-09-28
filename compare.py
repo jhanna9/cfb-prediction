@@ -47,29 +47,26 @@ def compare_stats():
 
     '''
     teams = match_team(schedule())
-    #print('after match teams', len(teams))
-    strength = zscore(match_team(sos()[0]), sos()[1])
-    #print('after match teams', len(match_team(sos()[0])))
+    #print(teams)
+    #print(len(teams))
+    strength = zscore(match_team(sos()[0]), sos()[1]) # z score for s.o.s.
+    #print(len(match_team(sos()[0])))
+    #print(match_team(sos()[0]))
     x = 0
         
     # use this loop for comparison
-    for ts in team_stats():
-            #print(ts)
+    for ts in team_stats(): # ts is dict with team: zscore per stat
         for t in teams:
-            #for k, v in strength.items():
-            if x == 2:
-                print('\n')
-                x = 0
-            elif t in ts:
-                t_sos = float(ts[t]) + float(strength[t])
-                print(t, ts[t], t_sos)
+            #if x == 2:
+                #print('\n')
+                #x = 0
+            # if team is in ts dict
+            if t in ts:
+                # ts[t] = key call to get value of team in ts / strength[t] = s.o.s. zscore for team
+                t_sos = float(ts[t]) + float(strength[t]) 
+                print(t, ts[t], round(t_sos, 2))
                 x += 1
-
-        '''print(teams[x], ts[teams[x]])
-        print(teams[y], ts[teams[y]])
-        print('\n')
-        x += 2
-        y += 2
-        '''
+            else:
+                print(t, 'not in teams')
 
 compare_stats()         

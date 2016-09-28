@@ -15,7 +15,6 @@ def sos():
 
        returns a dictionary
     '''
-
     # get site info using requests
     site = requests.get('https://www.teamrankings.com/college-football/ranking/schedule-strength-by-other', headers=headers) 
 
@@ -34,7 +33,7 @@ def sos():
 
         team_match = re.search(r'([&\w\s*-]+)([(\w\w)]+)', team_str)
 
-        if len(team_lst) == 128:
+        if len(stat_lst) == 135:
             break
         elif team_match.group(1) == 'Miami ':
             whole_miami = team_match.group(1) + team_match.group(2).strip()
@@ -48,9 +47,6 @@ def sos():
             y += z
 
     return team_lst, stat_lst
-
-print(sos()[0])
-
 
 def zscore(team, stat):
     '''

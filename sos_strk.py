@@ -6,8 +6,8 @@ import sys
 from bs4 import BeautifulSoup
 
 # defaults encoding to utf-8
-reload(sys)
-sys.setdefaultencoding("utf-8")
+#reload(sys)
+#sys.setdefaultencoding("utf-8")
 
 # use to get around firewalls blocking scrapes
 headers = {'User-agent': 'Mozilla/5.0'}
@@ -41,9 +41,9 @@ def sos(link):
     sos_lst = sos_lst[2::6]
 
     # create dictionary of game team as the key and strenght of schedule as the value
-    str_sched = dict(zip(team_lst, sos_lst))
+    #str_sched = dict(zip(team_lst, sos_lst))
   
-    return str_sched
+    return team_lst, sos_lst 
 
 
 def streak(link):
