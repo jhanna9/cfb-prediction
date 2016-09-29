@@ -33,11 +33,12 @@ def sos():
 
         team_match = re.search(r'([&\w\s*-]+)([(\w\w)]+)', team_str)
 
-        if len(stat_lst) == 135:
+        if len(stat_lst) == 128:
             break
         elif team_match.group(1) == 'Miami ':
             whole_miami = team_match.group(1) + team_match.group(2).strip()
             team_lst.append(whole_miami)
+            stat_lst.append(team[y].get_text())
             x += z
             y += z
         else:
@@ -47,6 +48,7 @@ def sos():
             y += z
 
     return team_lst, stat_lst
+
 
 def zscore(team, stat):
     '''
