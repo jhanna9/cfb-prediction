@@ -48,51 +48,46 @@ def compare_stats():
     '''
     teams = match_team(schedule())
     strength = zscore(match_team(sos()[0]), sos()[1]) # z score for s.o.s.
-    x = 0
-    y = 0
-    home_team = ''
-    away_team = ''
-    ht_score = 0
-    at_score = 0
+    team_score = []
+    tz = []
     fin = 0
         
     # use this loop for comparison
     for t in teams:
-        if y == 0:
-            away_team = t       
-        elif x == 1:
-            home_team = t
-            at_score = sum(team_score)                
+        if len(team_score) == 0:
+            tz.append(t)
+        elif len(tz) == 4:
+                fin = abs(tz[1] - tz[3])
+
+                print(tz[0], '@', tz[2])
+
+                if tz[1] > tz[3]:
+                    print(tz[0], 'gets', round(fin, 2), 'points.')
+                    tz = []
+                    tz.append(t)
+                else:
+                    print(tz[2], 'gets', round(fin, 2), 'points.')
+                    tz = []
+                    tz.append(t)
+                print('\n')
+        else:        
+            tz.append(t)
+            
 
         team_score = []             
 
-        for ts in team_stats(): # ts is dict with team: zscore per stat
-            if x == 2:
-                
-                print(at_score)
-                print(ht_score) 
-                fin = abs(at_score - ht_score)
-
-                print(away_team, '@', home_team)
-                if at_score > ht_score:
-                    print(away_team, 'gets', round(fin, 2), 'points.')
-                    x = 0
-                else:
-                    print(home_team, 'gets', round(fin, 2), 'points.')
-                    x = 0
-                print('\n')
+        for ts in team_stats(): # ts is dict with team: zscore per stat            
+            
                               
             # if team is in ts dict
-            elif t in ts:
+            if t in ts:
                 # ts[t] = key call to get value of team in ts / strength[t] = s.o.s. zscore for team
-                t_sos = float(ts[t]) + float(strength[t]) 
-                #print(t, ts[t], strength[t], round(t_sos, 2))
+                t_sos = float(ts[t]) + float(strength[t])
                 team_score.append(t_sos)                                              
             else:
                 print(t, 'has not intercepted a pass this season.')
-
-        ht_score = sum(team_score)
-        x += 1                   
+        
+        tz.append(sum(team_score))                  
         
         #print(t, round(sum(team_score),2), len(team_score))    
 
