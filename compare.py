@@ -49,25 +49,51 @@ def compare_stats():
     teams = match_team(schedule())
     strength = zscore(match_team(sos()[0]), sos()[1]) # z score for s.o.s.
     x = 0
-    #team_score = []
+    y = 0
+    home_team = ''
+    away_team = ''
+    ht_score = 0
+    at_score = 0
+    fin = 0
         
     # use this loop for comparison
     for t in teams:
-        team_score = []
-        for ts in team_stats(): # ts is dict with team: zscore per stat  
+        if y == 0:
+            away_team = t       
+        elif x == 1:
+            home_team = t
+            at_score = sum(team_score)                
+
+        team_score = []             
+
+        for ts in team_stats(): # ts is dict with team: zscore per stat
             if x == 2:
+                
+                print(at_score)
+                print(ht_score) 
+                fin = abs(at_score - ht_score)
+
+                print(away_team, '@', home_team)
+                if at_score > ht_score:
+                    print(away_team, 'gets', round(fin, 2), 'points.')
+                    x = 0
+                else:
+                    print(home_team, 'gets', round(fin, 2), 'points.')
+                    x = 0
                 print('\n')
-                x = 0                   
+                              
             # if team is in ts dict
             elif t in ts:
                 # ts[t] = key call to get value of team in ts / strength[t] = s.o.s. zscore for team
                 t_sos = float(ts[t]) + float(strength[t]) 
                 #print(t, ts[t], strength[t], round(t_sos, 2))
-                team_score.append(t_sos)
-            #else:
-                #print(t, 'not in teams')
+                team_score.append(t_sos)                                              
+            else:
+                print(t, 'has not intercepted a pass this season.')
+
+        ht_score = sum(team_score)
+        x += 1                   
         
-        x += 1
-        print(t, round(sum(team_score),2))    
+        #print(t, round(sum(team_score),2), len(team_score))    
 
 compare_stats()         

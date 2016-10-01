@@ -51,4 +51,4 @@ def team_stats():
 
 # use this loop for comparison
 #for ts in team_stats():
-    #print(ts)
+    #print(len(ts))
