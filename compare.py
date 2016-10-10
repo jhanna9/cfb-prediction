@@ -82,12 +82,12 @@ def compare_stats():
             # if team is in ts dict
             if t in ts:
                 # ts[t] = key call to get value of team in ts / strength[t] = s.o.s. zscore for team
-                t_sos = float(ts[t]) + float(strength[t])
+                t_sos = float(ts[t]) # + float(strength[t])
                 team_score.append(t_sos)                                              
             else:
                 print(t, 'has not intercepted a pass this season.')
         
-        tz.append(sum(team_score))                  
+        tz.append(sum(team_score) + float(strength[t]))                  
         
         #print(t, round(sum(team_score),2), len(team_score))    
 

@@ -42,7 +42,7 @@ def schedule():
     return games
 
 
-def spread(link):
+def spread():
     '''Takes a URL input and scrapes for current spread
 
     Keyword arguments:
@@ -100,3 +100,9 @@ def match_spread(sched, spread):
 #match_spread(schedule(data), spread(data))
 #for k, v in match_spread(schedule(data), spread(data)).items():
     #print(k, v)
+
+# prints out covers' spread in good format
+#for s in spread():
+    #print(s)
+    #print('a')
+    #print('\n')
