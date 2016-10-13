@@ -1,0 +1,17 @@
+3rd_Down_Conversion_Pct 5
+4th_Down_Conversion_Pct 5
+Completion_Percentage 5
+First_Downs_Offense 6
+Fumbles_Lost 3
+Passes_Had_Intercepted 4
+Passing_Offense 10
+Passing_Yards_per_Completion 6
+Red_Zone_Offense 8
+Rushing_Offense 7
+Sacks_Allowed 5
+Scoring_Offense 10
+Tackles_for_Loss_Allowed 7
+Team_Passing_Efficiency 8
+Time_of_Possession 4
+Total_Offense 8
+Turnovers_Lost 5

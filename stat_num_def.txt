@@ -1,0 +1,15 @@
+3rd_Down_Conversion_Pct_Defense 701
+4th_Down_Conversion_Pct_Defense 702
+Defensive_TDs 926
+First_Downs_Defense 694
+Fumbles_Recovered 456
+Passes_Intercepted 457
+Passing_Yards_Allowed 695
+Red_Zone_Defense 704
+Rushing_Defense 24
+Scoring_Defense 28
+Team_Passing_Efficiency_Defense 40
+Team_Sacks 466
+Team_Tackles_for_Loss 467
+Total_Defense 22
+Turnovers_Lost 461

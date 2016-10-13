@@ -1,3 +1,5 @@
+3rd_Down_Conversion_Pct 5
+3rd_Down_Conversion_Pct_Defense 5
 Total_Offense 8
 Total_Defense 8
 Rushing_Offense 7
@@ -8,8 +10,6 @@ Scoring_Offense 10
 Scoring_Defense 10
 Team_Passing_Efficiency 8
 Team_Passing_Efficiency_Defense 8
-3rd_Down_Conversion_Pct 5
-3rd_Down_Conversion_Pct_Defense 5
 Red_Zone_Offense 8
 Red_Zone_Defense 8
 Passes_Intercepted 4

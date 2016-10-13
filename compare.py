@@ -97,6 +97,7 @@ def compare_stats():
         # strength[t] = s.o.s. zscore for team
         tz.append(sum(team_score) + float(strength[t]))
         
+        # handles last match-up on the schedule
         if t == teams[len(teams) - 1]:
             make_pick(tz)
         else:

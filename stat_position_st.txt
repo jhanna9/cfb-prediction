@@ -1,0 +1,9 @@
+Blocked_Kicks 3
+Blocked_Kicks_Allowed 3
+Blocked_Punts 4
+Blocked_Punts_Allowed 4
+Kickoff_Return_Defense 7
+Kickoff_Returns 6
+Net_Punting 7
+Punt_Return_Defense 6
+Punt_Returns 6

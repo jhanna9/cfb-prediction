@@ -1,0 +1,17 @@
+3rd_Down_Conversion_Pct 699
+4th_Down_Conversion_Pct 700
+Completion_Percentage 756
+First_Downs_Defense 694
+Fumbles_Lost 458
+Passes_Had_Intercepted 459
+Passing_Offense 25
+Passing_Yards_per_Completion 741
+Red_Zone_Offense 703
+Rushing_Offense 23
+Sacks_Allowed 468
+Scoring_Offense 27
+Tackles_for_Loss_Allowed 696
+Team_Passing_Efficiency 465
+Time_of_Possession 705
+Total_Offense 21
+Turnovers_Lost 461

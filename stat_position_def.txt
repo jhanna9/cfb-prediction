@@ -1,0 +1,15 @@
+3rd_Down_Conversion_Pct_Defense 5
+4th_Down_Conversion_Pct_Defense 5
+Defensive_TDs 5
+First_Downs_Defense 6
+Fumbles_Recovered 3
+Passes_Intercepted 4
+Passing_Yards_Allowed 9
+Red_Zone_Defense 8
+Rushing_Defense 7
+Scoring_Defense 10
+Team_Passing_Efficiency_Defense 8
+Team_Sacks 5
+Team_Tackles_for_Loss 7
+Total_Defense 8
+Turnovers_Gained 5
