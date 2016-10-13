@@ -54,13 +54,8 @@ def make_pick(tstats):
 
     if tstats[1] > tstats[3]:
         print(tstats[0], 'gets', round(fin, 2), 'points.')
-        #tz = []
-        #tz.append(t)
     else:
         print(tstats[2], 'gets', round(fin, 2), 'points.')
-        #tz = []
-        #tz.append(t)
-    #print('\n')
     
 
 def compare_stats():
@@ -78,17 +73,6 @@ def compare_stats():
         if len(team_score) == 0:
             tz.append(t)
         elif len(tz) == 4:
-            '''fin = abs(tz[1] - tz[3])
-
-            print(tz[0], '@', tz[2])
-
-            if tz[1] > tz[3]:
-            print(tz[0], 'gets', round(fin, 2), 'points.')
-            tz = []
-            tz.append(t)
-            else:
-            print(tz[2], 'gets', round(fin, 2), 'points.')
-            '''
             make_pick(tz)
             tz = []
             tz.append(t)
