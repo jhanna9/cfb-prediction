@@ -25,7 +25,7 @@ def match_team(teams):
         else:
             ind = teams.index(t)
             x = 0
-            '''if team from teams is appened to no_list, 
+            '''if team from teams is appended to no_list, 
             following team is not added to team_var
             '''
             if teams[ind - 1] in no_list:
@@ -42,6 +42,27 @@ def match_team(teams):
             
     return teams_new
 
+def make_pick(tstats):
+    '''
+
+    '''
+    fin = 0
+
+    fin = abs(tstats[1] - tstats[3])
+
+    print(tstats[0], '@', tstats[2])
+
+    if tstats[1] > tstats[3]:
+        print(tstats[0], 'gets', round(fin, 2), 'points.')
+        #tz = []
+        #tz.append(t)
+    else:
+        print(tstats[2], 'gets', round(fin, 2), 'points.')
+        #tz = []
+        #tz.append(t)
+    #print('\n')
+    
+
 def compare_stats():
     '''
 
@@ -50,45 +71,51 @@ def compare_stats():
     strength = zscore(match_team(sos()[0]), sos()[1]) # z score for s.o.s.
     team_score = []
     tz = []
-    fin = 0
+    #fin = 0
         
     # use this loop for comparison
     for t in teams:
         if len(team_score) == 0:
             tz.append(t)
         elif len(tz) == 4:
-                fin = abs(tz[1] - tz[3])
+            '''fin = abs(tz[1] - tz[3])
 
-                print(tz[0], '@', tz[2])
+            print(tz[0], '@', tz[2])
 
-                if tz[1] > tz[3]:
-                    print(tz[0], 'gets', round(fin, 2), 'points.')
-                    tz = []
-                    tz.append(t)
-                else:
-                    print(tz[2], 'gets', round(fin, 2), 'points.')
-                    tz = []
-                    tz.append(t)
-                print('\n')
+            if tz[1] > tz[3]:
+            print(tz[0], 'gets', round(fin, 2), 'points.')
+            tz = []
+            tz.append(t)
+            else:
+            print(tz[2], 'gets', round(fin, 2), 'points.')
+            '''
+            make_pick(tz)
+            tz = []
+            tz.append(t)
+            print('\n')
         else:        
             tz.append(t)
             
 
         team_score = []             
 
-        for ts in team_stats(): # ts is dict with team: zscore per stat            
-            
-                              
+        for ts in team_stats(): # ts is dict with team: zscore per stat                           
             # if team is in ts dict
             if t in ts:
-                # ts[t] = key call to get value of team in ts / strength[t] = s.o.s. zscore for team
-                t_sos = float(ts[t]) # + float(strength[t])
-                team_score.append(t_sos)                                              
+                # ts[t] = key call to get value of team in ts
+                t_sos = float(ts[t])
+                team_score.append(t_sos)                                
             else:
-                print(t, 'has not intercepted a pass this season.')
+                # figure out how to handle this
+                pass                
+                # print(t, 'has not intercepted a pass this season.')
         
-        tz.append(sum(team_score) + float(strength[t]))                  
+        # strength[t] = s.o.s. zscore for team
+        tz.append(sum(team_score) + float(strength[t]))
         
-        #print(t, round(sum(team_score),2), len(team_score))    
+        if t == teams[len(teams) - 1]:
+            make_pick(tz)
+        else:
+            continue  
 
 compare_stats()         
