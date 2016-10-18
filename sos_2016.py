@@ -2,7 +2,6 @@ import re
 import requests
 from bs4 import BeautifulSoup
 from scipy import stats
-#from standard_score import z_score
 
 # use to get around firewalls blocking scrapes
 headers = {'User-agent': 'Mozilla/5.0'}
@@ -50,13 +49,6 @@ def sos():
 
     return team_lst, stat_lst
 
-
-'''def zscore(team, stat):
-
-    stand_score = z_score(team, stat)
-
-    return stand_score
-'''
 
 def z_score(t_lst, s_lst):
     score = []

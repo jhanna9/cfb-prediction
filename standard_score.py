@@ -1,3 +1,5 @@
+# No longer used in 2016
+
 from scipy import stats
 
 def z_score(t_lst, s_lst):

@@ -66,7 +66,6 @@ def compare_stats():
     strength = z_score(match_team(sos()[0]), sos()[1]) # z score for s.o.s.
     team_score = []
     tz = []
-    #fin = 0
         
     # use this loop for comparison
     for t in teams:
@@ -78,8 +77,7 @@ def compare_stats():
             tz.append(t)
             print('\n')
         else:        
-            tz.append(t)
-            
+            tz.append(t)           
 
         team_score = []             
 

@@ -1,7 +1,7 @@
 from links import build_dict
 import re
 from schedule_spread import schedule
-from standard_score import z_score
+from sos_2016 import z_score
 from soup import soupy
 
 
