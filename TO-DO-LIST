@@ -1,7 +1,0 @@
-Determine important stats
-Scrape important stats into: a dictionary {team: stats}; a list of each stat to determine the median and standard deviation
-Compare each team's stat to important stat median +/- 3 points for each stand dev from median
-Create dictionary of {team: points from median} per each important stat
-Scrape schedule and spread
-Compare opponents using dictionary of {team: points from median}; difference of points per stats to get my spread
-SEE NOTEBOOK - Compare my spread to vegas spread to determine pick
