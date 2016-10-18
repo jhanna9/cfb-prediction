@@ -8,8 +8,6 @@ Blocked_Punts 790
 Blocked_Punts_Allowed 791
 Completion_Percentage 756
 Defensive_TDs 926
-Fewest_Penalties_Per_Game 697
-Fewest_Penalty_Yards_Per_Game 698
 First_Downs_Defense 694
 First_Downs_Offense 693
 Fumbles_Lost 458
@@ -36,7 +34,6 @@ Team_Passing_Efficiency 465
 Team_Passing_Efficiency_Defense 40
 Team_Sacks 466
 Team_Tackles_for_Loss 467
-Time_of_Possession 705
 Total_Defense 22
 Total_Offense 21
 Turnover_Margin 29

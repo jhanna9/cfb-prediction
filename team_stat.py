@@ -9,6 +9,18 @@ def team_stats():
     '''
 
     '''
+    lower_better = [
+                    '3rd_Down_Conversion_Pct_Defense', 
+                    'Total_Defense',
+                    'Rushing_Defense',
+                    'Passing_Yards_Allowed',
+                    'Scoring_Defense',
+                    'Team_Passing_Efficiency_Defense',
+                    'Red_Zone_Defense',
+                    'Passes_Had_Intercepted',
+                    'Tackles_for_Loss_Allowed',
+                    'Sacks_Allowed'
+                   ]
 
     # builds then iterates through each stat's BS obj
     for k, v in build_dict('stat_position.txt').items():
@@ -47,6 +59,16 @@ def team_stats():
 
         stand_score = z_score(team_lst, stat_lst)
 
+        for key, val in stand_score.items():
+            val = float(val)
+            if k in lower_better:
+                if val < 0:
+                    stand_score[key] = abs(val)
+                else:
+                    stand_score[key] = (val - (val * 2))
+            else:
+                pass    
+        
         yield stand_score
 
 # use this loop for comparison
