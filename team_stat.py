@@ -10,20 +10,28 @@ def team_stats():
 
     '''
     lower_better = [
-                    '3rd_Down_Conversion_Pct_Defense', 
+                    '3rd_Down_Conversion_Pct_Defense',
+                    '4th_Down_Conversion_Pct_Defense',
+                    'Blocked_Kicks_Allowed',
+                    'Blocked_Punts_Allowed',
+                    'First_Downs_Defense',
+                    'Fumbles_Lost',
+                    'Kickoff_Return_Defense',  
                     'Total_Defense',
                     'Rushing_Defense',
                     'Passing_Yards_Allowed',
+                    'Punt_Return_Defense',
                     'Scoring_Defense',
                     'Team_Passing_Efficiency_Defense',
                     'Red_Zone_Defense',
                     'Passes_Had_Intercepted',
                     'Tackles_for_Loss_Allowed',
-                    'Sacks_Allowed'
+                    'Sacks_Allowed',
+                    'Turnovers_Lost'
                    ]
 
     # builds then iterates through each stat's BS obj
-    for k, v in build_dict('stat_position.txt').items():
+    for k, v in build_dict('stat_position_all.txt').items():
         
         # creates a BS object per stat
         stats = soupy(k)

@@ -12,4 +12,4 @@ Team_Passing_Efficiency_Defense 40
 Team_Sacks 466
 Team_Tackles_for_Loss 467
 Total_Defense 22
-Turnovers_Lost 461
+Turnovers_Gained 460

@@ -36,6 +36,5 @@ Team_Sacks 5
 Team_Tackles_for_Loss 7
 Total_Defense 8
 Total_Offense 8
-Turnover_Margin 9
 Turnovers_Gained 5
 Turnovers_Lost 5

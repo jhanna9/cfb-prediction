@@ -12,6 +12,5 @@ Sacks_Allowed 5
 Scoring_Offense 10
 Tackles_for_Loss_Allowed 7
 Team_Passing_Efficiency 8
-Time_of_Possession 4
 Total_Offense 8
 Turnovers_Lost 5
