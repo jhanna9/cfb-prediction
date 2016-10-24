@@ -40,7 +40,7 @@ def build_links(stats):
     link = 'http://www.ncaa.com/stats/football/fbs/current/team/'
 
     # builds the statistics dictionary with corresponding web path number
-    stats_dict = build_dict('stat_num_all.txt')       
+    stats_dict = build_dict('stat_num_def.txt')       
 
     # the suffixes to obtain 3 pages of teams/stats
     more_pgs = ['', '/p2', '/p3']
