@@ -19,7 +19,7 @@ def sos():
     site = requests.get('https://www.teamrankings.com/college-football/ranking/schedule-strength-by-other', headers=headers) 
 
     # create BS object, sort through necessary info
-    soup = BeautifulSoup(site.content)
+    soup = BeautifulSoup(site.content, 'html.parser')
     team = soup.find_all('td')
 
     team_lst = []

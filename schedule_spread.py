@@ -25,7 +25,7 @@ def schedule():
     
     # pull data from site and create BS object
     sched = requests.get(link, headers=headers)
-    soup = BeautifulSoup(sched.content)
+    soup = BeautifulSoup(sched.content, 'html.parser')
 
     # iterate through BS object looking for strong tag
     for tag in soup('strong'):
@@ -57,7 +57,7 @@ def spread():
     
     # pull data from site and create BS object
     spread = requests.get(link, headers=headers)
-    soup = BeautifulSoup(spread.content)
+    soup = BeautifulSoup(spread.content, 'html.parser')
 
     # iterate through BS object looking for div and class='covers_bottom'
     for tag in soup.find_all('div', class_='covers_bottom'):

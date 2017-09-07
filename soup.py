@@ -23,7 +23,7 @@ def soupy(stat):
         site = requests.get(l, headers=headers) # get site info using requests
 
         # create BS object, sort through necessary info
-        soup = BeautifulSoup(site.content)
+        soup = BeautifulSoup(site.content, 'html.parser')
         ts = soup.find_all('td')
 
         # loop through BS object and add teams and stats to list

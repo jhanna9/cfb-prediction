@@ -32,7 +32,7 @@ def team_stats():
 
     # builds then iterates through each stat's BS obj
     for k, v in build_dict('stat_position.txt').items():
-        
+        #print(k)
         # creates a BS object per stat
         stats = soupy(k)
         
@@ -60,6 +60,8 @@ def team_stats():
                 x += z
                 a += z
             else:
+                #print(stats[a])
+                #print(x)
                 team_lst.append(stats[a])
                 stat_lst.append(stats[x])
                 x += y

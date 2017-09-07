@@ -3,6 +3,7 @@ from schedule_spread import schedule
 from sos_2016 import sos, z_score
 from team_stat import team_stats
 
+
 def match_team(teams):
     '''
 
@@ -41,6 +42,7 @@ def match_team(teams):
                     x += 1
             
     return teams_new
+
 
 def make_pick(tstats):
     '''
