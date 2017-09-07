@@ -33,7 +33,7 @@ def sos():
 
         team_match = re.search(r'([&\w\s*-]+)([(\w\w)]+)', team_str)
 
-        if len(stat_lst) == 128:
+        if len(stat_lst) == 131:
             break
         elif team_match.group(1) == 'Miami ':
             whole_miami = team_match.group(1) + team_match.group(2).strip()

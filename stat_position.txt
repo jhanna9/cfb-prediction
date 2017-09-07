@@ -1,6 +1,6 @@
 3rd_Down_Conversion_Pct 5
 3rd_Down_Conversion_Pct_Defense 5
-Total_Offense 8
+Total_Offense 7
 Total_Defense 8
 Rushing_Offense 7
 Rushing_Defense 7
