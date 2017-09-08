@@ -1,13 +1,17 @@
 from bs4 import BeautifulSoup
+import requests
+
+# use to get around firewalls blocking scrapes
+headers = {'User-agent': 'Mozilla/5.0'}
 
 
-def stat_num_reader():
+def stat_num_reader(text_file):
 	'''Reads stat_num.txt file
 
-	returns a tuple
+	returns a generator object
 
 	'''
-	with open('stat_num.txt', 'r') as f:
+	with open(text_file, 'r') as f:
 		for line in f.readlines():
 			stat_name, stat_page_num  = line.split()
 
@@ -17,7 +21,7 @@ def stat_num_reader():
 def build_stat_page_links():
 	'''Builds links to all relevant NCAA football statistics
 
-	returns a string
+	returns a list
 
 	'''
 	# list to return
@@ -30,7 +34,7 @@ def build_stat_page_links():
 	more_pgs = ['', '/p2', '/p3']
 
 	# stat and page number tuples
-	stat_page = list(stat_num_reader())
+	stat_page = list(stat_num_reader('stat_num.txt'))
 
 	h = 0
 
@@ -45,4 +49,20 @@ def build_stat_page_links():
 	return stat_page_link
 
 
-print(build_stat_page_links())
+# print(build_stat_page_links())
+
+
+def site_scrape(links):
+	'''Scrapes all links to important stats and saves them to a csv file
+
+		returns 
+		
+	'''
+	address = requests.get(links[0], headers=headers) # get site info using requests
+
+	soup = BeautifulSoup(address.content, 'html.parser')
+
+	return soup.get_text()
+
+
+print(site_scrape(build_stat_page_links()))
