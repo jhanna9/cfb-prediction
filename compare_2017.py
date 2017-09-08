@@ -26,7 +26,7 @@ def build_stat_page_links():
 	# the standard prefix for each statistic
 	link = 'http://www.ncaa.com/stats/football/fbs/current/team/'
 
-	# the suffixes to obtain 3 pages of teams/stats
+	# each stat has 3 pages of teams/stats
 	more_pgs = ['', '/p2', '/p3']
 
 	# stat and page number tuples
@@ -34,8 +34,9 @@ def build_stat_page_links():
 
 	h = 0
 
+	# creating links to stat pages  
 	for stat in stat_page:
-		for pgs in more_pgs:
+		for pgs in more_pgs: # creating a new link for 3 pages per stat
 			page_link = link + str(stat_page[h][1]) + pgs
 
 			stat_page_link.append(page_link)
