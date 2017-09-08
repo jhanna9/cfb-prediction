@@ -1,4 +1,6 @@
 from bs4 import BeautifulSoup
+import csv
+import os
 import re
 import requests
 
@@ -59,13 +61,25 @@ def site_to_csv(links):
 		returns a string
 
 	'''
-	address = requests.get(links[0], headers=headers) # get site info using requests
+	my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
 
-	soup = BeautifulSoup(address.content, 'html.parser')
-	soup_table = soup.table
+	with open(os.path.join(my_path, 'stat_1.csv'), 'w') as f:
+		file_writer = csv.writer(f)
+		address = requests.get(links[0], headers=headers) # get site info using requests
 
-	return soup_table.get_text()
-	
+		soup = BeautifulSoup(address.content, 'html.parser')
+		soup_table = soup.table
+
+		for text in soup.find_all('td'):
+			print(text.get_text())
+			file_writer.writerow(text.get_text())
+
+		# for row in soup_table: # .get_text():
+		# 	file_writer.writerows(row)
+
+	finished = 'done'
+
+	return finished
 
 	# return path to new csv files
 
