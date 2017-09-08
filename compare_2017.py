@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+import re
 import requests
 
 # use to get around firewalls blocking scrapes
@@ -52,17 +53,21 @@ def build_stat_page_links():
 # print(build_stat_page_links())
 
 
-def site_scrape(links):
+def site_to_csv(links):
 	'''Scrapes all links to important stats and saves them to a csv file
 
-		returns 
-		
+		returns a string
+
 	'''
 	address = requests.get(links[0], headers=headers) # get site info using requests
 
 	soup = BeautifulSoup(address.content, 'html.parser')
+	soup_table = soup.table
 
-	return soup.get_text()
+	return soup_table.get_text()
+	
+
+	# return path to new csv files
 
 
-print(site_scrape(build_stat_page_links()))
+print(site_to_csv(build_stat_page_links()))
