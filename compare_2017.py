@@ -70,9 +70,17 @@ def site_to_csv(links):
 		soup = BeautifulSoup(address.content, 'html.parser')
 		soup_table = soup.table
 
+
 		for tr in soup_table.find_all('tr'):
+			# put table header in csv
+			th = tr.find_all('th') 
+			th_text = [elem.text.strip() for elem in th] # 
+
+			# put table data in csv
 			td = tr.find_all('td')
 			td_text = [elem.text.strip() for elem in td]
+			
+			file_writer.writerow(th_text)
 			file_writer.writerow(td_text)
 
 		# for row in soup_table: # .get_text():
