@@ -52,9 +52,6 @@ def build_stat_page_links():
 	return stat_page_link
 
 
-# print(build_stat_page_links())
-
-
 def site_to_csv(links):
 	'''Scrapes all links to important stats and saves them to a csv file
 
@@ -63,28 +60,27 @@ def site_to_csv(links):
 	'''
 	my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
 
-	with open(os.path.join(my_path, 'stat_1.csv'), 'w') as f:
+	with open(os.path.join(my_path, 'stat_1.csv'), 'w', newline='') as f:
 		file_writer = csv.writer(f)
 		address = requests.get(links[0], headers=headers) # get site info using requests
 
+		# create BeautifulSoup object to pull out data
 		soup = BeautifulSoup(address.content, 'html.parser')
-		soup_table = soup.table
+		soup_table = soup.table # grab table from page
 
+		# count to write headers to csv after 1 loop only
+		rows = 0
 
 		for tr in soup_table.find_all('tr'):
-			# put table header in csv
-			th = tr.find_all('th') 
-			th_text = [elem.text.strip() for elem in th] # 
-
-			# put table data in csv
+			# find table headers and data
+			th = tr.find_all('th')
 			td = tr.find_all('td')
-			td_text = [elem.text.strip() for elem in td]
-			
-			file_writer.writerow(th_text)
-			file_writer.writerow(td_text)
 
-		# for row in soup_table: # .get_text():
-		# 	file_writer.writerows(row)
+			if rows < 1:
+				file_writer.writerow([elem.text.strip() for elem in th])
+				rows += 1
+			else:
+				file_writer.writerow([elem.text.strip() for elem in td])
 
 	finished = 'done'
 

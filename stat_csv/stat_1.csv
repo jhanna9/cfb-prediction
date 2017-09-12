@@ -1,102 +1,51 @@
-Rank,Team,G,3rd Att,3rd Conv,Pct
-
-
-1,Army West Point,1,5,4,.800
-
-2,Georgia Tech,1,18,13,.722
-
-3,Washington St.,1,14,10,.714
-
-4,Air Force,1,10,7,.700
-
--,Arkansas,1,10,7,.700
-
-6,Stanford,1,9,6,.667
-
--,Wisconsin,1,12,8,.667
-
--,Missouri,1,12,8,.667
-
--,San Diego St.,1,12,8,.667
-
-10,Tulane,1,11,7,.636
-
--,Southern California,1,11,7,.636
-
--,TCU,1,11,7,.636
-
-13,Oregon,1,8,5,.625
-
--,Fresno St.,1,16,10,.625
-
-15,Tulsa,1,26,16,.615
-
-16,New Mexico St.,1,18,11,.611
-
-17,Ole Miss,1,10,6,.600
-
-18,Western Ky.,1,17,10,.588
-
-19,Syracuse,1,19,11,.579
-
-20,Ball St.,1,21,12,.571
-
--,Oklahoma,1,7,4,.571
-
-22,Pittsburgh,1,16,9,.563
-
-23,Oklahoma St.,1,9,5,.556
-
--,Kansas St.,1,9,5,.556
-
--,Wake Forest,1,9,5,.556
-
--,La.-Monroe,1,18,10,.556
-
-27,Marshall,1,13,7,.538
-
--,Arkansas St.,1,13,7,.538
-
-29,Michigan St.,1,15,8,.533
-
-30,Colorado St.,2,32,17,.531
-
-31,Navy,1,17,9,.529
-
-32,Texas,1,18,9,.500
-
--,Texas Tech,1,10,5,.500
-
--,Oregon St.,2,26,13,.500
-
--,Ohio,1,14,7,.500
-
--,Nebraska,1,14,7,.500
-
--,Clemson,1,10,5,.500
-
--,Virginia,1,18,9,.500
-
--,Vanderbilt,1,16,8,.500
-
--,LSU,1,10,5,.500
-
--,Colorado,1,14,7,.500
-
--,Miami (FL),1,8,4,.500
-
-43,Rutgers,1,19,9,.474
-
--,Boise St.,1,19,9,.474
-
-45,Miami (OH),1,17,8,.471
-
-46,Louisiana Tech,1,15,7,.467
-
--,Memphis,1,15,7,.467
-
--,Iowa St.,1,15,7,.467
-
--,Eastern Mich.,1,15,7,.467
-
-50,Notre Dame,1,13,6,.462
+Rank,Team,G,3rd Att,3rd Conv,Pct
+1,Southern California,2,23,17,.739
+2,Air Force,1,10,7,.700
+3,TCU,2,25,17,.680
+4,Ball St.,2,38,23,.605
+5,Ole Miss,2,20,12,.600
+-,Georgia Tech,2,30,18,.600
+7,Tulsa,2,41,24,.585
+8,Duke,2,36,21,.583
+9,Texas,2,33,19,.576
+10,Stanford,2,21,12,.571
+11,Washington St.,2,34,19,.559
+12,La.-Monroe,1,18,10,.556
+-,San Diego St.,2,27,15,.556
+14,Oregon,2,22,12,.545
+15,Arkansas St.,1,13,7,.538
+-,Wisconsin,2,26,14,.538
+-,Clemson,2,26,14,.538
+18,Colorado St.,3,42,22,.524
+-,Army West Point,2,21,11,.524
+20,UCLA,2,25,13,.520
+21,Louisville,2,31,16,.516
+22,Kansas St.,2,18,9,.500
+-,Miami (FL),1,8,4,.500
+-,Texas Tech,1,10,5,.500
+-,Missouri,2,26,13,.500
+-,Michigan St.,2,30,15,.500
+27,Minnesota,2,31,15,.484
+28,Vanderbilt,2,29,14,.483
+29,Fresno St.,2,27,13,.481
+-,South Carolina,2,27,13,.481
+31,Louisiana,2,25,12,.480
+-,Tennessee,2,25,12,.480
+-,Oklahoma St.,2,25,12,.480
+34,Texas A&M;,2,40,19,.475
+35,New Mexico St.,2,36,17,.472
+36,Miami (OH),2,34,16,.471
+37,Navy,2,32,15,.469
+38,Memphis,1,15,7,.467
+-,SMU,2,30,14,.467
+40,Appalachian St.,2,28,13,.464
+-,Marshall,2,28,13,.464
+42,Syracuse,2,41,19,.463
+43,Arkansas,2,24,11,.458
+44,LSU,2,22,10,.455
+45,Virginia,2,42,19,.452
+-,Hawaii,3,42,19,.452
+47,UAB,2,31,14,.452
+48,Toledo,2,29,13,.448
+49,Ohio,2,27,12,.444
+-,Oklahoma,2,18,8,.444
