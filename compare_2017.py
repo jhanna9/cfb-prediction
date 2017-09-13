@@ -60,33 +60,52 @@ def site_to_csv(links):
 	'''
 	my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
 
-	with open(os.path.join(my_path, 'stat_1.csv'), 'w', newline='') as f:
-		file_writer = csv.writer(f)
-		address = requests.get(links[0], headers=headers) # get site info using requests
+	l = 0
+	link = 0
 
-		# create BeautifulSoup object to pull out data
-		soup = BeautifulSoup(address.content, 'html.parser')
-		soup_table = soup.table # grab table from page
+	while l < len(links):
+		count = 0
+		
+		while count < 3:
+			address = requests.get(links[link], headers=headers) # get site info using requests
 
-		# count to write headers to csv after 1 loop only
-		rows = 0
+			# create BeautifulSoup object to pull out data
+			soup = BeautifulSoup(address.content, 'html.parser')
+			soup_table = soup.table # grab table from page
 
-		for tr in soup_table.find_all('tr'):
-			# find table headers and data
-			th = tr.find_all('th')
-			td = tr.find_all('td')
+			stat_name_div_class = soup.find_all('div', {'class':'ncaa-stat-category-stats-title'})
+			for sn in stat_name_div_class:
+				stat_name_csv = sn.text.strip() + '.csv'
 
-			if rows < 1:
-				file_writer.writerow([elem.text.strip() for elem in th])
-				rows += 1
-			else:
-				file_writer.writerow([elem.text.strip() for elem in td])
+			print(stat_name_csv)
+
+			with open(os.path.join(my_path, stat_name_csv), 'w', newline='') as f:
+				file_writer = csv.writer(f)
+				
+				# count to write headers to csv after 1 loop only
+				rows = 0
+
+				for tr in soup_table.find_all('tr'):
+					# find table headers and data
+					th = tr.find_all('th')
+					td = tr.find_all('td')
+
+					if rows < 1:
+						file_writer.writerow([elem.text.strip() for elem in th])
+						rows += 1
+					else:
+						file_writer.writerow([elem.text.strip() for elem in td])
+
+			count += 1
+
+			link += 1
+			print('link: ', link)
+		l += 1
+		print('L:', l)
 
 	finished = 'done'
 
-	return finished
-
 	# return path to new csv files
-
+	return finished
 
 print(site_to_csv(build_stat_page_links()))
