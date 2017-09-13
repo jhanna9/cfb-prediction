@@ -59,14 +59,12 @@ def site_to_csv(links):
 
 	'''
 	# for deskop
-	# my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
+	my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
 
 	# for laptop
-	my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv'
+	# my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv'
 
 	csv_name = list(stat_num_reader('stat_num.txt'))
-
-	
 
 	for name in csv_name:
 		file_name = str(name[0]) + '.csv'
@@ -92,15 +90,17 @@ def site_to_csv(links):
 					th = tr.find_all('th')
 					td = tr.find_all('td')
 
-					if rows < 1:
+					if rows < 1 and count == 0:
 						file_writer.writerow([elem.text.strip() for elem in th])
+						rows += 1
+					elif rows == 0:
 						rows += 1
 					else:
 						file_writer.writerow([elem.text.strip() for elem in td])
 
 				count += 1
 
-	finished = 'done'
+	finished = 'The CSV files are finished and located here:' + my_path
 
 	# return path to new csv files
 	return finished
