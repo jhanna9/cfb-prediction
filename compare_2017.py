@@ -106,7 +106,7 @@ def site_to_csv(links):
 
 				count += 1
 
-	finished = 'The CSV files are finished and located here:' + my_path
+	finished = 'The CSV files are finished and located here: ' + my_path
 
 	# return path to new csv files
 	return finished
