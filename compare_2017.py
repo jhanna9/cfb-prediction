@@ -64,18 +64,21 @@ def site_to_csv(links):
 	# for laptop
 	# my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv'
 
+	# get stat name to use as csv file name
 	csv_name = list(stat_num_reader('stat_num.txt'))
-
 	for name in csv_name:
 		file_name = str(name[0]) + '.csv'
 		count = 0
 
+		# new csv file opened per stat
 		with open(os.path.join(my_path, file_name), 'w', newline='') as f:
 			file_writer = csv.writer(f)
 			
+			# makes sure that all three pages of stat data is pulled from site
 			while count < 3:
 				address = requests.get(links[0], headers=headers) # get site info using requests
 
+				# removes first link from links ensuring that a new link is added to the csv
 				del links[0]
 
 				# create BeautifulSoup object to pull out data
@@ -85,18 +88,21 @@ def site_to_csv(links):
 				# count to write headers to csv after 1 loop only
 				rows = 0
 
+				# grab all table rows for data
 				for tr in soup_table.find_all('tr'):
 					# find table headers and data
 					th = tr.find_all('th')
 					td = tr.find_all('td')
 
+					# headers are written to csv from the first page only
 					if rows < 1 and count == 0:
-						file_writer.writerow([elem.text.strip() for elem in th])
+						file_writer.writerow([elem.text.strip() for elem in th]) # strips header data from text
 						rows += 1
-					elif rows == 0:
+					# used to skip the first blank line in the table data pull
+					elif rows == 0: 
 						rows += 1
 					else:
-						file_writer.writerow([elem.text.strip() for elem in td])
+						file_writer.writerow([elem.text.strip() for elem in td]) # strips table data from text
 
 				count += 1
 
