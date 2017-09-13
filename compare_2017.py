@@ -58,30 +58,32 @@ def site_to_csv(links):
 		returns a string
 
 	'''
-	my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
+	# for deskop
+	# my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
 
-	l = 0
-	link = 0
+	# for laptop
+	my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv'
 
-	while l < len(links):
+	csv_name = list(stat_num_reader('stat_num.txt'))
+
+	
+
+	for name in csv_name:
+		file_name = str(name[0]) + '.csv'
 		count = 0
-		
-		while count < 3:
-			address = requests.get(links[link], headers=headers) # get site info using requests
 
-			# create BeautifulSoup object to pull out data
-			soup = BeautifulSoup(address.content, 'html.parser')
-			soup_table = soup.table # grab table from page
+		with open(os.path.join(my_path, file_name), 'w', newline='') as f:
+			file_writer = csv.writer(f)
+			
+			while count < 3:
+				address = requests.get(links[0], headers=headers) # get site info using requests
 
-			stat_name_div_class = soup.find_all('div', {'class':'ncaa-stat-category-stats-title'})
-			for sn in stat_name_div_class:
-				stat_name_csv = sn.text.strip() + '.csv'
+				del links[0]
 
-			print(stat_name_csv)
+				# create BeautifulSoup object to pull out data
+				soup = BeautifulSoup(address.content, 'html.parser')
+				soup_table = soup.table # grab table from page
 
-			with open(os.path.join(my_path, stat_name_csv), 'w', newline='') as f:
-				file_writer = csv.writer(f)
-				
 				# count to write headers to csv after 1 loop only
 				rows = 0
 
@@ -96,12 +98,7 @@ def site_to_csv(links):
 					else:
 						file_writer.writerow([elem.text.strip() for elem in td])
 
-			count += 1
-
-			link += 1
-			print('link: ', link)
-		l += 1
-		print('L:', l)
+				count += 1
 
 	finished = 'done'
 
