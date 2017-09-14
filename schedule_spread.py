@@ -1,6 +1,6 @@
 # a script to scrape the schedule and spread of ncaa football teams from covers
-import requests
 from bs4 import BeautifulSoup
+import requests
 
 # use to get around firewalls blocking scrapes
 headers = {'User-agent': 'Mozilla/5.0'}
@@ -97,9 +97,10 @@ def match_spread(sched, spread):
 
 
 # function calls
-match_spread(schedule(data), spread(data))
-for k, v in match_spread(schedule(data), spread(data)).items():
-    #print(k, v)
+# match_spread(schedule(), spread())
+# for k, v in match_spread(schedule(), spread()).items():
+    
+    # print(k, v)
 
 # prints out covers' spread in good format
 #for s in spread():

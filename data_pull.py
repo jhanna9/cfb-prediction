@@ -111,4 +111,34 @@ def site_to_csv(links):
 	# return path to new csv files
 	return finished
 
-print(site_to_csv(build_stat_page_links()))
+
+def schedule_spread_csv():
+	'''
+
+
+	'''
+	my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
+	data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
+
+	address = requests.get(data, headers=headers)
+
+	soup = BeautifulSoup(address.content, 'html.parser')
+	# div_id = soup.find_all('div', id='odds_teams')
+	# td_covers = soup.find_all('td', class_='covers_top')
+
+	for div in soup.find_all('div', id='odds_teams'):
+		div_away = div.find_all('div', class_='team_away')
+		div_home = div.find_all('div', class_='team_home')
+
+		print([elem.text.strip() for elem in div_away])
+		print([elem.text.strip() for elem in div_home])
+	# div_spread = td_covers.find_all('div', class_='covers_bottom')
+
+	# print(div_away.get_text())
+	# print(div_home.get_text())
+	# print(div_spread.get_text())
+
+schedule_spread_csv()	
+
+
+# print(site_to_csv(build_stat_page_links()))
