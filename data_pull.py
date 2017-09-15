@@ -112,6 +112,63 @@ def site_to_csv(links):
 	return finished
 
 
+def away_team():
+	'''
+
+
+	'''
+	data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
+
+	address = requests.get(data, headers=headers)
+	soup = BeautifulSoup(address.content, 'html.parser')
+
+	for div in soup.find_all('div', id='odds_teams'):
+		div_away = div.find_all('div', class_='team_away')
+
+		for team in div_away:
+			away = team.text.strip()
+
+			yield away
+
+
+def home_team():
+	'''
+
+
+	'''
+	data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
+
+	address = requests.get(data, headers=headers)
+	soup = BeautifulSoup(address.content, 'html.parser')
+
+	for div in soup.find_all('div', id='odds_teams'):
+		div_home = div.find_all('div', class_='team_home')
+
+		for team in div_home:
+			home = team.text.strip()
+
+			yield home
+
+
+def spread():
+	'''
+
+
+	'''
+	data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
+
+	address = requests.get(data, headers=headers)
+	soup = BeautifulSoup(address.content, 'html.parser')
+
+	for td in soup.find_all('td', class_='covers_top'):
+		div_spread = td.find_all('div', class_='covers_bottom')
+
+		for s in div_spread:
+			spread = s.text.strip()
+
+			yield spread
+
+
 def schedule_spread_csv():
 	'''
 
@@ -130,15 +187,19 @@ def schedule_spread_csv():
 		div_away = div.find_all('div', class_='team_away')
 		div_home = div.find_all('div', class_='team_home')
 
-		print([elem.text.strip() for elem in div_away])
-		print([elem.text.strip() for elem in div_home])
-	# div_spread = td_covers.find_all('div', class_='covers_bottom')
+		print(type(div_away))
 
-	# print(div_away.get_text())
-	# print(div_home.get_text())
-	# print(div_spread.get_text())
+		# print([elem.text.strip() for elem in div_away])
+		# print([elem.text.strip() for elem in div_home])
 
-schedule_spread_csv()	
+	for td in soup.find_all('td', class_='covers_top'):
+		div_spread = td.find_all('div', class_='covers_bottom')
+
+		# print([elem.text.strip() for elem in div_spread])
 
 
+# schedule_spread_csv()	
+# print(list(away_team()))
+# print(list(home_team()))
+print(list(spread()))
 # print(site_to_csv(build_stat_page_links()))
