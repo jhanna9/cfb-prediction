@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import csv
+import itertools as it
 import os
 import re
 import requests
@@ -117,6 +118,7 @@ def away_team():
 
 
 	'''
+	away = []
 	data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
 
 	address = requests.get(data, headers=headers)
@@ -126,9 +128,9 @@ def away_team():
 		div_away = div.find_all('div', class_='team_away')
 
 		for team in div_away:
-			away = team.text.strip()
+			away.append(team.text.strip())
 
-			yield away
+	return away
 
 
 def home_team():
@@ -136,6 +138,7 @@ def home_team():
 
 
 	'''
+	home = []
 	data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
 
 	address = requests.get(data, headers=headers)
@@ -145,9 +148,9 @@ def home_team():
 		div_home = div.find_all('div', class_='team_home')
 
 		for team in div_home:
-			home = team.text.strip()
+			home.append(team.text.strip())
 
-			yield home
+	return home
 
 
 def spread():
@@ -155,6 +158,7 @@ def spread():
 
 
 	'''
+	spr = []
 	data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
 
 	address = requests.get(data, headers=headers)
@@ -164,42 +168,30 @@ def spread():
 		div_spread = td.find_all('div', class_='covers_bottom')
 
 		for s in div_spread:
-			spread = s.text.strip()
+			spr.append(s.text.strip())
 
-			yield spread
+	return spr
 
 
 def schedule_spread_csv():
-	'''
+	'''https://stackoverflow.com/questions/34761978/python-merge-3-lists-into-1-list
 
 
 	'''
 	my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
-	data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
+	
+	with open(os.path.join(my_path, 'schedule_spread.csv'), 'w', newline='') as f:
+		file_writer = csv.writer(f)
 
-	address = requests.get(data, headers=headers)
+		teams_spread = list(it.zip_longest(away_team(), home_team(), spread()))
 
-	soup = BeautifulSoup(address.content, 'html.parser')
-	# div_id = soup.find_all('div', id='odds_teams')
-	# td_covers = soup.find_all('td', class_='covers_top')
+		for sched in teams_spread:
+			file_writer.writerow(sched)
 
-	for div in soup.find_all('div', id='odds_teams'):
-		div_away = div.find_all('div', class_='team_away')
-		div_home = div.find_all('div', class_='team_home')
+	finished = 'done'
 
-		print(type(div_away))
-
-		# print([elem.text.strip() for elem in div_away])
-		# print([elem.text.strip() for elem in div_home])
-
-	for td in soup.find_all('td', class_='covers_top'):
-		div_spread = td.find_all('div', class_='covers_bottom')
-
-		# print([elem.text.strip() for elem in div_spread])
+	return finished
 
 
-# schedule_spread_csv()	
-# print(list(away_team()))
-# print(list(home_team()))
-print(list(spread()))
-# print(site_to_csv(build_stat_page_links()))
+print(schedule_spread_csv())	
+print(site_to_csv(build_stat_page_links()))
