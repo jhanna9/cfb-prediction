@@ -207,7 +207,7 @@ def schedule_spread_csv():
 		for sched in teams_spread:
 			file_writer.writerow(sched)
 
-	finished = 'done'
+	finished = 'The CSV file is finished and located here: ' + my_path
 
 	return finished
 
