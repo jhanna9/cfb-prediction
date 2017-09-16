@@ -114,19 +114,24 @@ def site_to_csv(links):
 
 
 def away_team():
-	'''
+	'''Scrapes site for all away team names
 
 
+	returns a list
+
 	'''
+	# list to store away team name
 	away = []
 	data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
 
 	address = requests.get(data, headers=headers)
 	soup = BeautifulSoup(address.content, 'html.parser')
 
+	# away team names from site are in nested div class='team_away'
 	for div in soup.find_all('div', id='odds_teams'):
 		div_away = div.find_all('div', class_='team_away')
 
+		# append team name to away list
 		for team in div_away:
 			away.append(team.text.strip())
 
@@ -134,19 +139,24 @@ def away_team():
 
 
 def home_team():
-	'''
+	'''Scrapes site for all home team names
 
 
+	returns a list
+
 	'''
+	# list to store away team name
 	home = []
 	data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
 
 	address = requests.get(data, headers=headers)
 	soup = BeautifulSoup(address.content, 'html.parser')
 
+	# home team names from site are in nested div class='team_home'
 	for div in soup.find_all('div', id='odds_teams'):
 		div_home = div.find_all('div', class_='team_home')
 
+		# append team name to home list
 		for team in div_home:
 			home.append(team.text.strip())
 
@@ -154,19 +164,24 @@ def home_team():
 
 
 def spread():
-	'''
+	'''Scrapes site for all game spreads
 
 
+	returns a list
+
 	'''
+	# list to store spreads
 	spr = []
 	data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
 
 	address = requests.get(data, headers=headers)
 	soup = BeautifulSoup(address.content, 'html.parser')
 
+	# spreads from site are in nested div class='covers_bottom'
 	for td in soup.find_all('td', class_='covers_top'):
 		div_spread = td.find_all('div', class_='covers_bottom')
 
+		# append spreads to spr list
 		for s in div_spread:
 			spr.append(s.text.strip())
 
@@ -174,17 +189,21 @@ def spread():
 
 
 def schedule_spread_csv():
-	'''https://stackoverflow.com/questions/34761978/python-merge-3-lists-into-1-list
+	'''Joins lists of away teams, home teams, and spreads into one list and writes each line to a csv
 
 
+	returns a string
 	'''
 	my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
 	
 	with open(os.path.join(my_path, 'schedule_spread.csv'), 'w', newline='') as f:
 		file_writer = csv.writer(f)
 
+		# joins the three lists into one for csv writer
+		# help from https://stackoverflow.com/questions/34761978/python-merge-3-lists-into-1-list
 		teams_spread = list(it.zip_longest(away_team(), home_team(), spread()))
 
+		# writes one away team, one home team, one spread per row
 		for sched in teams_spread:
 			file_writer.writerow(sched)
 
@@ -193,5 +212,5 @@ def schedule_spread_csv():
 	return finished
 
 
-print(schedule_spread_csv())	
 print(site_to_csv(build_stat_page_links()))
+print(schedule_spread_csv())
