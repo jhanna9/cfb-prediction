@@ -8,7 +8,7 @@ from data_pull import stat_num_reader
 # 	# 	for name in self.stat_name_list:
 # 	# 		print(name[0])
 
-names = stat_num_reader('stat_num.txt')
+names = list(stat_num_reader('stat_num.txt'))
 
 print(names)
 

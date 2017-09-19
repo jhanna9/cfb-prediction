@@ -1,130 +1,130 @@
 Rank,Team,G,Pass Att,Int
-1,Temple,3,108,0
--,Virginia,2,106,0
--,NC State,2,100,0
--,UCLA,2,88,0
--,Louisville,2,85,0
--,Southern Miss.,2,72,0
--,Oklahoma,2,71,0
--,Oklahoma St.,2,67,0
--,Texas A&M;,2,66,0
--,Stanford,2,65,0
--,Arizona St.,2,63,0
--,Tulsa,2,58,0
--,Virginia Tech,2,56,0
--,Vanderbilt,2,54,0
--,Appalachian St.,2,54,0
--,UAB,2,46,0
--,Alabama,2,45,0
--,Kentucky,2,44,0
--,UConn,1,41,0
--,Kansas St.,2,39,0
--,LSU,2,36,0
--,Texas Tech,1,35,0
+1,NC State,3,130,0
+-,Temple,3,108,0
+-,Arizona St.,3,104,0
+-,Oklahoma,3,101,0
+-,Virginia Tech,3,89,0
+-,Texas Tech,2,85,0
+-,Appalachian St.,3,82,0
+-,Tulsa,3,78,0
+-,Vanderbilt,3,77,0
+-,Alabama,3,66,0
+-,LSU,3,65,0
+-,UAB,3,61,0
 -,Miami (FL),1,31,0
--,Tulane,2,28,0
--,Florida,1,26,0
--,Kent St.,2,21,0
--,UTSA,1,20,0
+-,Army West Point,3,18,0
 -,Georgia Tech,2,17,0
--,Air Force,1,14,0
--,Army West Point,2,10,0
-31,Massachusetts,4,155,1
+16,Massachusetts,4,155,1
+-,Virginia,3,146,1
+-,Louisville,3,127,1
+-,Western Ky.,3,109,1
+-,Ohio St.,3,107,1
+-,Southern Miss.,3,104,1
+-,Oklahoma St.,3,104,1
+-,Texas A&M;,3,100,1
 -,UTEP,3,99,1
--,Syracuse,2,96,1
--,Central Mich.,2,91,1
--,West Virginia,2,88,1
--,Texas,2,82,1
--,Duke,2,79,1
--,Fresno St.,2,78,1
--,Ole Miss,2,78,1
+-,Clemson,3,99,1
+-,Washington,3,86,1
+-,Iowa,3,83,1
+-,Mississippi St.,3,79,1
 -,Arizona,3,74,1
--,Western Ky.,2,74,1
--,Ohio St.,2,70,1
--,Notre Dame,2,70,1
--,Ball St.,2,69,1
--,Utah,2,69,1
+-,Buffalo,3,74,1
+-,Wake Forest,3,73,1
+-,Wisconsin,3,72,1
+-,San Diego St.,3,70,1
+-,Kentucky,3,70,1
 -,Eastern Mich.,2,68,1
--,Tennessee,2,67,1
--,Miami (OH),2,66,1
--,Clemson,2,66,1
--,Louisiana Tech,2,65,1
--,SMU,2,64,1
+-,South Ala.,3,68,1
+-,UConn,2,67,1
+-,La.-Monroe,2,64,1
 -,FIU,2,64,1
--,Toledo,2,61,1
--,Oregon,2,60,1
--,Buffalo,2,58,1
--,Washington,2,58,1
+-,Minnesota,3,58,1
 -,Michigan St.,2,57,1
--,South Carolina,2,57,1
--,Mississippi St.,2,56,1
--,Iowa,2,56,1
--,Akron,2,55,1
--,South Ala.,2,55,1
--,Wisconsin,2,53,1
--,Auburn,2,50,1
--,Ohio,2,48,1
--,Wake Forest,2,46,1
+-,Florida,2,54,1
 -,Arkansas,2,45,1
--,Rice,2,42,1
--,San Diego St.,2,41,1
--,Minnesota,2,40,1
--,La.-Monroe,1,37,1
+-,Tulane,3,40,1
+-,Kent St.,3,38,1
 -,UNLV,2,37,1
 -,Maryland,2,33,1
 -,UCF,1,33,1
--,Memphis,1,25,1
--,Georgia St.,1,23,1
-77,Washington St.,2,115,2
+-,Air Force,2,23,1
+50,Washington St.,3,173,2
+-,UCLA,3,144,2
+-,Syracuse,3,131,2
+-,Bowling Green,3,124,2
+-,West Virginia,3,122,2
+-,Troy,3,116,2
+-,Iowa St.,3,115,2
+-,Fresno St.,3,114,2
+-,Duke,3,114,2
+-,Utah,3,113,2
+-,North Carolina,3,108,2
+-,Louisiana Tech,3,104,2
+-,Arkansas St.,2,102,2
+-,Northern Ill.,3,97,2
+-,Miami (OH),3,97,2
+-,Notre Dame,3,97,2
+-,Toledo,3,94,2
+-,TCU,3,91,2
+-,Oregon,3,90,2
 -,South Fla.,3,90,2
--,Iowa St.,2,82,2
--,North Carolina,2,82,2
--,Bowling Green,2,80,2
+-,Penn St.,3,88,2
+-,Auburn,3,87,2
+-,Stanford,3,85,2
+-,Western Mich.,3,81,2
 -,Boise St.,3,79,2
--,Troy,2,76,2
--,Northern Ill.,2,74,2
--,Nevada,2,74,2
--,Marshall,2,73,2
--,Wyoming,2,72,2
--,North Texas,2,71,2
--,Arkansas St.,1,68,2
--,Cincinnati,2,68,2
--,Middle Tenn.,2,67,2
--,California,2,66,2
--,Colorado,2,65,2
--,Pittsburgh,2,65,2
--,TCU,2,61,2
--,Penn St.,2,59,2
--,Louisiana,2,57,2
--,Old Dominion,2,55,2
--,Michigan,2,55,2
--,Fla. Atlantic,2,52,2
--,Western Mich.,2,50,2
--,Texas St.,2,46,2
+-,Michigan,3,78,2
+-,Houston,2,70,2
+-,Ohio,3,70,2
+-,Kansas St.,3,67,2
+-,Rice,3,67,2
+-,UTSA,2,50,2
 -,Florida St.,1,33,2
--,Houston,1,32,2
 -,Ga. Southern,2,31,2
 -,Navy,2,22,2
-107,New Mexico St.,2,115,3
+84,New Mexico St.,3,160,3
+-,Central Mich.,3,137,3
+-,Texas,3,122,3
+-,Marshall,3,116,3
+-,Nevada,3,107,3
+-,Colorado,3,106,3
+-,Northwestern,3,102,3
+-,SMU,3,102,3
+-,Ball St.,3,100,3
+-,North Texas,3,100,3
+-,Akron,3,99,3
 -,Indiana,2,98,3
--,Purdue,2,81,3
+-,Wyoming,3,97,3
+-,South Carolina,3,94,3
+-,Old Dominion,3,87,3
+-,Fla. Atlantic,3,84,3
+-,Texas St.,3,81,3
 -,New Mexico,3,72,3
--,Northwestern,2,71,3
--,Missouri,2,66,3
--,Baylor,2,57,3
--,Idaho,2,53,3
--,Georgia,2,49,3
-116,Colorado St.,3,126,4
--,San Jose St.,3,105,4
+-,Memphis,2,64,3
+-,Georgia,3,64,3
+104,Oregon St.,4,138,4
+-,Ole Miss,3,122,4
+-,Purdue,3,115,4
+-,California,3,114,4
+-,Cincinnati,3,111,4
+-,Middle Tenn.,3,109,4
+-,Tennessee,3,106,4
 -,Hawaii,3,101,4
--,Oregon St.,3,101,4
--,Kansas,2,99,4
--,BYU,3,90,4
--,Boston College,2,83,4
--,Nebraska,2,73,4
--,Rutgers,2,73,4
--,Utah St.,2,73,4
--,Southern California,2,59,4
-127,East Carolina,2,100,5
+-,Pittsburgh,3,100,4
+-,Rutgers,3,92,4
+-,Idaho,3,79,4
+-,Georgia St.,2,55,4
+116,Kansas,3,146,5
+-,Utah St.,3,110,5
+-,Louisiana,3,101,5
+-,Missouri,3,94,5
 -,Illinois,3,84,5
--,Charlotte,2,54,5
+121,Colorado St.,4,164,6
+-,San Jose St.,4,140,6
+-,East Carolina,3,130,6
+-,Boston College,3,124,6
+-,BYU,4,110,6
+-,Southern California,3,110,6
+-,Baylor,3,91,6
+128,Nebraska,3,120,7
+-,Charlotte,3,83,7

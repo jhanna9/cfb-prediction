@@ -10,7 +10,9 @@ headers = {'User-agent': 'Mozilla/5.0'}
 
 
 def stat_num_reader(text_file):
-	'''Reads stat_num.txt file
+	'''Reads a text file
+
+	text_file = the file to be read
 
 	returns a generator object
 

@@ -1,130 +1,130 @@
 Rank,Team,G,3rd Att,3rd Conv,Pct
-1,Southern California,2,23,17,.739
-2,Air Force,1,10,7,.700
-3,TCU,2,25,17,.680
-4,Ball St.,2,38,23,.605
-5,Ole Miss,2,20,12,.600
--,Georgia Tech,2,30,18,.600
-7,Tulsa,2,41,24,.585
-8,Duke,2,36,21,.583
-9,Texas,2,33,19,.576
-10,Stanford,2,21,12,.571
-11,Washington St.,2,34,19,.559
-12,San Diego St.,2,27,15,.556
--,La.-Monroe,1,18,10,.556
-14,Oregon,2,22,12,.545
-15,Wisconsin,2,26,14,.538
--,Arkansas St.,1,13,7,.538
--,Clemson,2,26,14,.538
-18,Colorado St.,3,42,22,.524
--,Army West Point,2,21,11,.524
-20,UCLA,2,25,13,.520
-21,Louisville,2,31,16,.516
-22,Texas Tech,1,10,5,.500
--,Missouri,2,26,13,.500
--,Kansas St.,2,18,9,.500
+1,TCU,3,38,25,.658
+2,Georgia Tech,2,30,18,.600
+3,Ball St.,3,51,30,.588
+4,Wisconsin,3,38,22,.579
+5,Oklahoma St.,3,39,22,.564
+6,Tulsa,3,57,32,.561
+7,Southern California,3,41,23,.561
+8,Washington St.,3,46,25,.543
+9,Colorado St.,4,59,32,.542
+10,Oregon,3,39,21,.538
+11,Clemson,3,43,23,.535
+12,Texas Tech,2,21,11,.524
+13,Houston,2,30,15,.500
 -,Miami (FL),1,8,4,.500
+-,UCLA,3,42,21,.500
+-,San Diego St.,3,44,22,.500
+-,UTSA,2,28,14,.500
 -,Michigan St.,2,30,15,.500
-27,Minnesota,2,31,15,.484
-28,Vanderbilt,2,29,14,.483
-29,South Carolina,2,27,13,.481
--,Fresno St.,2,27,13,.481
-31,Louisiana,2,25,12,.480
--,Tennessee,2,25,12,.480
--,Oklahoma St.,2,25,12,.480
-34,Texas A&M;,2,40,19,.475
-35,New Mexico St.,2,36,17,.472
-36,Miami (OH),2,34,16,.471
-37,Navy,2,32,15,.469
-38,SMU,2,30,14,.467
--,Memphis,1,15,7,.467
-40,Appalachian St.,2,28,13,.464
--,Marshall,2,28,13,.464
-42,Syracuse,2,41,19,.463
-43,Arkansas,2,24,11,.458
-44,LSU,2,22,10,.455
-45,Virginia,2,42,19,.452
--,Hawaii,3,42,19,.452
+19,New Mexico St.,3,51,25,.490
+20,Marshall,3,45,22,.489
+21,Virginia,3,54,26,.481
+22,Arkansas St.,2,25,12,.480
+-,Oklahoma,3,25,12,.480
+24,Iowa,3,46,22,.478
+25,Mississippi St.,3,38,18,.474
+26,Ohio,3,36,17,.472
+27,Auburn,3,51,24,.471
+28,Texas,3,49,23,.469
+29,Georgia St.,2,32,15,.469
+-,Navy,2,32,15,.469
+-,Stanford,3,32,15,.469
+32,Wake Forest,3,45,21,.467
+33,NC State,3,41,19,.463
+34,Duke,3,54,25,.463
+35,Ole Miss,3,37,17,.459
+36,Arkansas,2,24,11,.458
+37,Akron,3,46,21,.457
+38,SMU,3,44,20,.455
+39,Texas A&M;,3,53,24,.453
+40,Ohio St.,3,42,19,.452
 -,Arizona,3,42,19,.452
-48,UAB,2,31,14,.452
-49,Toledo,2,29,13,.448
-50,Wake Forest,2,27,12,.444
--,Oklahoma,2,18,8,.444
--,Ohio,2,27,12,.444
-53,Ohio St.,2,34,15,.441
-54,Mississippi St.,2,25,11,.440
-55,South Fla.,3,57,25,.439
-56,UTSA,1,16,7,.438
-57,Oregon St.,3,37,16,.432
-58,FIU,2,28,12,.429
-59,Pittsburgh,2,33,14,.424
-60,Old Dominion,2,31,13,.419
-61,Massachusetts,4,60,25,.417
-62,Western Ky.,2,29,12,.414
-63,Boise St.,3,44,18,.409
-64,NC State,2,30,12,.400
--,Arizona St.,2,30,12,.400
--,California,2,30,12,.400
--,Tulane,2,25,10,.400
--,Houston,1,15,6,.400
-69,Illinois,3,43,17,.395
-70,East Carolina,2,33,13,.394
-71,Utah St.,2,28,11,.393
--,Iowa,2,28,11,.393
-73,UNLV,2,23,9,.391
-74,Kent St.,2,31,12,.387
-75,Troy,2,26,10,.385
--,North Carolina,2,26,10,.385
-77,Temple,3,50,19,.380
-78,Colorado,2,29,11,.379
--,Iowa St.,2,29,11,.379
-80,Northern Ill.,2,32,12,.375
-81,Rutgers,2,35,13,.371
-82,Nevada,2,27,10,.370
-83,Washington,2,19,7,.368
-84,Louisiana Tech,2,30,11,.367
-85,Boston College,2,41,15,.366
-86,Georgia St.,1,11,4,.364
-87,Indiana,2,36,13,.361
-88,Rice,2,25,9,.360
--,Purdue,2,25,9,.360
-90,Akron,2,28,10,.357
--,UConn,1,14,5,.357
-92,Wyoming,2,31,11,.355
-93,Auburn,2,34,12,.353
-94,Kentucky,2,26,9,.346
--,North Texas,2,26,9,.346
-96,West Virginia,2,32,11,.344
--,Eastern Mich.,2,32,11,.344
-98,San Jose St.,3,50,17,.340
-99,Michigan,2,33,11,.333
--,Southern Miss.,2,30,10,.333
--,Penn St.,2,21,7,.333
--,Kansas,2,33,11,.333
-103,Utah,2,28,9,.321
--,Nebraska,2,28,9,.321
-105,Buffalo,2,25,8,.320
-106,BYU,3,38,12,.316
-107,Northwestern,2,29,9,.310
-108,UCF,1,13,4,.308
+-,Hawaii,3,42,19,.452
+43,Louisville,3,47,21,.447
+44,Toledo,3,36,16,.444
+-,Oregon St.,4,54,24,.444
+46,Tennessee,3,41,18,.439
+47,South Fla.,3,57,25,.439
+48,Appalachian St.,3,39,17,.436
+-,Buffalo,3,39,17,.436
+50,Air Force,2,23,10,.435
+51,UAB,3,44,19,.432
+52,Vanderbilt,3,42,18,.429
+-,Troy,3,42,18,.429
+-,Kentucky,3,42,18,.429
+-,FIU,2,28,12,.429
+56,Northwestern,3,40,17,.425
+57,Syracuse,3,59,25,.424
+58,Arizona St.,3,45,19,.422
+59,Minnesota,3,43,18,.419
+-,Colorado,3,43,18,.419
+-,Western Ky.,3,43,18,.419
+62,Army West Point,3,36,15,.417
+-,Massachusetts,4,60,25,.417
+-,Rutgers,3,48,20,.417
+65,South Carolina,3,39,16,.410
+66,Boise St.,3,44,18,.409
+-,Nevada,3,44,18,.409
+68,Missouri,3,37,15,.405
+69,Iowa St.,3,42,17,.405
+-,Purdue,3,42,17,.405
+71,Fresno St.,3,40,16,.400
+-,UConn,2,25,10,.400
+-,Louisiana Tech,3,45,18,.400
+-,Louisiana,3,40,16,.400
+75,Miami (OH),3,48,19,.396
+-,Pittsburgh,3,48,19,.396
+77,Illinois,3,43,17,.395
+78,Georgia,3,46,18,.391
+-,UNLV,2,23,9,.391
+80,California,3,52,20,.385
+-,Washington,3,26,10,.385
+82,La.-Monroe,2,34,13,.382
+-,Kansas St.,3,34,13,.382
+84,Temple,3,50,19,.380
+85,West Virginia,3,45,17,.378
+86,Notre Dame,3,48,18,.375
+87,LSU,3,35,13,.371
+88,Memphis,2,27,10,.370
+89,North Carolina,3,38,14,.368
+-,Alabama,3,38,14,.368
+91,Kansas,3,49,18,.367
+92,Penn St.,3,30,11,.367
+93,Virginia Tech,3,41,15,.366
+94,Indiana,2,36,13,.361
+95,Tulane,3,39,14,.359
+96,Utah,3,42,15,.357
+97,East Carolina,3,48,17,.354
+98,Kent St.,3,46,16,.348
+-,Utah St.,3,46,16,.348
+100,Cincinnati,3,49,17,.347
+101,Eastern Mich.,2,32,11,.344
+102,Michigan,3,47,16,.340
+-,Old Dominion,3,47,16,.340
+-,Texas St.,3,47,16,.340
+105,BYU,4,50,17,.340
+106,Rice,3,39,13,.333
+-,Northern Ill.,3,45,15,.333
+-,Charlotte,3,45,15,.333
+-,Florida,2,27,9,.333
+110,Boston College,3,58,19,.328
+111,Wyoming,3,46,15,.326
+112,Southern Miss.,3,47,15,.319
+-,Nebraska,3,47,15,.319
+114,UCF,1,13,4,.308
 -,Florida St.,1,13,4,.308
-110,Cincinnati,2,30,9,.300
--,Notre Dame,2,30,9,.300
-112,Maryland,2,17,5,.294
-113,Charlotte,2,31,9,.290
--,Georgia,2,31,9,.290
-115,Central Mich.,2,32,9,.281
-116,Ga. Southern,2,33,9,.273
-117,Idaho,2,26,7,.269
--,Alabama,2,26,7,.269
-119,UTEP,3,38,10,.263
-120,Baylor,2,23,6,.261
-121,Fla. Atlantic,2,28,7,.250
--,Bowling Green,2,32,8,.250
-123,Virginia Tech,2,26,6,.231
-124,New Mexico,3,35,8,.229
-125,Western Mich.,2,29,6,.207
--,Texas St.,2,29,6,.207
-127,Florida,1,13,2,.154
-128,Middle Tenn.,2,24,3,.125
-129,South Ala.,2,20,2,.100
+116,Western Mich.,3,46,14,.304
+117,Maryland,2,17,5,.294
+118,San Jose St.,4,63,18,.286
+119,North Texas,3,32,9,.281
+120,Ga. Southern,2,33,9,.273
+121,Fla. Atlantic,3,41,11,.268
+122,Bowling Green,3,49,13,.265
+123,Idaho,3,38,10,.263
+-,UTEP,3,38,10,.263
+125,Central Mich.,3,48,12,.250
+126,New Mexico,3,35,8,.229
+127,Baylor,3,35,7,.200
+128,South Ala.,3,28,5,.179
+129,Middle Tenn.,3,38,6,.158
