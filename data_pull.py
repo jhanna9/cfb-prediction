@@ -214,5 +214,26 @@ def schedule_spread_csv():
 	return finished
 
 
-print(site_to_csv(build_stat_page_links()))
-print(schedule_spread_csv())
+def csv_stat_calc():
+	'''
+
+
+	'''
+	my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
+
+	stats = list(stat_num_reader('stat_num.txt'))
+
+	for name in stats:
+		file_name = name[0] + '.csv'
+		with open(os.path.join(my_path, file_name)) as f:
+			file_reader = csv.reader(f)
+
+			print(name)
+
+			for row in file_reader:
+				print(row[1], row[-1])
+
+				
+csv_stat_calc()
+# print(site_to_csv(build_stat_page_links()))
+# print(schedule_spread_csv())
