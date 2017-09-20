@@ -11,13 +11,13 @@ Rank,Team,G,Opp 3rd Conv,Opp 3rd Att,Pct
 10,Mississippi St.,3,9,42,.214
 11,Iowa,3,9,38,.237
 12,Rutgers,3,11,46,.239
-13,Cincinnati,3,11,45,.244
--,Michigan,3,11,45,.244
+13,Michigan,3,11,45,.244
+-,Cincinnati,3,11,45,.244
 15,Texas St.,3,10,40,.250
 16,Notre Dame,3,13,51,.255
 17,Colorado,3,12,47,.255
-18,Minnesota,3,11,42,.262
--,TCU,3,11,42,.262
+18,TCU,3,11,42,.262
+-,Minnesota,3,11,42,.262
 20,Virginia,3,10,38,.263
 21,West Virginia,3,12,45,.267
 22,Texas,3,11,41,.268
@@ -26,16 +26,16 @@ Rank,Team,G,Opp 3rd Conv,Opp 3rd Att,Pct
 25,Eastern Mich.,2,9,32,.281
 26,Washington,3,14,49,.286
 -,Wisconsin,3,12,42,.286
--,Air Force,2,8,28,.286
 -,Navy,2,8,28,.286
+-,Air Force,2,8,28,.286
 30,Central Mich.,3,15,52,.288
 31,Clemson,3,15,50,.300
-32,Texas A&M;,3,13,43,.302
--,Kentucky,3,13,43,.302
+32,Kentucky,3,13,43,.302
+-,Texas A&M;,3,13,43,.302
 34,Fresno St.,3,10,33,.303
 35,Georgia,3,14,46,.304
-36,Auburn,3,15,49,.306
--,Wake Forest,3,15,49,.306
+36,Wake Forest,3,15,49,.306
+-,Auburn,3,15,49,.306
 38,Ohio,3,13,42,.310
 39,Ole Miss,3,14,45,.311
 40,Akron,3,11,35,.314
@@ -57,13 +57,13 @@ Rank,Team,G,Opp 3rd Conv,Opp 3rd Att,Pct
 -,Southern California,3,15,42,.357
 57,New Mexico,3,17,47,.362
 58,Penn St.,3,20,55,.364
-59,Oklahoma,3,15,41,.366
--,Kansas,3,15,41,.366
+59,Kansas,3,15,41,.366
+-,Oklahoma,3,15,41,.366
 61,Buffalo,3,18,49,.367
 62,Louisiana Tech,3,14,38,.368
 63,Ohio St.,3,17,46,.370
-64,La.-Monroe,2,12,32,.375
--,Army West Point,3,12,32,.375
+64,Army West Point,3,12,32,.375
+-,La.-Monroe,2,12,32,.375
 66,San Diego St.,3,14,37,.378
 67,San Jose St.,4,25,66,.379
 68,UConn,2,11,29,.379
@@ -72,30 +72,30 @@ Rank,Team,G,Opp 3rd Conv,Opp 3rd Att,Pct
 71,Kansas St.,3,18,47,.383
 72,Ga. Southern,2,10,26,.385
 73,Houston,2,12,31,.387
-74,Fla. Atlantic,3,18,46,.391
+74,UAB,3,18,46,.391
 -,Arizona,3,18,46,.391
--,UAB,3,18,46,.391
+-,Fla. Atlantic,3,18,46,.391
 77,Toledo,3,17,43,.395
 78,Massachusetts,4,25,63,.397
-79,UCLA,3,20,49,.408
--,North Carolina,3,20,49,.408
+79,North Carolina,3,20,49,.408
+-,UCLA,3,20,49,.408
 81,South Ala.,3,16,39,.410
 82,Tulane,3,14,34,.412
-83,Louisville,3,17,41,.415
--,Alabama,3,17,41,.415
+83,Alabama,3,17,41,.415
+-,Louisville,3,17,41,.415
 85,BYU,4,23,55,.418
 86,Indiana,2,18,43,.419
-87,Troy,3,21,50,.420
--,California,3,21,50,.420
+87,California,3,21,50,.420
+-,Troy,3,21,50,.420
 89,Nevada,3,22,52,.423
-90,Nebraska,3,17,40,.425
--,Kent St.,3,17,40,.425
+90,Kent St.,3,17,40,.425
+-,Nebraska,3,17,40,.425
 92,SMU,3,18,42,.429
 -,UNLV,2,15,35,.429
 -,FIU,2,12,28,.429
 95,Oklahoma St.,3,22,51,.431
-96,Arkansas St.,2,13,30,.433
--,Arkansas,2,13,30,.433
+96,Arkansas,2,13,30,.433
+-,Arkansas St.,2,13,30,.433
 -,Texas Tech,2,13,30,.433
 99,NC State,3,19,43,.442
 100,North Texas,3,24,54,.444
@@ -124,7 +124,7 @@ Rank,Team,G,Opp 3rd Conv,Opp 3rd Att,Pct
 123,East Carolina,3,20,39,.513
 124,Memphis,2,18,35,.514
 125,Oregon St.,4,27,52,.519
-126,Bowling Green,3,22,42,.524
--,Hawaii,3,22,42,.524
+126,Hawaii,3,22,42,.524
+-,Bowling Green,3,22,42,.524
 128,Tulsa,3,15,28,.536
 129,Arizona St.,3,24,44,.545

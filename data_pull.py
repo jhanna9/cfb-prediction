@@ -225,7 +225,7 @@ def csv_stat_calc():
 
 	for name in stats:
 		file_name = name[0] + '.csv'
-		with open(os.path.join(my_path, file_name)) as f:
+		with open(os.path.join(my_path, file_name), 'r') as f:
 			file_reader = csv.reader(f)
 
 			print(name)
@@ -233,7 +233,26 @@ def csv_stat_calc():
 			for row in file_reader:
 				print(row[1], row[-1])
 
-				
-csv_stat_calc()
-# print(site_to_csv(build_stat_page_links()))
+
+def passes_int_clean(csv_file):
+	'''
+
+
+	'''
+	my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
+
+	with open(os.path.join(my_path, csv_file), 'r') as f, open(os.path.join(my_path, 'Passes_Intercepted_new.csv'), 'w') as w:
+		file_reader = csv.reader(f)
+		file_writer = csv.writer(w)
+
+		for row in file_reader:
+			file_writer.writerow(row[:-2])
+
+
+	return 'done'
+
+
+print(site_to_csv(build_stat_page_links()))
 # print(schedule_spread_csv())
+# csv_stat_calc()
+print(passes_int_clean('Passes_Intercepted.csv'))
