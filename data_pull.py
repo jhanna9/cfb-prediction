@@ -219,7 +219,11 @@ def csv_stat_calc():
 
 
 	'''
-	my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
+	# for deskop
+	# my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
+
+	# for laptop
+	my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv'
 
 	stats = list(stat_num_reader('stat_num.txt'))
 
@@ -257,6 +261,6 @@ def passes_int_clean(csv_file):
 
 
 # print(site_to_csv(build_stat_page_links()))
+# print(passes_int_clean('Passes_Intercepted.csv'))
 # print(schedule_spread_csv())
-# csv_stat_calc()
-print(passes_int_clean('Passes_Intercepted.csv'))
+csv_stat_calc()
