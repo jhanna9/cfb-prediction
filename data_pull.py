@@ -239,9 +239,13 @@ def passes_int_clean(csv_file):
 
 
 	'''
-	my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
+	# for deskop
+	# my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
 
-	with open(os.path.join(my_path, csv_file), 'r') as f, open(os.path.join(my_path, 'Passes_Intercepted_new.csv'), 'w') as w:
+	# for laptop
+	my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv'
+
+	with open(os.path.join(my_path, csv_file), 'r') as f, open(os.path.join(my_path, 'Passes_Intercepted_new.csv'), 'w', newline='') as w:
 		file_reader = csv.reader(f)
 		file_writer = csv.writer(w)
 
@@ -252,7 +256,7 @@ def passes_int_clean(csv_file):
 	return 'done'
 
 
-print(site_to_csv(build_stat_page_links()))
+# print(site_to_csv(build_stat_page_links()))
 # print(schedule_spread_csv())
 # csv_stat_calc()
 print(passes_int_clean('Passes_Intercepted.csv'))
