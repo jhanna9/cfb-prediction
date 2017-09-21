@@ -1,17 +1,14 @@
-from data_pull import stat_num_reader
+from data_pull import csv_stat_calc
 
-# class Stats:
-# 	def __init__(self, stat_name_list):
-# 		self.stat_name_list = stat_name_list
+class Stats:
+	def __init__(self, stat_name, stat_mean, stat_stdev):
+		self.name = stat_name
+		self.mean = stat_mean
+		self.stdev = stat_stdev
 
-# 	# def print_names(self):
-# 	# 	for name in self.stat_name_list:
-# 	# 		print(name[0])
+stat_calc = list(csv_stat_calc())
 
-names = list(stat_num_reader('stat_num.txt'))
-
-print(names)
-
-# all_names = Stats(names)
-
-# print(all_names)
+for s in stat_calc:
+	name = str(s[0])
+	name = Stats(s[0], s[1], s[2])
+	print('Stat: {} \nMean: {} \nStandard Deviation: {} \n'.format(name.name, name.mean, name.stdev))
