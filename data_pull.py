@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+from statistics import mean, stdev
 import csv
 import itertools as it
 import os
@@ -196,7 +197,11 @@ def schedule_spread_csv():
 
 	returns a string
 	'''
-	my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
+	# for deskop
+	# my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
+
+	# for laptop
+	my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv'
 	
 	with open(os.path.join(my_path, 'schedule_spread.csv'), 'w', newline='') as f:
 		file_writer = csv.writer(f)
@@ -229,14 +234,24 @@ def csv_stat_calc():
 
 	for name in stats:
 		file_name = name[0] + '.csv'
+		stat_list = []
+
 		with open(os.path.join(my_path, file_name), 'r') as f:
 			file_reader = csv.reader(f)
+			next(file_reader)
 
-			print(name)
+			#print(name[0])
 
 			for row in file_reader:
-				print(row[1], row[-1])
+				# print(row[1], row[-1])
+				stat_list.append(float(row[-1]))
 
+			stat_mean = mean(stat_list)
+			stat_sdev = stdev(stat_list)
+
+			print(name[0], stat_mean, stat_sdev)
+
+			# yield name[0], stat_mean, stat_sdev
 
 def passes_int_clean(csv_file):
 	'''
