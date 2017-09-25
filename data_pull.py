@@ -161,7 +161,7 @@ def home_team():
 
 		# append team name to home list
 		for team in div_home:
-			home.append(team.text.strip())
+			home.append(team.text.strip()[1:])
 
 	return home
 
@@ -198,10 +198,10 @@ def schedule_spread_csv():
 	returns a string
 	'''
 	# for deskop
-	# my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
+	my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
 
 	# for laptop
-	my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv'
+	# my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv'
 	
 	with open(os.path.join(my_path, 'schedule_spread.csv'), 'w', newline='') as f:
 		file_writer = csv.writer(f)
@@ -225,10 +225,10 @@ def csv_stat_calc():
 
 	'''
 	# for deskop
-	# my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
+	my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
 
 	# for laptop
-	my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv'
+	# my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv'
 
 	stats = list(stat_num_reader('stat_num.txt'))
 
@@ -241,7 +241,6 @@ def csv_stat_calc():
 			next(file_reader)
 
 			for row in file_reader:
-				# print(row[1], row[-1])
 				stat_list.append(float(row[-1]))
 
 			stat_mean = mean(stat_list)
@@ -257,10 +256,10 @@ def passes_int_clean(csv_file):
 
 	'''
 	# for deskop
-	# my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
+	my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
 
 	# for laptop
-	my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv'
+	# my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv'
 
 	with open(os.path.join(my_path, csv_file), 'r') as f, open(os.path.join(my_path, 'Passes_Intercepted_new.csv'), 'w', newline='') as w:
 		file_reader = csv.reader(f)
@@ -275,5 +274,5 @@ def passes_int_clean(csv_file):
 
 # print(site_to_csv(build_stat_page_links()))
 # print(passes_int_clean('Passes_Intercepted.csv'))
-# print(schedule_spread_csv())
+print(schedule_spread_csv())
 # print((list(csv_stat_calc()))
