@@ -7,8 +7,8 @@ Rank,Team,G,Opp 3rd Conv,Opp 3rd Att,Pct
 6,Virginia Tech,4,16,66,.242
 7,Syracuse,4,14,56,.250
 8,Virginia,4,14,54,.259
-9,Minnesota,3,11,42,.262
--,Michigan St.,3,11,42,.262
+9,Michigan St.,3,11,42,.262
+-,Minnesota,3,11,42,.262
 11,Vanderbilt,4,15,57,.263
 12,Mississippi St.,4,14,53,.264
 13,Georgia Tech,3,9,34,.265
@@ -36,12 +36,12 @@ Rank,Team,G,Opp 3rd Conv,Opp 3rd Att,Pct
 35,Ole Miss,3,14,45,.311
 36,Kentucky,4,18,57,.316
 37,Navy,3,13,41,.317
-38,West Virginia,4,20,63,.317
--,Utah,4,20,63,.317
+38,Utah,4,20,63,.317
+-,West Virginia,4,20,63,.317
 40,Wake Forest,4,22,69,.319
 41,Cincinnati,4,17,53,.321
-42,Texas A&M;,4,18,56,.321
--,TCU,4,18,56,.321
+42,TCU,4,18,56,.321
+-,Texas A&M;,4,18,56,.321
 44,Georgia,4,20,62,.323
 45,Army West Point,4,14,43,.326
 46,Appalachian St.,4,20,61,.328
@@ -71,8 +71,8 @@ Rank,Team,G,Opp 3rd Conv,Opp 3rd Att,Pct
 70,Utah St.,4,22,57,.386
 71,Oklahoma,4,24,62,.387
 72,Western Mich.,4,19,49,.388
-73,Boston College,4,26,67,.388
--,Middle Tenn.,4,26,67,.388
+73,Middle Tenn.,4,26,67,.388
+-,Boston College,4,26,67,.388
 75,SMU,4,21,54,.389
 76,UNLV,3,18,46,.391
 77,Ball St.,4,20,51,.392
@@ -96,8 +96,8 @@ Rank,Team,G,Opp 3rd Conv,Opp 3rd Att,Pct
 -,Fla. Atlantic,4,26,62,.419
 96,Kent St.,4,21,50,.420
 97,Old Dominion,4,27,64,.422
-98,UConn,3,19,45,.422
--,Arkansas,3,19,45,.422
+98,Arkansas,3,19,45,.422
+-,UConn,3,19,45,.422
 100,Louisiana Tech,4,22,52,.423
 101,Tulane,4,22,51,.431
 102,Baylor,4,30,68,.441

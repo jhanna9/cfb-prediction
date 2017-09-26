@@ -33,14 +33,14 @@ Rank,Team,G,Pass Att,Int
 -,Utah,4,141,2
 -,Texas A&M;,4,127,2
 -,Oregon,4,125,2
--,Notre Dame,4,117,2
 -,Eastern Mich.,3,117,2
+-,Notre Dame,4,117,2
 -,Miami (OH),4,116,2
 -,Iowa St.,3,115,2
 -,Fresno St.,3,114,2
--,Stanford,4,110,2
 -,South Fla.,4,110,2
 -,Michigan St.,3,110,2
+-,Stanford,4,110,2
 -,Auburn,4,108,2
 -,Washington,4,107,2
 -,UConn,3,106,2
@@ -75,8 +75,8 @@ Rank,Team,G,Pass Att,Int
 -,TCU,4,124,3
 -,Texas,3,122,3
 -,Indiana,3,120,3
--,Wyoming,4,116,3
 -,Marshall,3,116,3
+-,Wyoming,4,116,3
 -,Mississippi St.,4,112,3
 -,Michigan,4,109,3
 -,Texas St.,4,108,3
@@ -91,8 +91,8 @@ Rank,Team,G,Pass Att,Int
 -,Cincinnati,4,157,4
 -,Oklahoma St.,4,146,4
 -,Purdue,4,145,4
--,Oregon St.,4,138,4
 -,Tennessee,4,138,4
+-,Oregon St.,4,138,4
 -,Pittsburgh,4,135,4
 -,Temple,4,133,4
 -,South Carolina,4,129,4
@@ -112,12 +112,12 @@ Rank,Team,G,Pass Att,Int
 -,Illinois,3,84,5
 112,East Carolina,4,169,6
 -,Colorado St.,4,164,6
--,Hawaii,4,141,6
 -,Baylor,4,141,6
+-,Hawaii,4,141,6
 -,Nevada,4,137,6
 -,Colorado,4,136,6
--,Missouri,4,133,6
 -,UTEP,4,133,6
+-,Missouri,4,133,6
 -,Rutgers,4,121,6
 -,BYU,4,110,6
 122,Kansas,4,180,7

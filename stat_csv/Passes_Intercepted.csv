@@ -4,8 +4,8 @@ Rank,Team,G,Opp Pass,Opp Int,Int Ret Yds,Int Ret TDs
 -,Central Mich.,4,156,9,6,0
 4,Washington,4,132,8,150,2
 5,Duke,4,117,7,138,3
--,Colorado St.,4,142,7,72,1
 -,New Mexico St.,4,142,7,52,1
+-,Colorado St.,4,142,7,72,1
 -,Southern California,4,143,7,108,1
 -,Oregon,4,153,7,92,0
 10,TCU,4,117,6,71,2
@@ -16,19 +16,19 @@ Rank,Team,G,Opp Pass,Opp Int,Int Ret Yds,Int Ret TDs
 -,California,4,171,6,109,1
 16,Wisconsin,3,80,5,107,1
 -,San Diego St.,4,84,5,27,0
--,Florida,3,92,5,109,3
 -,Wyoming,4,92,5,30,0
+-,Florida,3,92,5,109,3
 -,Eastern Mich.,3,98,5,113,1
 -,Washington St.,4,107,5,35,1
 -,Vanderbilt,4,107,5,48,0
 -,Rutgers,4,116,5,73,1
 -,Ball St.,4,122,5,10,0
--,Colorado,4,123,5,41,0
 -,Iowa St.,3,123,5,92,2
+-,Colorado,4,123,5,41,0
 -,West Virginia,4,124,5,88,1
 -,Kent St.,4,131,5,24,0
--,Stanford,4,139,5,45,0
 -,Wake Forest,4,139,5,105,1
+-,Stanford,4,139,5,45,0
 -,Arizona,4,149,5,58,0
 -,Nebraska,4,153,5,43,0
 -,Texas A&M;,4,155,5,56,1
@@ -43,8 +43,8 @@ Rank,Team,G,Opp Pass,Opp Int,Int Ret Yds,Int Ret TDs
 -,Virginia,4,122,4,22,0
 -,Virginia Tech,4,127,4,73,0
 -,Texas Tech,3,129,4,47,1
--,Louisiana Tech,4,130,4,106,0
 -,Oklahoma St.,4,130,4,49,2
+-,Louisiana Tech,4,130,4,106,0
 -,Ohio St.,4,131,4,75,0
 -,Syracuse,4,132,4,62,1
 -,Louisville,4,133,4,98,2
@@ -63,10 +63,10 @@ Rank,Team,G,Opp Pass,Opp Int,Int Ret Yds,Int Ret TDs
 -,Arkansas St.,3,90,3,0,0
 -,Ole Miss,3,96,3,15,0
 -,Appalachian St.,4,100,3,67,0
--,Clemson,4,103,3,44,1
 -,Utah St.,4,103,3,38,1
--,Pittsburgh,4,104,3,2,0
+-,Clemson,4,103,3,44,1
 -,UNLV,3,104,3,87,1
+-,Pittsburgh,4,104,3,2,0
 -,Michigan,4,105,3,52,2
 -,Toledo,4,107,3,42,0
 -,Houston,3,107,3,20,0
@@ -109,8 +109,8 @@ Rank,Team,G,Opp Pass,Opp Int,Int Ret Yds,Int Ret TDs
 -,Arizona St.,4,161,2,49,1
 109,Air Force,3,58,1,34,0
 -,Ga. Southern,3,70,1,0,0
--,Tennessee,4,79,1,0,0
 -,Mississippi St.,4,79,1,32,0
+-,Tennessee,4,79,1,0,0
 -,Fresno St.,3,86,1,0,0
 -,Miami (FL),2,89,1,24,0
 -,BYU,4,110,1,27,0
