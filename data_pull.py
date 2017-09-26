@@ -67,12 +67,6 @@ def site_to_csv(links):
 		returns a string
 
 	'''
-	# for deskop
-	# my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
-
-	# for laptop
-	# my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv'
-
 	# get stat name to use as csv file name
 	csv_name = list(stat_num_reader('stat_num.txt'))
 	for name in csv_name:
@@ -130,7 +124,6 @@ def away_team():
 	'''
 	# list to store away team name
 	away = []
-	# data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
 
 	address = requests.get(data, headers=headers)
 	soup = BeautifulSoup(address.content, 'html.parser')
@@ -155,7 +148,6 @@ def home_team():
 	'''
 	# list to store away team name
 	home = []
-	# data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
 
 	address = requests.get(data, headers=headers)
 	soup = BeautifulSoup(address.content, 'html.parser')
@@ -180,7 +172,6 @@ def spread():
 	'''
 	# list to store spreads
 	spr = []
-	# data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
 
 	address = requests.get(data, headers=headers)
 	soup = BeautifulSoup(address.content, 'html.parser')
@@ -201,13 +192,8 @@ def schedule_spread_csv():
 
 
 	returns a string
-	'''
-	# for deskop
-	# my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
 
-	# for laptop
-	# my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv'
-	
+	'''
 	with open(os.path.join(my_path, 'schedule_spread.csv'), 'w', newline='') as f:
 		file_writer = csv.writer(f)
 
@@ -229,12 +215,6 @@ def csv_stat_calc():
 
 
 	'''
-	# for deskop
-	# my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
-
-	# for laptop
-	# my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv'
-
 	stats = list(stat_num_reader('stat_num.txt'))
 
 	for name in stats:
@@ -260,12 +240,6 @@ def passes_int_clean(csv_file):
 
 
 	'''
-	# for deskop
-	# my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/'
-
-	# for laptop
-	# my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv'
-
 	with open(os.path.join(my_path, csv_file), 'r') as f, open(os.path.join(my_path, 'Passes_Intercepted_new.csv'), 'w', newline='') as w:
 		file_reader = csv.reader(f)
 		file_writer = csv.writer(w)
