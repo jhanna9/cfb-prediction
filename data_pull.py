@@ -12,7 +12,7 @@ headers = {'User-agent': 'Mozilla/5.0'}
 # global path variables 
 # my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/' # for deskop
 my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv' # for laptop
-data = 'http://www.covers.com/odds/football/college-football-odds.aspx' # for schedule/spread
+data = 'http://www.covers.com/Sports/NCAAF/Odds/1' # for schedule/spread
 
 
 def stat_num_reader(text_file):
@@ -113,6 +113,40 @@ def site_to_csv(links):
 
 	# return path to new csv files
 	return finished
+
+
+def teams():
+	'''
+
+
+
+	'''
+	teams = []
+
+	address = requests.get(data, headers=headers)
+	soup = BeautifulSoup(address.content, 'html.parser')
+
+	for span in soup.find_all('span', class_='cover-CoversOdds-tableTeamLink'):
+		teams.append(span.text.strip())
+
+	return teams
+
+
+def spread2():
+	'''
+
+
+	'''
+	spreads = []
+
+	address = requests.get(data, headers=headers)
+	soup = BeautifulSoup(address.content, 'html.parser')
+
+	for span in soup.find_all('span', class_='covers-CoversOdds-topOddsAway'):
+		print(span)
+		# span = div.find_all('span', class_='covers-CoversOdds-topOddsAway')
+		
+	return spreads
 
 
 def away_team():
@@ -253,5 +287,9 @@ def passes_int_clean(csv_file):
 
 # print(site_to_csv(build_stat_page_links()))
 # print(passes_int_clean('Passes_Intercepted.csv'))
-print(schedule_spread_csv())
+# print(schedule_spread_csv())
 # print((list(csv_stat_calc()))
+# print(teams())
+
+# print(spread2())
+spread2()
