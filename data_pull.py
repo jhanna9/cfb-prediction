@@ -142,9 +142,8 @@ def spread():
 	address = requests.get(data, headers=headers)
 	soup = BeautifulSoup(address.content, 'html.parser')
 
-	for span in soup.find_all('span', class_='covers-CoversOdds-topOddsAway'):
-		print(span)
-		# span = div.find_all('span', class_='covers-CoversOdds-topOddsAway')
+	for span in soup.find_all('span', class_='topOddsNormal'):
+		print(span.text.strip())
 		
 	return spreads
 
