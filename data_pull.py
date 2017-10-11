@@ -142,8 +142,8 @@ def spread():
 	address = requests.get(data, headers=headers)
 	soup = BeautifulSoup(address.content, 'html.parser')
 
-	for span in soup.find_all('span', class_='topOddsNormal'):
-		print(span.text.strip())
+	for span in soup.find_all('span', class_='covers-CoversOdds-topOddsHome'):
+		spreads.append(span.text.strip())
 		
 	return spreads
 
@@ -219,4 +219,4 @@ def passes_int_clean(csv_file):
 # print(teams())
 
 # print(spread2())
-spread()
+print(len(spread()))
