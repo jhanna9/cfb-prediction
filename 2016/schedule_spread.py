@@ -97,8 +97,8 @@ def match_spread(sched, spread):
 
 
 # function calls
-#match_spread(schedule(data), spread(data))
-#for k, v in match_spread(schedule(data), spread(data)).items():
+match_spread(schedule(data), spread(data))
+for k, v in match_spread(schedule(data), spread(data)).items():
     #print(k, v)
 
 # prints out covers' spread in good format
