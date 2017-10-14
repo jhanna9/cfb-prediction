@@ -170,7 +170,8 @@ def schedule_spread_csv(teams, spread):
 
 		# joins the two lists into one for csv writer
 		# help from https://stackoverflow.com/questions/34761978/python-merge-3-lists-into-1-list
-		teams_spread = list(it.zip_longest(teams, spread))
+		# teams_spread = list(it.zip_longest(teams, spread))
+		teams_spread = it.zip_longest(teams[0], teams[1], spread)
 
 		# writes one away team, one home team, one spread per row
 		for sched in teams_spread:
@@ -230,5 +231,9 @@ def passes_int_clean(csv_file):
 teams = teams()
 spread = spread()
 two_teams = chunks(teams, 2)
+two_teams_list = list(two_teams)
 
-print(schedule_spread_csv(two_teams, spread))
+for t in two_teams_list:
+ 	print(t[0], t[1])
+
+# print(schedule_spread_csv(two_teams_list, spread))
