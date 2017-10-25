@@ -165,17 +165,17 @@ def schedule_spread_csv(teams, spread):
 	returns a string
 
 	'''
+	teams_spread = []
+
 	with open(os.path.join(my_path, 'schedule_spread.csv'), 'w', newline='') as f:
 		file_writer = csv.writer(f)
 
-		# joins the two lists into one for csv writer
-		# help from https://stackoverflow.com/questions/34761978/python-merge-3-lists-into-1-list
-		# teams_spread = list(it.zip_longest(teams, spread))
-		teams_spread = it.zip_longest(teams[0], teams[1], spread)
+		teams_spread = it.zip_longest(teams, spread)
 
 		# writes one away team, one home team, one spread per row
-		for sched in teams_spread:
-			file_writer.writerow(sched)
+		for row in teams_spread:
+			new_row = (row[0][0], row[0][1], row[1])
+			file_writer.writerow(new_row)
 
 	finished = 'The CSV file is finished and located here: ' + my_path
 
@@ -230,10 +230,6 @@ def passes_int_clean(csv_file):
 # print((list(csv_stat_calc()))
 teams = teams()
 spread = spread()
-two_teams = chunks(teams, 2)
-two_teams_list = list(two_teams)
+two_teams = list(chunks(teams, 2))
 
-for t in two_teams_list:
- 	print(t[0], t[1])
-
-# print(schedule_spread_csv(two_teams_list, spread))
+print(schedule_spread_csv(two_teams, spread))
