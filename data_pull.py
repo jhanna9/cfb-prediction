@@ -132,22 +132,6 @@ def teams():
 	return teams
 
 
-def spread():
-	'''
-
-
-	'''
-	spreads = []
-
-	address = requests.get(data, headers=headers)
-	soup = BeautifulSoup(address.content, 'html.parser')
-
-	for span in soup.find_all('span', class_='covers-CoversOdds-topOddsHome'):
-		spreads.append(span.text.strip())
-		
-	return spreads
-
-
 def chunks(l, n):
 	'''https://stackoverflow.com/questions/312443/how-do-you-split-a-list-into-evenly-sized-chunks
 
@@ -158,23 +142,19 @@ def chunks(l, n):
 		yield l[i:i + n]
 
 
-def schedule_spread_csv(teams, spread):
+def schedule_csv(teams):
 	'''Joins lists of teams and spreads into one list and writes each line to a csv
 
 
 	returns a string
 
 	'''
-	teams_spread = []
-
 	with open(os.path.join(my_path, 'schedule_spread.csv'), 'w', newline='') as f:
 		file_writer = csv.writer(f)
 
-		teams_spread = it.zip_longest(teams, spread)
-
 		# writes one away team, one home team, one spread per row
-		for row in teams_spread:
-			new_row = (row[0][0], row[0][1], row[1])
+		for row in teams:
+			new_row = (row[0], row[1])
 			file_writer.writerow(new_row)
 
 	finished = 'The CSV file is finished and located here: ' + my_path
@@ -226,10 +206,7 @@ def passes_int_clean(csv_file):
 
 # print(site_to_csv(build_stat_page_links()))
 # print(passes_int_clean('Passes_Intercepted.csv'))
-# print(schedule_spread_csv())
 # print((list(csv_stat_calc()))
 teams = teams()
-spread = spread()
 two_teams = list(chunks(teams, 2))
-
-print(schedule_spread_csv(two_teams, spread))
+schedule_csv(two_teams)
