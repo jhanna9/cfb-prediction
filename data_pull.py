@@ -12,8 +12,8 @@ headers = {'User-agent': 'Mozilla/5.0'}
 # global path variables 
 my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/' # for deskop
 # my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv' # for laptop
-data = 'http://www.covers.com/Sports/NCAAF/Odds/1' # for schedule/spread
-
+data = 'http://www.covers.com/Sports/NCAAF/Odds/US/SPREAD/competition/Online/ML' # for schedule/spread
+# http://www.covers.com/Sports/NCAAF/Odds/1
 
 def stat_num_reader(text_file):
 	'''Reads a text file
@@ -132,24 +132,18 @@ def teams():
 	return teams
 
 
-def spread():
+def chunks(l, n):
+	'''https://stackoverflow.com/questions/312443/how-do-you-split-a-list-into-evenly-sized-chunks
+
+
+	Yield successive n-sized chunks from l
 	'''
+	for i in range(0, len(l), n):
+		yield l[i:i + n]
 
 
-	'''
-	spreads = []
-
-	address = requests.get(data, headers=headers)
-	soup = BeautifulSoup(address.content, 'html.parser')
-
-	for span in soup.find_all('span', class_='covers-CoversOdds-topOddsHome'):
-		spreads.append(span.text.strip())
-		
-	return spreads
-
-
-def schedule_spread_csv():
-	'''Joins lists of away teams, home teams, and spreads into one list and writes each line to a csv
+def schedule_csv(teams):
+	'''Joins lists of teams and spreads into one list and writes each line to a csv
 
 
 	returns a string
@@ -158,13 +152,10 @@ def schedule_spread_csv():
 	with open(os.path.join(my_path, 'schedule_spread.csv'), 'w', newline='') as f:
 		file_writer = csv.writer(f)
 
-		# joins the three lists into one for csv writer
-		# help from https://stackoverflow.com/questions/34761978/python-merge-3-lists-into-1-list
-		teams_spread = list(it.zip_longest(away_team(), home_team(), spread()))
-
 		# writes one away team, one home team, one spread per row
-		for sched in teams_spread:
-			file_writer.writerow(sched)
+		for row in teams:
+			new_row = (row[0], row[1])
+			file_writer.writerow(new_row)
 
 	finished = 'The CSV file is finished and located here: ' + my_path
 
@@ -196,6 +187,7 @@ def csv_stat_calc():
 
 		yield name[0], stat_mean, stat_sdev
 
+
 def passes_int_clean(csv_file):
 	'''
 
@@ -214,9 +206,7 @@ def passes_int_clean(csv_file):
 
 # print(site_to_csv(build_stat_page_links()))
 # print(passes_int_clean('Passes_Intercepted.csv'))
-# print(schedule_spread_csv())
 # print((list(csv_stat_calc()))
-# print(teams())
-
-# print(spread2())
-print(len(spread()))
+teams = teams()
+two_teams = list(chunks(teams, 2))
+schedule_csv(two_teams)

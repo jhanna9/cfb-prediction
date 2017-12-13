@@ -50,25 +50,41 @@ def home_team():
 	return home
 
 
-def spread():
-	'''Scrapes site for all game spreads
+# def spread():
+# 	'''Scrapes site for all game spreads
 
 
-	returns a list
+# 	returns a list
+
+# 	'''
+# 	# list to store spreads
+# 	spr = []
+
+# 	address = requests.get(data, headers=headers)
+# 	soup = BeautifulSoup(address.content, 'html.parser')
+
+# 	# spreads from site are in nested div class='covers_bottom'
+# 	for td in soup.find_all('td', class_='covers_top'):
+# 		div_spread = td.find_all('div', class_='covers_bottom')
+
+# 		# append spreads to spr list
+# 		for s in div_spread:
+# 			spr.append(s.text.strip())
+
+# 	return spr
+
+
+	def spread():
+	'''Updated spread pull for 2017.  No longer used
+
 
 	'''
-	# list to store spreads
-	spr = []
+	spreads = []
 
 	address = requests.get(data, headers=headers)
 	soup = BeautifulSoup(address.content, 'html.parser')
 
-	# spreads from site are in nested div class='covers_bottom'
-	for td in soup.find_all('td', class_='covers_top'):
-		div_spread = td.find_all('div', class_='covers_bottom')
-
-		# append spreads to spr list
-		for s in div_spread:
-			spr.append(s.text.strip())
-
-	return spr
+	for span in soup.find_all('span', class_='covers-CoversOdds-topOddsHome'):
+		spreads.append(span.text.strip())
+		
+	return spreads
