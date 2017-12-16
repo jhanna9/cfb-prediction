@@ -160,31 +160,32 @@ def schedule_csv(teams):
 
 	return finished
 
+# unsure if this function is needed
 
-def csv_stat_calc():
-	'''
+# def csv_stat_calc():
+# 	'''
 
 
-	'''
-	stats = list(stat_num_reader('stat_num.txt'))
+# 	'''
+# 	stats = list(stat_num_reader('stat_num.txt'))
 
-	for name in stats:
-		file_name = name[0] + '.csv'
-		stat_list = []
+# 	for name in stats:
+# 		file_name = name[0] + '.csv'
+# 		stat_list = []
 
-		with open(os.path.join(my_path, file_name), 'r') as f:
-			file_reader = csv.reader(f)
-			next(file_reader)
+# 		with open(os.path.join(my_path, file_name), 'r') as f:
+# 			file_reader = csv.reader(f)
+# 			next(file_reader)
 
-			for row in file_reader:
-				stat_list.append(float(row[-1]))
+# 			for row in file_reader:
+# 				stat_list.append(float(row[-1]))
 
-			stat_mean = mean(stat_list)
-			stat_sdev = stdev(stat_list)
+# 			stat_mean = mean(stat_list)
+# 			stat_sdev = stdev(stat_list)
 
-			# print(name[0], stat_mean, stat_sdev)
+# 			# print(name[0], stat_mean, stat_sdev)
 
-		yield name[0], stat_mean, stat_sdev
+# 		yield name[0], stat_mean, stat_sdev
 
 
 def passes_int_clean(csv_file):
@@ -204,9 +205,10 @@ def passes_int_clean(csv_file):
 	return 'done'
 
 
+# function calls
 # print(site_to_csv(build_stat_page_links()))
 # print(passes_int_clean('Passes_Intercepted.csv'))
-# print((list(csv_stat_calc()))
-teams = teams()
-two_teams = list(chunks(teams, 2))
-schedule_csv(two_teams)
+# print((list(csv_stat_calc())))
+# teams = teams()
+# two_teams = list(chunks(teams, 2))
+# schedule_csv(two_teams)
