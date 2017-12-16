@@ -12,8 +12,8 @@ headers = {'User-agent': 'Mozilla/5.0'}
 # global path variables 
 my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/' # for deskop
 # my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv' # for laptop
-data = 'http://www.covers.com/Sports/NCAAF/Odds/US/SPREAD/competition/Online/ML' # for schedule/spread
-# http://www.covers.com/Sports/NCAAF/Odds/1
+data = 'http://www.covers.com/Sports/NCAAF/Odds/US/SPREAD/competition/Online/ML' # for schedule
+
 
 def stat_num_reader(text_file):
 	'''Reads a text file
@@ -64,7 +64,7 @@ def build_stat_page_links():
 def site_to_csv(links):
 	'''Scrapes all links to important stats and saves them to a csv file
 
-		returns a string
+	returns a string
 
 	'''
 	# get stat name to use as csv file name
@@ -116,9 +116,9 @@ def site_to_csv(links):
 
 
 def teams():
-	'''
+	'''Scrapes Covers site for current weekly schedule
 
-
+	returns a list
 
 	'''
 	teams = []
@@ -135,16 +135,15 @@ def teams():
 def chunks(l, n):
 	'''https://stackoverflow.com/questions/312443/how-do-you-split-a-list-into-evenly-sized-chunks
 
-
 	Yield successive n-sized chunks from l
+
 	'''
 	for i in range(0, len(l), n):
 		yield l[i:i + n]
 
 
 def schedule_csv(teams):
-	'''Joins lists of teams and spreads into one list and writes each line to a csv
-
+	'''Writes a list of teams based on current schedule to a csv file
 
 	returns a string
 
@@ -189,8 +188,9 @@ def csv_stat_calc():
 
 
 def passes_int_clean(csv_file):
-	'''
+	'''Opens a csv file, finds the correct statistic by column, and saves a new csv file
 
+	returns a string
 
 	'''
 	with open(os.path.join(my_path, csv_file), 'r') as f, open(os.path.join(my_path, 'Passes_Intercepted_new.csv'), 'w', newline='') as w:
