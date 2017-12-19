@@ -160,50 +160,6 @@ def schedule_csv(teams):
 
 	return finished
 
-# unsure if this function is needed
-
-# def csv_stat_calc():
-# 	'''
-
-
-# 	'''
-# 	stats = list(stat_num_reader('stat_num.txt'))
-
-# 	for name in stats:
-# 		file_name = name[0] + '.csv'
-# 		stat_list = []
-
-# 		with open(os.path.join(my_path, file_name), 'r') as f:
-# 			file_reader = csv.reader(f)
-# 			next(file_reader)
-
-# 			for row in file_reader:
-# 				stat_list.append(float(row[-1]))
-
-# 			stat_mean = mean(stat_list)
-# 			stat_sdev = stdev(stat_list)
-
-# 			# print(name[0], stat_mean, stat_sdev)
-
-# 		yield name[0], stat_mean, stat_sdev
-
-
-def passes_int_clean(csv_file):
-	'''Opens a csv file, finds the correct statistic by column, and saves a new csv file
-
-	returns a string
-
-	'''
-	with open(os.path.join(my_path, csv_file), 'r') as f, open(os.path.join(my_path, 'Passes_Intercepted_new.csv'), 'w', newline='') as w:
-		file_reader = csv.reader(f)
-		file_writer = csv.writer(w)
-
-		for row in file_reader:
-			file_writer.writerow(row[:-2])
-
-
-	return 'done'
-
 
 # function calls
 # print(site_to_csv(build_stat_page_links()))
