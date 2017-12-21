@@ -2,24 +2,28 @@ from data_pull import stat_num_reader
 import csv
 import os
 
-def z_score_column(stat_position_file):
+def stat_array(stat_position_file):
 	'''
 
 
 	'''
 	my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv'
+	# out_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/z_scores'
 
 	stats = list(stat_num_reader(stat_position_file))
 
-	for name in stats:
-		csv_file = name[0] + '.csv'
+	for items in stats:
+		csv_file = items[0] + '.csv'
+		stat_list = []
 
 		with open(os.path.join(my_path, csv_file), 'r') as f:
 			file_reader = csv.reader(f)
+			next(file_reader)
 
-			print(f)
+			for row in file_reader:
+				stat_list.append(float(row[int(items[1])]))
 
-	return stats
+		yield items[0], stat_list
 
 
 # def csv_stat_calc():
@@ -84,7 +88,7 @@ def z_score_column(stat_position_file):
 
 # 			yield name.name, name.mean, name.stdev
 
-z_score_column('stat_position.txt')
+print(list(stat_array('stat_position.txt')))
 # statistics = list(Stats.store_calc())
 # print(statistics.name)
 # for s in statistics:
