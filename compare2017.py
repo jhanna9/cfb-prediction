@@ -1,4 +1,5 @@
 from data_pull import stat_num_reader
+from scipy import stats
 import csv
 import os
 
@@ -25,6 +26,24 @@ def stat_array(stat_position_file):
 
 		yield items[0], stat_list
 
+
+def z_score_array(stat_list):
+	'''
+
+
+	'''
+	# z_score_list = []
+
+	yield stats.zscore(stat_list)
+
+	# for s in stat_list:
+	# 	stats
+
+	# # z_score_list = ['%.2f' % s for s in stats.zscore(stat_list)]
+
+	# z_score_list = ['%.2f' % s for s in stats.zscore(stat_list)]
+
+	# yield z_score_list
 
 # def csv_stat_calc():
 # 	'''
@@ -88,7 +107,10 @@ def stat_array(stat_position_file):
 
 # 			yield name.name, name.mean, name.stdev
 
+
 print(list(stat_array('stat_position.txt')))
+# print(list(z_score_array(stat_array('stat_position.txt'))))
+# statistics = list(Stats.store_calc())
 # statistics = list(Stats.store_calc())
 # print(statistics.name)
 # for s in statistics:
