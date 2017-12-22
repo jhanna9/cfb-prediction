@@ -16,6 +16,7 @@ def stat_array(stat_position_file):
 	for items in stats:
 		csv_file = items[0] + '.csv'
 		stat_list = []
+		
 
 		with open(os.path.join(my_path, csv_file), 'r') as f:
 			file_reader = csv.reader(f)
@@ -24,7 +25,7 @@ def stat_array(stat_position_file):
 			for row in file_reader:
 				stat_list.append(float(row[int(items[1])]))
 
-		yield items[0], stat_list
+		yield stat_list
 
 
 def z_score_array(stat_list):
@@ -32,18 +33,12 @@ def z_score_array(stat_list):
 
 
 	'''
-	# z_score_list = []
+	z_score_list = []
 
-	yield stats.zscore(stat_list)
+	for s in stat_list:
+		z_score_list = stats.zscore(s)
 
-	# for s in stat_list:
-	# 	stats
-
-	# # z_score_list = ['%.2f' % s for s in stats.zscore(stat_list)]
-
-	# z_score_list = ['%.2f' % s for s in stats.zscore(stat_list)]
-
-	# yield z_score_list
+		yield z_score_list
 
 # def csv_stat_calc():
 # 	'''
@@ -108,7 +103,8 @@ def z_score_array(stat_list):
 # 			yield name.name, name.mean, name.stdev
 
 
-print(list(stat_array('stat_position.txt')))
+print(list(z_score_array(stat_array('stat_position.txt'))))
+# print(list(stat_array('stat_position.txt')))
 # print(list(z_score_array(stat_array('stat_position.txt'))))
 # statistics = list(Stats.store_calc())
 # statistics = list(Stats.store_calc())
