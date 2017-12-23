@@ -40,6 +40,54 @@ def z_score_array(stat_list):
 
 		yield z_score_list
 
+
+def z_score_append(z_scores):
+	'''
+
+
+	'''
+	my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv'
+	out_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/z_scores'
+
+	stats = list(stat_num_reader('stat_position.txt'))
+
+	for items in stats:
+		csv_file_in = items[0] + '.csv'
+		csv_file_out = items[0] + '_zscore' + '.csv'
+
+		with open(os.path.join(my_path, csv_file_in), 'r') as f_in, open(os.path.join(out_path, csv_file_out), 'w') as f_out:
+			file_reader = csv.reader(f_in)
+			file_writer = csv.writer(f_out)
+			next(file_reader)
+
+			x = 0
+
+			for z in z_scores:
+				z = '{:1.5}'.format(z[0])
+				print(z)
+
+
+			# for row in file_reader:
+			# 	for z in z_scores:
+			# 		# z = '{:1.5}'.format(z[0])
+			# 		row.append(z[x])
+			# 		continue
+
+			# 	file_writer.writerow(row)
+
+				
+
+	finished = 'The CSV files are finished and located here: ' + out_path
+	
+	return finished					
+
+
+
+
+
+
+
+
 # def csv_stat_calc():
 # 	'''
 
@@ -103,7 +151,7 @@ def z_score_array(stat_list):
 # 			yield name.name, name.mean, name.stdev
 
 
-print(list(z_score_array(stat_array('stat_position.txt'))))
+print(z_score_append(z_score_array(stat_array('stat_position.txt'))))
 # print(list(stat_array('stat_position.txt')))
 # print(list(z_score_array(stat_array('stat_position.txt'))))
 # statistics = list(Stats.store_calc())
