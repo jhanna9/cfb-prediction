@@ -12,8 +12,8 @@ headers = {'User-agent': 'Mozilla/5.0'}
 # global path variables 
 my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/' # for deskop
 # my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv' # for laptop
-data = 'http://www.covers.com/Sports/NCAAF/Odds/US/SPREAD/competition/Online/ML' # for schedule/spread
-# http://www.covers.com/Sports/NCAAF/Odds/1
+data = 'http://www.covers.com/Sports/NCAAF/Odds/US/SPREAD/competition/Online/ML' # for schedule
+
 
 def stat_num_reader(text_file):
 	'''Reads a text file
@@ -64,7 +64,7 @@ def build_stat_page_links():
 def site_to_csv(links):
 	'''Scrapes all links to important stats and saves them to a csv file
 
-		returns a string
+	returns a string
 
 	'''
 	# get stat name to use as csv file name
@@ -116,9 +116,9 @@ def site_to_csv(links):
 
 
 def teams():
-	'''
+	'''Scrapes Covers site for current weekly schedule
 
-
+	returns a list
 
 	'''
 	teams = []
@@ -135,16 +135,15 @@ def teams():
 def chunks(l, n):
 	'''https://stackoverflow.com/questions/312443/how-do-you-split-a-list-into-evenly-sized-chunks
 
-
 	Yield successive n-sized chunks from l
+
 	'''
 	for i in range(0, len(l), n):
 		yield l[i:i + n]
 
 
 def schedule_csv(teams):
-	'''Joins lists of teams and spreads into one list and writes each line to a csv
-
+	'''Writes a list of teams based on current schedule to a csv file
 
 	returns a string
 
@@ -162,51 +161,10 @@ def schedule_csv(teams):
 	return finished
 
 
-def csv_stat_calc():
-	'''
-
-
-	'''
-	stats = list(stat_num_reader('stat_num.txt'))
-
-	for name in stats:
-		file_name = name[0] + '.csv'
-		stat_list = []
-
-		with open(os.path.join(my_path, file_name), 'r') as f:
-			file_reader = csv.reader(f)
-			next(file_reader)
-
-			for row in file_reader:
-				stat_list.append(float(row[-1]))
-
-			stat_mean = mean(stat_list)
-			stat_sdev = stdev(stat_list)
-
-			# print(name[0], stat_mean, stat_sdev)
-
-		yield name[0], stat_mean, stat_sdev
-
-
-def passes_int_clean(csv_file):
-	'''
-
-
-	'''
-	with open(os.path.join(my_path, csv_file), 'r') as f, open(os.path.join(my_path, 'Passes_Intercepted_new.csv'), 'w', newline='') as w:
-		file_reader = csv.reader(f)
-		file_writer = csv.writer(w)
-
-		for row in file_reader:
-			file_writer.writerow(row[:-2])
-
-
-	return 'done'
-
-
+# function calls
 # print(site_to_csv(build_stat_page_links()))
 # print(passes_int_clean('Passes_Intercepted.csv'))
-# print((list(csv_stat_calc()))
-teams = teams()
-two_teams = list(chunks(teams, 2))
-schedule_csv(two_teams)
+# print((list(csv_stat_calc())))
+# teams = teams()
+# two_teams = list(chunks(teams, 2))
+# schedule_csv(two_teams)
