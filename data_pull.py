@@ -10,8 +10,8 @@ import requests
 headers = {'User-agent': 'Mozilla/5.0'}
 
 # global path variables 
-my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/' # for deskop
-# my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv' # for laptop
+# my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/' # for deskop
+my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv' # for laptop
 data = 'http://www.covers.com/Sports/NCAAF/Odds/US/SPREAD/competition/Online/ML' # for schedule
 
 
@@ -162,9 +162,9 @@ def schedule_csv(teams):
 
 
 # function calls
-# print(site_to_csv(build_stat_page_links()))
+print(site_to_csv(build_stat_page_links()))
 # print(passes_int_clean('Passes_Intercepted.csv'))
 # print((list(csv_stat_calc())))
-# teams = teams()
-# two_teams = list(chunks(teams, 2))
-# schedule_csv(two_teams)
+teams = teams()
+two_teams = list(chunks(teams, 2))
+schedule_csv(two_teams)
