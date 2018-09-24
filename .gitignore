@@ -1,1 +1,2 @@
-/stat_csv
+stat_csv/
+__pycache__/
