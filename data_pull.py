@@ -161,6 +161,30 @@ def schedule_csv(teams):
 	return finished
 
 
+def spread(link):
+    '''Takes a URL input and scrapes for current spread
+
+    Keyword arguments:
+    link -- url to game schedule
+
+    returns: a list
+    '''
+    # link = 'http://www.covers.com/odds/football/college-football-odds.aspx'
+
+    # list to return
+    spread_lst = []
+    
+    # pull data from site and create BS object
+    spread = requests.get(link, headers=headers)
+    soup = BeautifulSoup(spread.content, 'html.parser')
+
+    # iterate through BS object looking for div and class='cmg_matchup_list_home_odds'
+    for tag in soup.find_all('div', class_='cmg_matchup_list_home_odds'):
+        spread_lst.append(tag.text.strip())
+
+    return spread_lst 
+
+
 # function calls
 print(site_to_csv(build_stat_page_links()))
 # print(passes_int_clean('Passes_Intercepted.csv'))
@@ -168,3 +192,9 @@ print(site_to_csv(build_stat_page_links()))
 teams = teams()
 two_teams = list(chunks(teams, 2))
 schedule_csv(two_teams)
+
+# prints out covers' spread in good format
+for s in spread(data):
+    print(s)
+    #print('a')
+    # print('\n')
