@@ -13,6 +13,7 @@ headers = {'User-agent': 'Mozilla/5.0'}
 # my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/' # for deskop
 my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv' # for laptop
 data = 'http://www.covers.com/Sports/NCAAF/Odds/US/SPREAD/competition/Online/ML' # for schedule
+spreads = 'https://www.covers.com/sports/ncaaf/matchups'
 
 
 def stat_num_reader(text_file):
@@ -142,7 +143,7 @@ def chunks(l, n):
 		yield l[i:i + n]
 
 
-def schedule_csv(teams):
+def schedule_csv(teams, point_spread):
 	'''Writes a list of teams based on current schedule to a csv file
 
 	returns a string
@@ -152,9 +153,11 @@ def schedule_csv(teams):
 		file_writer = csv.writer(f)
 
 		# writes one away team, one home team, one spread per row
+		i = 0
 		for row in teams:
-			new_row = (row[0], row[1])
+			new_row = (row[0], row[1], point_spread[i])
 			file_writer.writerow(new_row)
+			i += 1
 
 	finished = 'The CSV file is finished and located here: ' + my_path
 
@@ -169,11 +172,9 @@ def spread(link):
 
     returns: a list
     '''
-    # link = 'http://www.covers.com/odds/football/college-football-odds.aspx'
-
     # list to return
     spread_lst = []
-    
+
     # pull data from site and create BS object
     spread = requests.get(link, headers=headers)
     soup = BeautifulSoup(spread.content, 'html.parser')
@@ -182,19 +183,28 @@ def spread(link):
     for tag in soup.find_all('div', class_='cmg_matchup_list_home_odds'):
         spread_lst.append(tag.text.strip())
 
-    return spread_lst 
+    return spread_lst
 
 
 # function calls
-print(site_to_csv(build_stat_page_links()))
+# print(site_to_csv(build_stat_page_links()))
 # print(passes_int_clean('Passes_Intercepted.csv'))
 # print((list(csv_stat_calc())))
-teams = teams()
-two_teams = list(chunks(teams, 2))
-schedule_csv(two_teams)
+# teams = teams()
+# two_teams = list(chunks(teams, 2))
+# pt_spreads = spread(spreads)
+# schedule_csv(two_teams, pt_spreads)
 
 # prints out covers' spread in good format
-for s in spread(data):
-    print(s)
-    #print('a')
-    # print('\n')
+# x = 1
+# for s in spread(spreads):
+#     sprd = s[0:5]
+#     print(s[0:5])
+#     print(type(sprd))
+#     for n in sprd:
+#     	print(n)
+#     x += 1
+#     if x == 4:
+#     	break
+#     # print('a')
+#     # print('\n')
