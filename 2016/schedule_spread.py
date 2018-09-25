@@ -6,8 +6,8 @@ from bs4 import BeautifulSoup
 headers = {'User-agent': 'Mozilla/5.0'}
 
 # link to schedule and spread
-data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
-
+# data = 'http://www.covers.com/odds/football/college-football-odds.aspx'
+data = 'https://www.covers.com/sports/ncaaf/matchups'
 
 def schedule():
     '''Takes a URL input and scrapes for team names
@@ -42,7 +42,7 @@ def schedule():
     return games
 
 
-def spread():
+def spread(link):
     '''Takes a URL input and scrapes for current spread
 
     Keyword arguments:
@@ -50,7 +50,7 @@ def spread():
 
     returns: a list
     '''
-    link = 'http://www.covers.com/odds/football/college-football-odds.aspx'
+    # link = 'http://www.covers.com/odds/football/college-football-odds.aspx'
 
     # list to return
     spread_lst = []
@@ -59,9 +59,9 @@ def spread():
     spread = requests.get(link, headers=headers)
     soup = BeautifulSoup(spread.content, 'html.parser')
 
-    # iterate through BS object looking for div and class='covers_bottom'
-    for tag in soup.find_all('div', class_='covers_bottom'):
-        spread_lst.append(tag.string.strip())
+    # iterate through BS object looking for div and class='cmg_matchup_list_home_odds'
+    for tag in soup.find_all('div', class_='cmg_matchup_list_home_odds'):
+        spread_lst.append(tag.text.strip())
 
     return spread_lst 
    
@@ -97,12 +97,12 @@ def match_spread(sched, spread):
 
 
 # function calls
-match_spread(schedule(data), spread(data))
-for k, v in match_spread(schedule(data), spread(data)).items():
+# match_spread(schedule(data), spread(data))
+# for k, v in match_spread(schedule(data), spread(data)).items():
     #print(k, v)
 
 # prints out covers' spread in good format
-#for s in spread():
-    #print(s)
+for s in spread(data):
+    print(s)
     #print('a')
-    #print('\n')
+    # print('\n')
