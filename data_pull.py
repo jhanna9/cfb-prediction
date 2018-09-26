@@ -12,7 +12,7 @@ headers = {'User-agent': 'Mozilla/5.0'}
 # global path variables 
 # my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/' # for deskop
 my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv' # for laptop
-data = 'http://www.covers.com/Sports/NCAAF/Odds/US/SPREAD/competition/Online/ML' # for schedule
+# data = 'http://www.covers.com/Sports/NCAAF/Odds/US/SPREAD/competition/Online/ML' # for schedule
 spreads = 'https://www.covers.com/sports/ncaaf/matchups'
 
 
@@ -116,7 +116,7 @@ def site_to_csv(links):
 	return finished
 
 
-def teams():
+def teams(data):
 	'''Scrapes Covers site for current weekly schedule
 
 	returns a list
@@ -127,7 +127,7 @@ def teams():
 	address = requests.get(data, headers=headers)
 	soup = BeautifulSoup(address.content, 'html.parser')
 
-	for span in soup.find_all('span', class_='cover-CoversOdds-tableTeamLink'):
+	for span in soup.find_all('div', class_='cmg_matchup_header_team_names'):  # cover-CoversOdds-tableTeamLink'):
 		teams.append(span.text.strip())
 
 	return teams
@@ -181,7 +181,8 @@ def spread(link):
 
     # iterate through BS object looking for div and class='cmg_matchup_list_home_odds'
     for tag in soup.find_all('div', class_='cmg_matchup_list_home_odds'):
-        spread_lst.append(tag.text.strip())
+    	t = tag.text.strip()
+    	spread_lst.append(t[0:5])
 
     return spread_lst
 
@@ -190,9 +191,9 @@ def spread(link):
 # print(site_to_csv(build_stat_page_links()))
 # print(passes_int_clean('Passes_Intercepted.csv'))
 # print((list(csv_stat_calc())))
-# teams = teams()
+print(teams(spreads))
 # two_teams = list(chunks(teams, 2))
-# pt_spreads = spread(spreads)
+print(spread(spreads))
 # schedule_csv(two_teams, pt_spreads)
 
 # prints out covers' spread in good format
