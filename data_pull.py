@@ -13,7 +13,7 @@ headers = {'User-agent': 'Mozilla/5.0'}
 # my_path = 'C:/Users/Jim/Documents/+programming/cfb-prediction/stat_csv/' # for deskop
 my_path = 'C:/Users/J/Documents/python/cfb-prediction/stat_csv' # for laptop
 # data = 'http://www.covers.com/Sports/NCAAF/Odds/US/SPREAD/competition/Online/ML' # for schedule
-spreads = 'https://www.covers.com/sports/ncaaf/matchups'
+data = 'https://www.covers.com/sports/ncaaf/matchups'
 
 
 def stat_num_reader(text_file):
@@ -116,7 +116,7 @@ def site_to_csv(links):
 	return finished
 
 
-def teams(data):
+def teams(sched):
 	'''Scrapes Covers site for current weekly schedule
 
 	returns a list
@@ -164,7 +164,7 @@ def schedule_csv(teams, point_spread):
 	return finished
 
 
-def spread(link):
+def spread_content(link):
     '''Takes a URL input and scrapes for current spread
 
     Keyword arguments:
@@ -173,18 +173,34 @@ def spread(link):
     returns: a list
     '''
     # list to return
-    spread_lst = []
+    spread_scrape = []
 
     # pull data from site and create BS object
     spread = requests.get(link, headers=headers)
     soup = BeautifulSoup(spread.content, 'html.parser')
 
     # iterate through BS object looking for div and class='cmg_matchup_list_home_odds'
-    for tag in soup.find_all('div', class_='cmg_matchup_list_home_odds'):
-    	t = tag.text.strip()
-    	spread_lst.append(t[0:5].rstrip())
+    for tag in soup.find_all('div', class_='cmg_team_live_odds'):  # 'div', class_='cmg_matchup_list_home_odds'):
+    	for span in tag.find_all('span'):
+    	# t = tag.text.strip()
+    	# spread_lst.append(t[0:5].rstrip())
+    		spread_scrape.append(span.text.strip())
 
-    return spread_lst
+    return spread_scrape
+
+
+def spreads(sprd_scrape):
+	spread_lst = []
+	i = 0
+	for s in sprd_scrape:
+		if i == 2:
+			sprd = s.split()
+			spread_lst.append(sprd[1])
+			i = 0
+		else:
+			i += 1
+
+	return spread_lst
 
 
 # function calls
@@ -193,8 +209,15 @@ def spread(link):
 # print((list(csv_stat_calc())))
 # print(teams(spreads))
 # two_teams = list(chunks(teams, 2))
-print(spread(spreads))
+
+
 # schedule_csv(two_teams, pt_spreads)
+
+
+schedule_spread = list(zip(teams(data), spreads(spread_content(data))))
+
+for game in schedule_spread:
+	print(game)
 
 # prints out covers' spread in good format
 # x = 1
