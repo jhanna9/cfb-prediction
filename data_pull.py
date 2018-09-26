@@ -182,7 +182,7 @@ def spread(link):
     # iterate through BS object looking for div and class='cmg_matchup_list_home_odds'
     for tag in soup.find_all('div', class_='cmg_matchup_list_home_odds'):
     	t = tag.text.strip()
-    	spread_lst.append(t[0:5])
+    	spread_lst.append(t[0:5].rstrip())
 
     return spread_lst
 
@@ -191,7 +191,7 @@ def spread(link):
 # print(site_to_csv(build_stat_page_links()))
 # print(passes_int_clean('Passes_Intercepted.csv'))
 # print((list(csv_stat_calc())))
-print(teams(spreads))
+# print(teams(spreads))
 # two_teams = list(chunks(teams, 2))
 print(spread(spreads))
 # schedule_csv(two_teams, pt_spreads)
