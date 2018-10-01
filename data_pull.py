@@ -192,17 +192,14 @@ def schedule_csv(sched_spread):
     return finished
 
 
-# function calls
-# print(site_to_csv(build_stat_page_links()))
-# print(passes_int_clean('Passes_Intercepted.csv'))
-# print((list(csv_stat_calc())))
-# print(teams(spreads))
-# two_teams = list(chunks(teams, 2))
-# schedule_csv(two_teams, pt_spreads)
+def main():
+    # pulls all current stats and writes them to csvs
+    print(site_to_csv(build_stat_page_links()))
 
-schedule_spread = list(zip(schedule(data), spreads(spread_content(data))))
+    # gets schedule/spread for upcoming games and writes them to a csv
+    schedule_spread = list(zip(schedule(data), spreads(spread_content(data))))
+    print(schedule_csv(schedule_spread))
 
-print(schedule_csv(schedule_spread))
 
-# for game in schedule_spread:
-    # print(game)
+if __name__ == '__main__':
+    main()
