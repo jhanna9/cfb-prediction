@@ -113,7 +113,7 @@ def site_to_csv(links):
     return finished
 
 
-def teams(sched):
+def schedule(sched):
     '''Scrapes Covers site for current weekly schedule
 
     returns a list
@@ -130,29 +130,8 @@ def teams(sched):
     return teams
 
 
-def schedule_csv(teams, point_spread):
-    '''Writes a list of teams based on current schedule to a csv file
-
-    returns a string
-
-    '''
-    with open(os.path.join(my_path, 'schedule_spread.csv'), 'w', newline='') as f:
-        file_writer = csv.writer(f)
-
-        # writes one away team, one home team, one spread per row
-        i = 0
-        for row in teams:
-            new_row = (row[0], row[1], point_spread[i])
-            file_writer.writerow(new_row)
-            i += 1
-
-    finished = 'The CSV file is finished and located here: ' + my_path
-
-    return finished
-
-
 def spread_content(link):
-    '''Takes a URL input and scrapes for current spread
+    '''Takes a URL input and scrapes Covers live team odds
 
     Keyword arguments:
     link -- url to game schedule
@@ -169,14 +148,16 @@ def spread_content(link):
     # iterate through BS object looking for div and class='cmg_matchup_list_home_odds'
     for tag in soup.find_all('div', class_='cmg_team_live_odds'):  # 'div', class_='cmg_matchup_list_home_odds'):
         for span in tag.find_all('span'):
-            # t = tag.text.strip()
-            # spread_lst.append(t[0:5].rstrip())
             spread_scrape.append(span.text.strip())
 
     return spread_scrape
 
 
 def spreads(sprd_scrape):
+    '''Takes content scraped from spread_content() and extracts current spread
+
+
+    '''
     spread_lst = []
     i = 0
     for s in sprd_scrape:
@@ -190,6 +171,27 @@ def spreads(sprd_scrape):
     return spread_lst
 
 
+def schedule_csv(sched_spread):
+    '''Writes a list of teams based on current schedule to a csv file
+
+    returns a string
+
+    '''
+    with open(os.path.join(my_path, 'schedule_spread.csv'), 'w', newline='') as f:
+        file_writer = csv.writer(f)
+
+        # writes one game and one spread per row
+        i = 0
+        for row in sched_spread:
+            new_row = (row[0], row[1])
+            file_writer.writerow(new_row)
+            i += 1
+
+    finished = 'The CSV file is finished and located here: ' + my_path
+
+    return finished
+
+
 # function calls
 # print(site_to_csv(build_stat_page_links()))
 # print(passes_int_clean('Passes_Intercepted.csv'))
@@ -198,7 +200,9 @@ def spreads(sprd_scrape):
 # two_teams = list(chunks(teams, 2))
 # schedule_csv(two_teams, pt_spreads)
 
-schedule_spread = list(zip(teams(data), spreads(spread_content(data))))
+schedule_spread = list(zip(schedule(data), spreads(spread_content(data))))
 
-for game in schedule_spread:
-    print(game)
+print(schedule_csv(schedule_spread))
+
+# for game in schedule_spread:
+    # print(game)
