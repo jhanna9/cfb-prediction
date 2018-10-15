@@ -182,7 +182,6 @@ def schedule_csv(sched_spread):
 
         # writes one game and one spread per row
         for row in sched_spread:
-            # new_row = (row[0], row[1])
             file_writer.writerow(row)
 
     finished = 'The CSV file is finished and located here: ' + my_path
