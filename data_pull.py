@@ -194,7 +194,7 @@ def schedule_csv(sched_spread):
 
 def main():
     # pulls all current stats and writes them to csvs
-    print(site_to_csv(build_stat_page_links()))
+    # print(site_to_csv(build_stat_page_links()))
 
     # gets schedule/spread for upcoming games and writes them to a csv
     schedule_spread = zip(schedule(data), spreads(spread_content(data)))
