@@ -127,9 +127,6 @@ def schedule(sched):
     for span in soup.find_all('div', class_='cmg_matchup_header_team_names'):  # cover-CoversOdds-tableTeamLink'):
         teams.append(span.text.strip())
 
-    # need to handle games in progress / completed games
-    teams = teams[2:56]
-
     return teams
 
 
@@ -200,7 +197,7 @@ def main():
     print(site_to_csv(build_stat_page_links()))
 
     # gets schedule/spread for upcoming games and writes them to a csv
-    schedule_spread = list(zip(schedule(data), spreads(spread_content(data))))
+    schedule_spread = zip(schedule(data), spreads(spread_content(data)))
     print(schedule_csv(schedule_spread))
 
 
