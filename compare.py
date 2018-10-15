@@ -14,22 +14,25 @@ def schedule_spread_teams():
         teams_list = []
         reader = csv.reader(f)
         for row in reader:
-            row = str(row)
             matchup_spread.append(row)
-            # teams = row.split(' at ')
+            row = str(row)
+            teams = row.split(' at ')
 
-            # team_1 = teams[0]
-            # team_2 = teams[1].split(',')
+            team_1 = teams[0]
+            team_2 = teams[1].split(',')
 
-            # teams_list.append(team_1)
-            # teams_list.append(team_2[0])
+            if team_1[2] == '(':
+                teams_list.append(team_1[6:])
+            else:
+                teams_list.append(team_1[2:])
 
-            print(row)
-            print(len(row))
-            print('\n')
-            # print(team_1)
-            # print('\n')
-            # print(team_2[0])
+            teams_list.append(team_2[0][:-1])
+
+        for item in matchup_spread:
+            print(item[0])
+
+        for item in teams_list:
+            print(item)
 
         return None  # matchup_spread, teams_list
 
