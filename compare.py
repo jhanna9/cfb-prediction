@@ -17,14 +17,28 @@ def schedule_spread():
             # matchup_spread.append(row)
             if ' vs ' in row[0]:
                 for col in row[0].split(' vs '):
-                    print(col)
+                    print(remove_rank(col))
             else:
                 for col in row[0].split(' at '):
-                    print(col)
+                    print(remove_rank(col))
 
             print('\n')
 
     return matchup_spread
+
+
+def remove_rank(ranked_team):
+    '''
+
+
+    '''
+    if str(ranked_team[0]) == '(':
+        no_rank = ranked_team.split(') ')
+        no_rank = no_rank[1]
+    else:
+        no_rank = ranked_team
+
+    return no_rank
 
 
 if __name__ == "__main__":
