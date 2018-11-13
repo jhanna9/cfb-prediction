@@ -6,7 +6,7 @@ import csv
 
 
 def schedule_spread():
-    '''
+    '''reads the schedule/spread csv and pulls out individual teams
 
 
     '''
@@ -28,8 +28,11 @@ def schedule_spread():
 
 
 def remove_rank(ranked_team):
-    '''
+    '''removes ranking from individual team, ignores non-ranked team
 
+        ranked_team: a list
+
+        returns a string
 
     '''
     if str(ranked_team[0]) == '(':
