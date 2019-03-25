@@ -1,12 +1,15 @@
 from pathlib import Path
 import requests
 
-filename = Path('total_offense.pdf')
 
-url = 'http://web1.ncaa.org/stats/StatsSrv/pdf/rankings?rptWeeks=69&statSeq=21&div=11&sportCode=MFB&academicYear=2019&rptType=PDF&doWhat=showrankings'
+with open('stat_num.txt', 'r') as f:
+    for line in f:
+        stat_name, stat_num = line.split()
 
-r = requests.get(url)
+        filename = Path(stat_name + '.pdf')
 
-print(r.status_code)
+        url = 'http://web1.ncaa.org/stats/StatsSrv/pdf/rankings?rptWeeks=69&statSeq=' + stat_num + '&div=11&sportCode=MFB&academicYear=2019&rptType=PDF&doWhat=showrankings'
 
-filename.write_bytes(r.content)
+        r = requests.get(url)
+
+        filename.write_bytes(r.content)
