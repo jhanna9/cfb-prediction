@@ -13,3 +13,5 @@ with open('stat_num.txt', 'r') as f:
         r = requests.get(url)
 
         filename.write_bytes(r.content)
+
+    print('pdfs are finished')
